@@ -1,0 +1,345 @@
+@import 'mixins';
+@import 'variables';
+
+body.menu-active {
+  overflow: hidden;
+}
+
+#site-container {
+  background: #fff;
+  border-radius: 0px;
+  left: 0%;
+  height: 100vh;
+  position: relative;
+  transition: all .5s ease;
+  transform-origin: top left;
+  top: 0px;
+  width: 100%;
+  
+}
+
+body.menu-active #site-container {
+  border-radius: 15px;
+  box-shadow: 0 5px 20px rgba(0,0,0,.15);
+  border-radius: 15px;
+  height: calc(100vh - 20px);
+  left: 90%;
+  overflow: hidden;
+
+  top: 40px;
+  transform: scale(.9);
+  width: 100%;
+}
+
+/*********************************************************
+*  Navigation
+*********************************************************/
+.navigation {
+  align-items: center;
+  display: flex;
+
+  @media (min-width: 1200px) {
+    padding: 10px 0;
+  }
+
+  @media (min-width: 769px) and (max-width: 1199px) {
+    padding: 10px 20px;
+  }
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+
+  .menu-trigger {
+    cursor: pointer;
+    font-size: 24px;
+  }
+
+  @media (min-width: 769px) {
+    .menu-trigger {
+      display: none;
+    }
+  }
+}
+
+// the follow applies only to mobile menu
+body > nav.menu {
+  display: flex;
+  height: 100vh;
+  left: 0;
+  overflow: auto;
+  opacity: 0;
+  position: fixed;
+  top: 0;
+  transition: opacity 2s ease;
+  width: calc(100vw - 50px);
+  z-index: -1;
+
+  ul {
+    margin: auto !important;
+    padding: 30px !important;
+
+    li {
+      &:not(:first-child) {
+        padding-top: 5px;
+      }
+    }
+  }
+}
+
+body.menu-active > nav.menu {
+  opacity: 1;
+  transition: opacity 0s ease;
+
+
+  animation-delay: .5s;
+  animation-duration: 0s;   
+  animation-fill-mode: forwards;       
+  animation-name: activateMenu;
+  animation-timing-function: ease-in-out; 
+}
+
+@keyframes activateMenu {
+    0% {
+      z-index: -1;
+    }
+
+    100% {
+      z-index: 1;
+    }   
+}
+
+section.menu,
+body > nav.menu {
+  flex: 1;
+
+  ul {
+    display: flex;
+    @media (min-width: 769px) {
+      flex-wrap: wrap;
+    }
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 768px) {
+      flex-direction: column;
+    }
+
+    li {
+      font-weight: bold;
+      list-style: none;
+      margin-right: 25px;
+
+      a {
+        border-bottom: none;
+        color: rgba($primary, .8);
+        font-size: 20px;
+        @include animate-links;
+      }
+    }
+  }
+}
+
+/*********************************************************
+*  Topbar and Header
+*********************************************************/
+
+
+.header {
+  text-align: center;
+  max-width: $postWidth;
+  @media (min-width: 769px) {
+    padding: 100px 0 75px;
+  }
+  @media (max-width: 768px) {
+    padding: 100px 10px 75px;
+  }
+  margin: auto;
+
+  h1 {
+    margin: 0 0 5px;
+    text-transform: uppercase;
+    word-wrap: break-word;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+  h5 {
+    margin: 0px;
+    word-wrap: break-word;
+  }
+
+}
+
+.posthaven-user-menu {
+  flex: 0 auto;
+  position: relative;
+
+  // icon/trigger (using .ph-trigger in js)
+  figure {
+    background: white;
+    border-radius: 40px;
+    border: solid 2px rgba(128,128,128,.3);
+    box-sizing: border-box;
+    cursor: pointer;
+    display: block;
+    font-size: 0px;
+    height: 40px;
+    padding: 2px;
+    position: relative;
+    transition: all .25s ease;
+    width: 40px;
+    z-index: 10;
+
+    // when menu has been clicked and "active" is on figure.ph-trigger
+    &.active {
+      // should mostly match hover state below
+      border: solid 2px rgba(128,128,128,.5);
+      box-shadow: 0 0 20px rgba(0,0,0,.15);
+
+      span {
+        // turns hamburger menu into an X to close menu
+        i {
+          opacity: 1;
+
+          &:before {
+            top: 2px;
+            transform: rotate(-45deg);
+          }
+          &:after {
+            bottom: 1px;
+            transform: rotate(45deg);
+          }
+        }
+      }
+    }
+
+    &:hover {
+      border: solid 2px rgba(128,128,128,.5);
+      box-shadow: 0 0 20px rgba(0,0,0,.15);
+
+      span {
+        i {
+          opacity: 1;
+        }
+
+        &:after {
+          top: calc(50% - 8px);
+        }
+      }
+    }
+
+    span {
+      align-items: center;
+      background: #3F3F3F;
+      border: none;
+      border-radius: 32px;
+      display: flex;
+      height: 32px;
+      justify-content: center;
+      overflow: hidden;
+      position: relative;
+      width: 32px;
+
+      // hamburger menu on hover
+      i {
+        display: inline-block;
+        height: 6px;
+        left: 1px;
+        opacity: 0;
+        position: relative;
+        transition: opacity .25s ease;
+        width: 16px;
+
+        &:before,
+        &:after {
+          background: #fff;
+          border-radius: 3px;
+          content: "";
+          height: 3px;
+          position: absolute;
+          transition: all .25s ease;
+          width: 16px;
+        }
+
+        &:before {
+          top: -2px;
+        }
+
+        &:after {
+          bottom: -2px;
+        }
+      }
+
+      // blue rectangle in logomark
+      &:before {
+        background: #1285F9;
+        content: '';
+        display: block;
+        height: 32px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 10px;
+      }
+    }
+  }
+
+  .ph-menu {
+    border: solid 1px rgba($primary, .05);
+    border-radius: 4px;
+    box-shadow: 0 0 20px rgba(0,0,0,.15);
+    display: flex;
+    flex-direction: column;
+    right: 17px;
+    position: absolute;
+    top: 22px;
+    z-index: 9;
+
+    ul {
+      margin: 0;
+      padding: 0;
+
+      li {
+        background: #fff;
+        list-style: none;
+
+        &:not(:first-child) {
+          border-top: solid 1px rgba($primary, .05);
+        }
+
+        a {
+          display: flex;
+          left: 0;
+          padding: 10px 20px;
+          position: relative;
+          transition: left .15s ease;
+          user-select: none;
+          white-space: nowrap;
+
+          &:hover {
+            left: 5px;
+          }
+        }
+      }
+    }
+  }
+}
+
+.ph-canvas {
+  background: rgba(255,255,255,0);
+  display: none;
+  height: 100vh;
+  left: 0;
+  position: fixed;
+  top: 0;
+  transition: background .25s ease;
+  width: 100%;
+
+  &.active {
+    background: rgba(255,255,255,.5);
+    display: block;
+  }
+}
+

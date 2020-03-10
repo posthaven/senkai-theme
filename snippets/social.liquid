@@ -1,0 +1,124 @@
+<section class="social">
+  <ul>
+
+    {% if settings.social_twitter %}
+    <li class="twitter">
+      <a href="{{settings.social_twitter}}" target="_blank">
+        <svg>
+          {% comment %}<use xlink:href="#social-twitter"></use>{% endcomment %}
+          <use xlink:href="#social-twitter"></use>
+        </svg>
+      </a>
+    </li>
+    {% endif %}
+
+    {% if settings.social_instagram %}
+    <li class="instagram">
+      <a href="{{settings.social_instagram}}" target="_blank">
+        <svg>
+          <use xlink:href="#social-instagram"></use>
+        </svg>
+      </a>
+    </li>
+    {% endif %}
+
+    {% if settings.social_linkedin %}
+    <li class="linkedin">
+      <a href="{{settings.social_linkedin}}" target="_blank">
+        <svg>
+          <use xlink:href="#social-linkedin"></use>
+        </svg>
+      </a>
+    </li>
+    {% endif %}
+
+    {% if settings.social_facebook %}
+    <li class="facebook">
+      <a href="{{settings.social_facebook}}" target="_blank">
+        <svg>
+          <use xlink:href="#social-facebook"></use>
+        </svg>
+      </a>
+    </li>
+    {% endif %}
+
+    {% if settings.social_youtube %}
+    <li class="youtube">
+      <a href="{{settings.social_youtube}}" target="_blank">
+        <svg>
+          <use xlink:href="#social-youtube"></use>
+        </svg>
+      </a>
+    </li>
+    {% endif %}
+
+    {% if settings.social_vimeo %}
+    <li class="vimeo">
+      <a href="{{settings.social_vimeo}}" target="_blank">
+        <svg>
+          <use xlink:href="#social-vimeo"></use>
+        </svg>
+      </a>
+    </li>
+    {% endif %}
+
+    {% if settings.social_reddit %}
+    <li class="reddit">
+      <a href="{{settings.social_reddit}}" target="_blank">
+        <svg>
+          <use xlink:href="#social-reddit"></use>
+        </svg>
+      </a>
+    </li>
+    {% endif %}
+
+    {% if settings.social_dribbble %}
+    <li class="dribbble">
+      <a href="{{settings.social_dribbble}}" target="_blank">
+        <svg>
+          <use xlink:href="#social-dribbble"></use>
+        </svg>
+      </a>
+    </li>
+    {% endif %}
+
+    {% if settings.social_producthunt %}
+    <li class="producthunt">
+      <a href="{{settings.social_producthunt}}" target="_blank">
+        <svg>
+          <use xlink:href="#social-producthunt"></use>
+        </svg>
+      </a>
+    </li>
+    {% endif %}
+
+    {% if settings.social_pinterest %}
+    <li class="pinterest">
+      <a href="{{settings.social_pinterest}}" target="_blank">
+        <svg>
+          <use xlink:href="#social-pinterest"></use>
+        </svg>
+      </a>
+    </li>
+    {% endif %}
+
+    {% if settings.social_github %}
+    <li class="github">
+      <a href="{{settings.social_github}}" target="_blank">
+        <svg>
+          <use xlink:href="#social-github"></use>
+        </svg>
+      </a>
+    </li>
+    {% endif %}
+
+    <li class="rss">
+      <a href="{{ site.feed_url }}" target="_blank">
+        <svg>
+          <use xlink:href="#social-rss"></use>
+        </svg>
+      </a>
+    </li>
+  </ul>
+
+</section>

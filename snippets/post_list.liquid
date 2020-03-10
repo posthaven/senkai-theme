@@ -1,0 +1,42 @@
+<div id="main" class="{% if request.template != 'post' %}post-list{% endif %}">
+  {% if posts == empty and request.template != 'homepage' %}
+    <h2>No posts found.</h2>
+  {% endif %}
+
+  {% for post in posts %}
+    <div class="post-container">
+      <article class="post">
+        
+        {% include 'post' %}
+
+        {% unless post.has_excerpt? %}
+          <footer class="homepage-post-footer">
+
+            {% if site.comments_enabled? %}
+              {% if post.response_count > 0 %}
+                <span class="response-count">
+                  <a href="{{ post.url }}#post_responses" class="comment-count">
+                    <span class="posthaven-upvote-label">Comments</spam>
+                    <span class="posthaven-upvote-number">{{ post.comment_count }}</span>
+                    {% comment %}{{ post.comment_count | pluralize: 'comment' }} |{% endcomment %}
+                  </a>
+                </span>
+              {% else %}
+                <a href="{{ post.url }}#post_responses" class="comment-count"><span class="posthaven-upvote-label">Comment</span></a>
+              {% endif %}
+            {% endif %}
+
+            {{ post | share_buttons_large }}
+
+          </footer>
+        {% endunless %}
+      </article>
+    </div>
+  {% endfor %}
+
+  {% if posts.pagination %}
+    <section class="pagination">
+      {% slim_pagination %}
+    </section>
+  {% endif %}
+</div>

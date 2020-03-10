@@ -1,0 +1,67 @@
+{% if site.subscription_enabled? %}
+  <section class="subscribe-footer">
+    <div class="subscribe-wrapper show-button-on-keyup ignore-anon">
+      {% form 'subscribe' include_prompt:false, show_instructions:true %}
+    </div>
+  </section>
+{% endif %}
+
+
+<footer class="footer">
+    {% include 'bio' %}
+    {% include 'social' %}
+
+    {% if site.navigation_menu and site.navigation_menu.items != empty %}
+      <section>
+        {% include 'nav_menu' %}
+      </section>
+    {% endif %}
+
+    <section class="search-archive">
+      <h4><a href="{{ site.archive_url }}">Browse the archive</a></h4>
+      {% form 'archive' %}
+    </section>
+
+    {% include 'blogroll' %}
+    {% include 'contributors_section' %}
+
+    {% if site.tags.size > 0 %}
+      <section id="tag_list_menu" class="tags">
+        <h4>Tags</h4>
+
+        <ul>
+          {% for t in site.tags %}
+            {% if forloop.index > 5 %}
+              <li class='hide'>
+            {% else %}
+              <li>
+            {% endif %}
+              {% if tag and tag == t.name %}
+                <strong>{{ t.name }} <span>{{ t.post_count }}</span></strong>
+              {% else %}
+                <a href="{{ t.url }}">{{ t.name }} <span>{{ t.post_count }}</span></a>
+              {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+
+        {% if site.tags.size > 5 %}
+          <div class="all-tags">
+            <span class="show-all-tags">
+              See all {{ site.tags.size }} tags
+            </span>
+          </div>
+        {% endif %}
+      </section>
+    {% endif %}
+
+</footer>
+
+<div class="posthaven">
+  <a href="https://posthaven.com?utm_content={{site.url | remove: 'https:' | remove: 'http:' | remove: '/'}}" target="_blank">
+    <figure></figure>
+    <svg class="posthaven-wordmark">
+      <use xlink:href="#posthaven-wordmark"></use>
+    </svg>
+  </a>
+</div>

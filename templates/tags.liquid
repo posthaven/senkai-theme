@@ -1,0 +1,16 @@
+{% capture subhead_content %}
+  <h3><strong>All Tags</strong></h3>
+{% endcapture %}
+
+<div id="main">
+  <div class="all-tags">
+    <ul>
+      {% for t in site.tags %}
+        <li>
+          <a href="{{ t.url }}">{{ t.name }} <span>{{ t.post_count }}</span></a>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
+

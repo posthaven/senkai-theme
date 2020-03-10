@@ -1,0 +1,32 @@
+---
+archive:
+  back_to_all_dates: Back to All Dates
+  no_results: No results found.
+  previous_page: Previous
+  next_page: Next
+
+forms:
+  comment:
+    name_placeholder: Name
+    email_placeholder: Email
+    url_placeholder: URL
+    comment_placeholder: Your comment...
+
+  subscribe:
+    follow_link: Subscribe
+    prompt: |
+      <h3>Subscribe by email</h3>
+      <p>Get email alerts about new posts. Unsubscribe anytime.</p>
+    unfollow_link: <strong>Unsubscribe</strong>
+    instructions: |
+      <h3>Subscribe by email</h3>
+      <p>Get email alerts about new posts. Unsubscribe anytime.</p>
+
+read_more: Read more
+
+pagination:
+  first: First
+  previous: Previous
+  gap: …
+  next: Next
+  last: Last

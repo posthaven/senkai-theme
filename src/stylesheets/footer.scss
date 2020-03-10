@@ -1,0 +1,138 @@
+@import 'variables';
+
+footer.footer {
+  background-color: rgba($primary, .05);
+  border-top: solid 1px rgba($primary, .15);
+  border-bottom: solid 1px rgba($primary, .15);
+
+  @media (min-width: 768px) {
+    padding: 50px 80px;
+  }
+
+  @media (max-width: 767px) {
+    padding: 50px 20px;
+  }
+
+  @media (min-width: 1200px) {
+    border: solid 1px rgba($primary, .15);
+  }
+
+  h4 {
+    text-align: center;
+  }
+
+  section {
+    margin-bottom: 50px;
+  }
+
+  nav.menu {
+    max-width: $postWidth;
+    margin: auto;
+    padding: 0;
+    ul {
+      display: flex;
+      @media (min-width: 767px) {
+        flex-direction: row;
+        flex-wrap: wrap;
+      }
+      justify-content: center;
+
+      li {
+        margin: 0px;
+        text-align: center;
+
+        a {
+          display: inline-flex;
+          margin: 0 8px;
+          padding: 5px 2px;
+        }
+      }
+    }
+  }
+
+  .menu-trigger {
+    display: none;
+  }
+
+  section.bio {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $postWidth;
+    text-align: center;
+
+    figure {
+      img {
+        border-radius: 2px;
+        margin-bottom: 10px;
+      }
+    }
+
+    h3 {
+      margin: 0 0 5px;
+    }
+
+    p {
+      margin: 5px 0;
+    }
+  }
+}
+
+.posthaven-archive-all-dates {
+// @extend ul.tags;
+}
+
+section.search-archive {
+  h4 a {
+    @include animate-links;
+  }
+}
+
+section.blogroll,
+section.contributors {
+  max-width: $postWidth;
+  margin: auto;
+
+  ul {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+
+    li {
+      box-sizing: border-box;
+      @media (min-width: 768px) {
+        flex: 0 50%;
+      }
+      @media (max-width: 767px) {
+        flex: 0 0 100%;
+      }
+      font-size: 18px;
+      list-style: none;
+      margin-bottom: 3px;
+
+      @media (min-width: 768px) {
+        // don't add padding if last-child is an orphan because we center links
+        &:nth-child(odd):not(:last-child) {
+          padding-right: 25px;
+        }
+
+        &:nth-child(even) {
+          padding-left: 25px;
+        }
+      }
+
+      a {
+        box-sizing: border-box;
+        display: flex;
+        justify-content: center;
+        padding: 7px 7px 9px;
+        width: 100%;
+        @include animate-links;
+      }
+    }
+  }
+}
+

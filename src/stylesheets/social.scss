@@ -1,0 +1,34 @@
+section.social {
+  ul {
+    display: flex;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+      margin: 0 5px 5px;
+
+      a {
+        opacity: .2;
+        transition: opacity .25s ease;
+
+        svg {
+          fill: currentColor;
+          height: 24px;
+          width: 24px;
+        }
+
+        &:hover {
+          opacity: .4;
+          transition: opacity 0s ease;
+        }
+
+        &:active {
+          opacity: .6;
+          transition: opacity 0s ease;
+        }
+      }
+    }
+  }
+}

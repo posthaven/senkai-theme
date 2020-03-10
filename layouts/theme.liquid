@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html class="no-js">
+  <head>
+    <title>{{ request.page_title }}</title>
+
+    <meta content="width=device-width,initial-scale=1" name="viewport">
+
+    {{ meta_tags }}
+
+    <link href="{{ 'images/favicon.ico' | asset_url }}" rel="shortcut icon" type="image/x-icon">
+    {% comment %}
+    {{ "blog.css" | local_file | style_tag }}
+    {% endcomment %}
+    {{ "blog.css" | asset_url | stylesheet_tag }}
+
+    {{ posthaven.includes_for_head }}
+
+    <style>
+      {% if settings.header_bg_color %}
+        #header_parent { background-color: {{ settings.header_bg_color }} !important; }
+        .header { padding-bottom: 130px !important; }
+      {% endif %}
+    </style>
+
+  </head>
+
+  <body id="site_{{ site.id }}">
+    <div id="site-container">
+      <div id="header_parent">
+        <div class="container">
+          <div class="navigation">
+            {% include "nav_menu" %}
+            {{ posthaven.user_menu_v2 }}
+          </div>
+        </div>
+
+          <div id="flash">
+            {% for alert in posthaven.alerts %}
+              <div class="alert alert-{{ alert.type }}">
+                {{ alert.message }}
+              </div>
+            {% endfor %}
+          </div>
+
+          {% unless hide_header %}
+            <header class="header">
+              <h1>
+                <a href="{{ site.url }}">{% if site.name != "" %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}</a>
+              </h1>
+
+              {% if site.description %}
+                <h5>{{ site.description | smarty_pants }}</h5>
+              {% endif %}
+
+            </header>
+          {% endunless %}
+      </div>
+
+      <div class="container">
+        <div id="main_container">
+          {% if subhead_content %}
+            <section class="subhead">
+              {{ subhead_content }}
+            </section>
+          {% endif %}
+
+          <div class="main-content">
+            {{ content_for_layout }}
+          </div>
+
+          {% include "footer" %}
+        </div>
+      </div>
+    </div>
+
+    {{ posthaven.includes_for_body }}
+
+    <div id="svg-icons" style="display:none;"></div>
+
+    <script type="text/javascript">
+
+      function resize(){
+        if(Posthaven.$(window).width() < 769) {
+          Posthaven.$("nav.menu").show();
+          Posthaven.$(".navigation nav.menu").hide();
+        } else {
+          Posthaven.$("nav.menu").hide();
+          Posthaven.$(".navigation nav.menu").show();
+        }
+      };
+      Posthaven.$(window).resize(function () {
+        resize();
+      });
+
+      Posthaven.$(document).ready(function () {
+        Posthaven.$(".navigation nav.menu").clone().insertAfter("#site-container")
+        resize();
+      });
+
+      Posthaven.$(document).ready(function () {
+        Posthaven.$(".menu-trigger").click(function(){
+          Posthaven.$("body").toggleClass("menu-active");
+        });
+
+        Posthaven.$(".ph-trigger").click(function(){
+          Posthaven.$(".ph-menu").toggle(500,"easeOutQuint");
+          Posthaven.$(".ph-trigger").toggleClass("active");
+          Posthaven.$(".ph-canvas").toggleClass("active");
+        });
+        Posthaven.$(".ph-canvas").click(function(){
+          Posthaven.$(".ph-menu").toggle(500,"easeOutQuint");
+          Posthaven.$(".ph-trigger").toggleClass("active");
+          Posthaven.$(".ph-canvas").toggleClass("active");
+        });
+        Posthaven.$.get( "{{ 'images/icons.svg' | asset_url }}", function( icons ) {
+          Posthaven.$( "#svg-icons" ).html( icons.getElementsByTagName("svg")[0] );
+        });
+      });
+    </script>
+    <div class="ph-canvas"></div>
+  </body>
+</html>

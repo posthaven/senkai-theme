@@ -1,0 +1,11 @@
+{% capture subhead_content %}
+   <section class="tags">
+     Posts tagged with <ul><li><a href="{{ site.url }}" class="tag clear-tag">{{ tag.name }}<span>
+     <svg class="x" width="10" height="10">
+      <use xlink:href="#icon-x"></use>
+     </svg>
+     </span></a></li></ul>
+   </section>
+{% endcapture %}
+
+{% include 'post_list' %}

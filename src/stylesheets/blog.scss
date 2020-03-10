@@ -1,0 +1,850 @@
+@import 'normalize';
+@import 'hint';
+@import 'mixins';
+@import 'variables';
+@import 'header';
+@import 'post';
+@import 'footer';
+@import 'social';
+
+@import "compass/css3/opacity";
+@import "compass/css3/images";
+@import "compass/css3/border-radius";
+@import "compass/css3/box-shadow";
+@import "compass/css3/text-shadow";
+@import "compass/utilities/general/clearfix";
+@import "compass/css3/transition";
+@import "compass/css3/user-interface";
+
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('fonts/proximanova-extrabold-webfont.woff2') format('woff2'),
+       url('fonts/proximanova-extrabold-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('fonts/proximanova-extraboldit-webfont.woff2') format('woff2'),
+       url('fonts/proximanova-extraboldit-webfont.woff') format('woff');
+  font-weight: bold;
+  font-style: italic;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('fonts/proximanova-medium-webfont.woff2') format('woff2'),
+       url('fonts/proximanova-medium-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Proxima Nova';
+  src: url('fonts/proximanova-mediumit-webfont.woff2') format('woff2'),
+       url('fonts/proximanova-mediumit-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: italic;
+}
+
+/*********************************************************
+*  General
+*********************************************************/
+
+body {
+  line-height: 1.5;
+  color: rgba($primary, .8);
+  margin: 0 0;
+  font-family: $bodyFont;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+a:hover { text-decoration: none; }
+.post-body a,
+.subscribe-footer a,
+.search-archive a,
+section.blogroll a,
+section.contributors a {
+  border-bottom: 2px dashed rgba(0,0,0,0.1);
+  outline: none;
+  &:hover {
+    border-bottom-color: rgba(0,0,0,0.4);
+  }
+  &:active {
+    border-bottom-color: rgba(0,0,0,0.7);
+  }
+}
+
+// for links that show a dashed underline but also include
+// the link animation, make the dashed underline transparent
+// on hover for a cleaner animation
+section.blogroll a {
+  &:hover {
+    border-bottom: solid 2px transparent;
+  }
+}
+
+.small {
+  font-size: 18px;
+  font-weight: 300;
+  opacity: 0.6
+}
+
+h1, h2, h3, h4, h5, h6 { font-weight: 800; line-height: 1em;}
+h1 { font-size: 48px; }
+h2 { font-size: 30px; }
+h3 { font-size: 36px; }
+h4 { font-size: 24px; }
+h5 { font-size: 22px; font-weight: normal; opacity: 0.6 }
+
+textarea, input[type=text] {
+  padding: 10px 20px;
+  width: 100%;
+	box-sizing: border-box;
+	height: 50px;
+	border: 2px solid rgba(0,0,0,0.15);
+	border-radius: 2px;
+	background-color: #FFFFFF;
+  font-size: 20px;
+  outline: none;
+  
+  @include placeholder(rgba(0,0,0,.5));
+
+  &:hover {
+  	border: 2px solid rgba(0,0,0,0.5);
+  }
+  &:active,
+  &:focus {
+  	border: 2px solid rgba(0,0,0,1);
+  }
+}
+input[type='submit'],
+.posthaven-user-subscribe a,
+.posthaven-read-more-link a {
+  background: rgba(0,0,0,0.85);
+  border-radius: 2px;
+  border: 2px solid #000000;
+  box-sizing: border-box;
+  color: white;
+  cursor: pointer;
+  display: inline-block;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 0px;
+  outline: none;
+  padding: 7px 0px;
+  position: relative;
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+
+  &:hover {
+    background: rgba(0,0,0,1);
+  }
+
+  &:active {
+
+  }
+
+  &:focus {
+  background: rgba(0,0,0,1);
+  box-shadow: rgb(255, 255, 255) 0px 0px 0px 1px, rgba(0, 0, 0, 0.25) 0px 0px 0px 3px;
+  }
+}
+
+.alert {
+  font-size: 14px;
+  margin: 10px 0px 10px 60px;
+  width: $postWidth;
+  max-width: 100%;
+  position:relative;
+  padding:8px;
+  border:1px solid #ddd;
+  background:#fff;
+  @include border-radius(5px);
+
+  &:before {
+    content:"";
+    position: absolute;
+    /* FIXME - This is computed from the border below? Why isn't it using scss variables? */
+    top:-10px; /* value = - border-top-width - border-bottom-width */
+    bottom:auto;
+    left:20px;
+    right:auto; /* controls horizontal position */
+    border-width:0 10px 10px;
+    border-style:solid;
+    border-color:#ccc transparent;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+  }
+
+  /* creates the smaller  triangle */
+  &:after {
+    content:"";
+    position: absolute;
+    /* FIXME - Computed? What adds up to -9??? */
+    top:-9px; /* value = - border-top-width - border-bottom-width */
+    bottom:auto;
+    left:20px;
+    right:auto; /* value = (:before right) + (:before border-right) - (:after border-right) */
+    border-width:0 10px 10px;
+    border-style:solid;
+    border-color:#fff transparent;
+    /* reduce the damage in FF3.0 */
+    display:block;
+    width:0;
+  }
+}
+
+.container {
+  box-sizing: border-box;
+  margin: auto;
+  max-width: 1600px;
+  position: relative;
+
+  @media (min-width: 1200px) {
+    padding: 0 130px;
+  }
+}
+
+section.subhead {
+  margin: 50px 0 20px;
+  text-align: center;
+
+  h3 {
+    margin: 0;
+  }
+}
+
+.tags {
+  text-align: center;
+  max-width: $postWidth;
+  margin: auto;
+
+  h4 {
+    margin-bottom: 15px;
+  }
+
+  .all-tags {
+    display: flex;
+    margin-top: 10px;
+    justify-content: center;
+
+    .show-all-tags {
+      cursor: pointer;
+      font-weight: 800;
+      @include animate-links;
+    }
+  }
+  ul {
+    display: inline-flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 0;
+    margin: 0;
+
+    li {
+      list-style: none;
+      margin: 2px;
+      @extend .chips;
+
+      &.hide {
+        display: none;
+      }
+    }
+  }
+}
+
+// FOOTER ICON
+// the logomark is in the <figure>.
+// the wordmark comes from the svg sprite.
+// wordmark is referenced in #id, then the .class sits
+// on the <svg> in the html to use css color variables
+// so we can colorize from css
+.posthaven {
+  display: flex;
+  justify-content: center;
+  margin: 50px;
+
+  a {
+    align-items: center;
+    justify-content: center;
+    display: inline-flex;
+  }
+
+  figure {
+    border-radius: 4px;
+    height: 32px;
+    margin-right: 12px;
+    overflow: hidden;
+    position: relative;
+    width: 32px;
+
+    &:before,
+    &:after {
+      bottom: 0;
+      content: "";
+      position: absolute;
+      top: 0;
+    }
+
+    &:before {
+      background: rgba($primary, .5);
+      left: 0;
+      width: 22px;
+    }
+
+    &:after {
+      background: rgba(0,0,0,.35);
+      right: 0;
+      width: 10px;
+    }
+  }
+
+  .posthaven-wordmark {
+    --color-1: rgba($primary, .5);
+    --color-2: rgba($primary, .35);
+    height: 13px;
+    width: 120px;
+  }
+}
+
+#main_container {
+  position: relative;
+}
+
+.main-content {
+  min-height: 300px;
+}
+
+.main-content,
+.subscribe-footer {
+  box-sizing: border-box;
+  padding: 0 20px;
+}
+
+/*********************************************************
+*  Subscribe Form
+*********************************************************/
+
+.subscribe-footer {
+  margin: 0 0 100px;
+  text-align: center;
+
+  h3 {
+    margin-bottom: 0px;
+  }
+
+  .subscribe-wrapper {
+    width: 500px;
+    max-width: 100%;
+    margin: auto;
+    font-size: 18px;
+
+    p {
+      font-size: 20px;
+      opacity: .7;
+      margin: 0 0 10px;
+     }
+  }
+
+  input {
+    margin-top: 12px;
+    max-width: 400px;
+  }
+
+  input[type=submit] {
+    display: none;
+    margin: 12px auto;
+    max-width: 400px;
+  }
+  .posthaven-subscribe-error { color: #a00; }
+}
+
+.post-responses h4 {
+  text-align: center;
+}
+
+.posthaven-user-subscribed .post-responses .subscribe {
+  display: none;
+}
+
+/*********************************************************
+*  Private Page
+*********************************************************/
+
+.posthaven-password-field {
+  display: inline-block;
+}
+
+/*********************************************************
+*  Posts
+*********************************************************/
+
+#main {
+  margin: 0 auto 100px;
+}
+
+#main.archive-results {
+  max-width: $postWidth;
+  margin: auto;
+  text-align: center;
+}
+
+/*********************************************************
+*  Pagination
+*********************************************************/
+
+.pagination {
+  text-align: center;
+  max-width: $postWidth;
+  margin: auto;
+
+  ul {
+    align-items: baseline;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    margin: 0;
+    padding: 0;
+
+    li {
+      list-style: none;
+
+      &.previous,
+      &.next {
+        flex: 0 0 100px;
+        font-weight: 800;
+
+      &.previous {
+        text-align: left;
+      }
+
+      &.next {
+        text-align: right;
+      }
+
+        a {
+          color: rgba($primary, 1);
+          font-size: 20px;
+          @include animate-links;
+        }
+      }
+
+      // page numbers
+      &.number {
+        &.active {
+          a {
+            color: rgba($primary, .3);
+            cursor: default;
+            font-size: 18px;
+
+            &:hover,
+            &:active {
+              color: rgba($primary, .3);
+
+              &:after {
+                display: none;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  ul li.number, ul li.gap, ul li.first, ul li.last { display: none; }
+  ul li.number.active { display: block; flex: 1;}
+}
+
+
+/*********************************************************
+*  Responses
+*********************************************************/
+
+#post_responses {
+  margin: 40px auto;
+  max-width: 600px;
+}
+
+.post-responses {
+  h4 {
+    margin: 50px 0 20px;
+  }
+
+  .responses {
+    .response {
+      position: relative;
+      margin: 10px 0px 30px;
+	    font-size: 18px;
+	    line-height: 1.6em;
+	    text-align: justify;
+
+      p {
+        margin: 15px 0px;
+      }
+
+      .byline {
+        display: flex;
+        justify-content: space-between;
+        flex-direction: row;
+
+        time {
+          color: #ccc;
+        }
+      }
+    }
+  }
+  .posthaven-loader {
+    margin: 5em auto;
+  }
+}
+
+.posthaven-share-links {
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+  .posthaven-share-item {
+    display: inline-block;
+    margin: 0px 5px;
+  }
+}
+
+@media handheld, only screen and (max-width: 414px) {
+  .posthaven-share-links > .posthaven-share-item {
+    display: block;
+    margin: 5px 0;
+  }
+}
+
+
+
+.posthaven-checkbox-field {
+  line-height: 1.4em; // so the bottom of the checkbox doesnt get clipped
+
+  input[type="checkbox"] {
+    display: none;
+  }
+
+  input[type="checkbox"] + label {
+    cursor: pointer;
+    display: flex;
+    @media (min-width: 768px) {
+      justify-content: center;
+    }
+    line-height: normal;
+    margin-left: -4px;
+    padding: 5px;
+    position: relative;
+    text-align: left;
+    user-select: none;
+
+    &:hover {
+      &:before {
+        border: solid 1px #f00;
+      }
+    }
+
+    &:before {
+      border-radius: 4px;
+      box-shadow: inset 1px 1px 3px rgba(0,0,0,.15);
+      background: #fcfcfc;
+      border: solid 1px #ccc;
+      content: "";
+      display: inline-block;
+      flex: 0 0 20px;
+      height: 20px;
+      margin: -2px 6px 0 0;
+    }
+  }
+
+  input[type="checkbox"]:checked + label {
+    &:before {
+      background-color: $primary;
+      background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><title>Checkmark</title><path d="M15.43 3.95l-1.793-1.793L6.38 9.412 2.795 5.825 1 7.62 6.38 13l1.795-1.794L15.43 3.95z" fill="%23FFF" fill-rule="evenodd"/></svg>');
+      background-position: 2px 2px;
+      background-repeat: no-repeat;
+      border: solid 1px $primary;
+    }
+  }
+
+  input[type="checkbox"]:not(:checked) + label {
+    &:hover:before {
+      background: #fff;
+      border: solid 1px #aaa;
+    }
+
+    &:active:before {
+      background: #eee;
+      border: solid 1px $primary;
+    }
+  }
+}
+
+
+.posthaven-comment-form {
+  padding: 0 0 40px;
+  text-align: center;
+
+  .posthaven-comment-add-url { display: none; }
+
+  input[type=submit] {
+    display: none;
+  }
+
+  .posthaven-field {
+    margin: 10px 0px;
+    display: block !important;
+
+    label {
+      display: none;
+    }
+
+    textarea, input[type=text] {
+      width: 100%;
+    }
+
+    input[type=checkbox] {
+      margin-right: 3px;
+    }
+
+    &.posthaven-comment-notify-field {
+      label {
+      }
+    }
+    &.posthaven-comment-body-field {
+      label {
+        font-weight: bold;
+        text-align: center;
+        width: 100%;
+      }
+
+      textarea {
+        min-height: 70px;
+      }
+    }
+  }
+  .posthaven-comment-verification { width: 500px; margin-bottom: 10px; }
+}
+
+/*********************************************************
+*  Archive
+*********************************************************/
+.archive-container {
+  position: relative;
+  .posthaven-loader {
+    margin: 5em auto;
+  }
+}
+.archive-view {
+  margin-bottom: 60px;
+  a {
+  	color: inherit;
+  	font-size: 18px;
+  	font-weight: bold;
+  	line-height: 22px;
+    outline: none;
+    border-bottom: 2px dashed rgba(0,0,0,0);
+    &:first-child {
+      margin-right: 40px;
+    }
+    &.active {
+      border-bottom-color: rgba(0,0,0,0.1);
+    }
+    &:hover {
+      border-bottom-color: rgba(0,0,0,0.4);
+    }
+    &:active {
+      border-bottom-color: rgba(0,0,0,0.7);
+    }
+  }
+}
+.archive-results {
+  margin-bottom: 40px;
+
+  ul {
+    padding: 0px;
+  }
+}
+.posthaven-archive-all-dates {
+  display: inline-block;
+  margin-bottom: 40px;
+
+}
+
+.archive-all-dates {
+  @extend .chips;
+  margin-bottom: 2em;
+
+  .clear-tag {
+    span, span:hover {
+      background-repeat: no-repeat;
+      background-position: center center;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAnIGhlaWdodD0nMTAnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTEwIDEuODE0TDguMTg1IDAgNSAzLjE4NCAxLjgxNSAwIDAgMS44MTQgMy4xODUgNSAwIDguMTgzbDEuODE1IDEuODE1TDUgNi44MTQgOC4xODUgMTAgMTAgOC4xODQgNi44MTUgNC45OTh6JyBmaWxsPScjZmZmJyAvPjwvc3ZnPg==);
+      //background-image: url("images/x.svg");
+      text-indent: -5000em;
+    }
+  }
+}
+
+.posthaven-archive-form {
+  input {
+    width: 100%;
+    padding: 5px 5px 5px 40px;
+    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAASFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACrhKybAAAAGHRSTlMAf3k0JTwKZwZ2ckgYEwJkK2xgW09AHg3UoahVAAAAhUlEQVQYGQXBhQHDQAAEIO4tLvX9Ny3A6Fcpj+0AoC1JkqQDtGRqY/6+kw6MJdsJWrKDnukEfPICVxrAXMoJJT8AU3YoGQCeOeCRL4CSGba8Ae5c4Ehu4LekAT3ZZtxLygD0JNOzJCVrBeyvkmRqY00qwLkfM2qSCgCoSSoAoCYrAEBdP3+fjwOToiafFQAAAABJRU5ErkJggg==);
+    background-repeat: no-repeat;
+    background-position: 12px 13px;
+    background-size: 18px 18px;
+  }
+}
+
+.archive-link {
+  font-size: 13px;
+}
+
+input.archive-search.archive-tooltip {
+  color: #aaa;
+}
+
+time {
+  color: rgba($primary,.3);
+  font-size: 18px;
+  -webkit-font-smoothing: subpixel-antialiased;
+  -moz-osx-font-smoothing: auto;
+}
+
+.archive-results {
+  // for both .archive-list and .archive-by-date
+  ul {
+    li {
+      list-style: none;
+      padding-bottom: 2em;
+    }
+  }
+
+   a {
+    border-bottom: transparent 2px solid;
+    display: inline-flex;
+    flex-direction: column;
+
+    h4 {
+      span {
+        border-bottom: 2px none rgba(0,0,0,0.1);
+      }
+    }
+
+    &:hover {
+      h4 {
+        span {
+          border-bottom: 2px dashed rgba(0,0,0,0.1);
+        }
+      }
+    }
+   }
+
+  h4 {
+    margin: 5px;
+  }
+
+  .count {
+    opacity: .3;
+    -webkit-font-smoothing: subpixel-antialiased;
+    -moz-osx-font-smoothing: auto;
+  }
+}
+
+li.archive-entry {
+  margin-bottom: 40px;
+  em { background-color: #eee; font-style: normal; }
+
+  .search-highlight {
+  	color: #333333;
+  	font-size: 22px;
+  	font-weight: 500;
+  	line-height: 34px;
+  	text-align: justify;
+    margin: 18px 0px;
+  }
+}
+.archive-container { margin-bottom: 100px; }
+.archive {
+  margin: 0;
+  font-size: 12px;
+  h3 { margin: 0 0; }
+}
+.search-archive {
+  max-width: $postWidth;
+  margin: 0 auto 50px;
+  text-align: center;
+}
+
+.search-highlight em {
+  background: $primary;
+  color: choose-contrast-color($primary);
+  display: inline-block;
+  font-style: normal;
+  font-weight: bold;
+  padding: 0 1px;
+}
+
+.archive-pagination {
+  a {
+  	color: inherit;
+  	font-size: 18px;
+  	font-weight: 500;
+  	line-height: 22px;
+   }
+  .posthaven-archive-pagination {
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row;
+
+    .posthaven-archive-disabled {
+      display: block;
+    }
+  }
+}
+
+#archive-results-by-date {
+  display: none;
+}
+
+/*********************************************************
+*  Responsiveness
+*********************************************************/
+
+@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 2dppx) {
+  /* Retina-specific stuff here */
+  #topbar {
+    .posthaven-tab { background-image: url("images/posthaven-tab-4x.png");  }
+  }
+  .feed-icon {
+    background-size: 14px 14px;
+    background-image: url("images/feed28.png");
+  }
+}
+
+
+@media handheld, only screen and (max-width: 767px) {
+  #header, #main, #topbar, .alert, section.subhead, .post-aside {
+    
+  }
+  .alert { width: auto; }
+  #main_container { margin-top: 30px; }
+  #header {
+    h1 { font-size: 30px; } h2 { font-size: 20px; }
+  }
+  #back_to_blog { display: none; }
+  .posthaven-archive-form input { width: 90%; }
+}

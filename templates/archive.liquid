@@ -1,0 +1,51 @@
+{% capture subhead_content %}
+  <h2 class="archive-title">Archive</h2>
+  <div class="archive-all-dates">{{ archive.all_dates_link }}</div>
+{% endcapture %}
+
+<div class="archive-container toggle-tabs">
+  <div id="main" class="archive-results">
+    <section class="search-archive">
+      {% form 'archive' %}
+    </section>
+
+    <div class="archive-view">
+      <a id="all-link" href="#all">All posts</a>
+      <a id="date-link" href="#date">Browse by date</a>
+    </div>
+
+    <section id="archive-results-all" class="archive-list">
+      <ul>
+        {% archive_results date_format:'%b %e, %Y' %}
+        <li>
+          <a href="{{ result.url }}">
+            <time>{{ result.date }}</time>
+            <h4><span>{{ result.title }}</span></h4>
+          </a>
+          <div class="search-highlight">
+            {{ result.snippet }}
+          </div>
+        </li>
+        {% endarchive_results %}
+      </ul>
+
+      <div class="archive-pagination">
+        {{ archive.pagination }}
+      </div>
+    </section>
+
+    <section id="archive-results-by-date" class="archive-by-date">
+      <ul>
+        {% archive_months %}
+          <li>
+            <a href="{{ month.url }}">
+              <h4><span>{{ month.date }}</span></h4>
+              <span class="count">{{ month.count }} posts</span>
+            </a>
+          </li>
+        {% endarchive_months %}
+
+      </ul>
+    </section>
+  </div>
+</div>

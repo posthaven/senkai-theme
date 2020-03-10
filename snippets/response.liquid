@@ -1,0 +1,12 @@
+{% case response.type  %}
+{% when "comment" %}
+  <div class="response">
+    <div class="byline">
+      <strong>{{ response.display_name }}</strong>
+      <time>{{ response.created_at | relative_date }}</time>
+    </div>
+    <div class="comment">
+      {{ response.body }}
+    </div>
+  </div>
+{% endcase %}

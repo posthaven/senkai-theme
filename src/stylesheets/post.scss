@@ -1,0 +1,332 @@
+@import 'mixins';
+@import 'variables';
+
+aside {
+  section {
+    margin-bottom: 10px;
+  }
+
+  margin: 0 auto 25px;
+  color: rgba($primary, .3);
+  font-size: 18px;
+
+  a {
+    color: rgba($primary, .3);
+  }
+
+  .tag-count {
+    font-size: 12px;
+  }
+
+  .show-tags {
+    font-size: 12px;
+    margin-top: 5px;
+  }
+
+  h3 { 
+    margin: 20px 0px 5px;
+    font-size: 12px;
+    font-weight: normal;
+  }
+
+  ul {
+    padding-left: 0px;
+    margin: 0px 0px;
+
+    li {
+      list-style: none;
+    }
+  }
+}
+
+.post-list {
+  .post {
+    margin: 0 auto 125px;
+  }
+}
+
+.private-indicator {
+  align-items: center;
+  background: $primary;
+  border-radius: 100%;
+  display: inline-flex;
+  height: 26px;
+  justify-content: center;
+  position: relative;
+  top: -2px;
+  width: 26px;
+
+  svg {
+    fill: #fff;
+    height: 12px;
+    width: 10px;
+  }
+}
+
+.post {
+  margin: 0 auto;
+  max-width: 100%;
+  width: $postWidth;
+  font-size: $bodyFontSize;
+
+  .posthaven-post-body {
+    margin-top: 25px;
+    @include selection($primary);
+
+  p {
+    line-height: 1.75em;
+
+    @media (min-width: 769px) {
+      font-size: 22px;
+    }
+
+    @media (max-width: 768px) {
+      font-size: 20px;
+      margin: 24px auto;
+    }
+  }
+
+  ul, ol {
+    li {
+      line-height: 1.75em;
+    }
+  }
+
+  .posthaven-gallery {
+
+    .posthaven-gallery-chrome {
+      .posthaven-gallery-info {
+        align-items: center;
+        display: flex;
+        float: none;
+        font-family: $bodyFont;
+        font-size: 14px;
+        justify-content: center;
+
+        span {
+          padding: 5px 3px;
+        }
+      }
+
+      .posthaven-gallery-next {
+        background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iaWNvbi1jYXJldCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOC4wMTQuNDc3Yy0uNjktLjY0My0xLjc0Ni0uNjQzLTIuNDExLjA0NUwuNDgzIDUuODVhMS42NjIgMS42NjIgMCAwMDAgMi4zNDJsNS4wOTYgNS4zMDRBMS42OCAxLjY4IDAgMDA2LjgyIDE0Yy40MzYgMCAuODUtLjE2IDEuMTk0LS40Ni42ODgtLjY0Mi42ODgtMS43NDUuMDQ1LTIuNDFMNC4wNjQgNy4wMmwzLjk1LTQuMTMyYy42ODgtLjY2Ni42ODgtMS43NjggMC0yLjQxMXoiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvc3ZnPg==);
+        text-indent: -5000em;
+        height: 14px;
+        margin-top: 9px;
+        width: 9px;
+
+        &.posthaven-gallery-right {
+          transform: scaleX(-1);
+        }
+      }
+    }
+
+    .posthaven-gallery-thumb-holder {
+      display: flex;
+      justify-content: center; // @todo needs a <div> inside so we can margin: auto to center automatically
+
+      a {
+        border-bottom: solid 2px transparent;
+        flex: 0 0 50px;
+        margin-right: 5px;
+
+        &:hover {
+          border-bottom: solid 2px transparent;
+
+          .posthaven-gallery-thumb {
+            opacity: .75;
+
+            &.posthaven-gallery-selected-thumb {
+              opacity: 1;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  img { height: auto; } // Don't allow max-width on imgs to distort
+  iframe,
+  object,
+  embed {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    max-width: inherit\9;
+  } /* IE8 css bug */
+
+  audio, canvas, video {
+    display: block;
+  }
+
+  blockquote {
+    padding-left: 30px;
+    position: relative;
+
+    &:before {
+      background: rgba($primary, .15);
+      bottom: 0;
+      border-radius: 8px;
+      content: "";
+      left: 0;
+      position: absolute;
+      width: 8px;
+      top: 0;
+    }
+  }
+  pre { font-size: 13px; }
+  .slash-divider { color: #ddd; }
+
+    h1, h2, h3 { margin-top: 30px;  }
+    h1 { font-size: 22px; }
+    h2 { font-size: 20px; }
+    h3 { font-size: 22px; font-style: italic; }
+
+    a {
+      border-bottom: dashed 2px rgba(0,0,0,.25);
+      word-break: break-word;
+
+      &:hover {
+        border-bottom: solid 2px rgba(0,0,0,.4);
+      }
+
+      &:active {
+        border-bottom: solid 2px rgba(0,0,0,.7);
+      }
+    }
+
+    blockquote {
+      @media (max-width: 768px) {
+        margin: 0 1rem;
+      }
+    }
+  }
+
+  .posthaven-post-body {
+    .posthaven-gallery {
+      @media (min-width: 769px) {
+        margin-left: -100px;
+        margin-right: -100px;
+      }
+      @media (max-width: 768px) {
+        margin-left: -20px;
+        margin-right: -20px;
+      }
+
+      text-align: center;
+
+      .posthaven-gallery-chrome {
+        margin-bottom: 10px;
+
+        .posthaven-gallery-info {
+          float: none;
+        }
+      }
+
+      .posthaven-file {
+        img {
+          max-height: 90vh;
+        }
+      }
+    }
+  }
+
+  .post-title {
+    margin: 75px auto 20px;
+    text-align: center;
+
+    h2 {
+      font-size: 30px;
+      line-height: 1.2em;
+      margin-top: 0;
+      margin-bottom: 5px;
+
+      a {
+        color: $primary;
+
+        &:hover {
+          border-bottom: 2px dashed rgba(0,0,0,0.1);
+        }
+      }
+    }
+  }
+
+  .homepage-post-footer {
+    display: flex;
+    margin: 30px 0;
+    justify-content: center;
+    text-align: center;
+
+    .tags {
+      margin: 10px 0;
+      font-size: 12px;
+      h6 { font-weight: normal; font-size: 12px; display: inline; }
+      ul { padding-left: 10px; margin-left: 0; display: inline; }
+      ul li { display: inline; margin-right: 10px; }
+      ul li a { white-space: nowrap; }
+    }
+
+  }
+  table { border-bottom: 1px solid #ddd; width: 100%; border-collapse:collapse; }
+  table, th, td { border-top: 1px solid #ddd; }
+  table th, table td { padding: 4px 5px; }
+  table p:first-child { margin-top: 0px;}
+  table p:last-child { margin-bottom: 0px;}
+}
+
+
+.posthaven-share-links .posthaven-upvote,
+.comment-count {
+  align-items: center;
+  border: 2px solid #DDDDDD;
+  border-radius: 4px;
+  box-sizing: border-box;
+  font-family: "Proxima Nova";
+  display: flex;
+  height: 30px;
+  padding: 3px 5px 3px 9px;
+
+  &:hover {
+    border-color: rgba(0,0,0,0.5);
+    background-color: transparent;
+
+    .posthaven-upvote-label,
+    .posthaven-upvoted-label {
+      color: #509DFF;
+    }
+    .posthaven-upvote-number {
+      color: #000000;
+    }
+  }
+  .posthaven-upvote-label,
+  .posthaven-upvoted-label {
+    color: #509DFF;
+    font-size: 15px;
+    line-height: 18px;
+    font-weight: bold;
+    text-transform: uppercase;
+  }
+  .posthaven-upvote-number {
+    color: inherit;
+    font-size: 15px;
+    font-weight: bold;
+    line-height: 18px;
+    opacity: 0.3;
+  }
+}
+
+.gist {
+  font-size: 13px;
+}
+
+.post:first-child {
+  margin-top: 0px;
+}
+
+.posthaven-file-download {
+  display: inline-flex !important;
+}
+
+.posthaven-gallery-modal-glasspane {
+  z-index: 15 !important; // sit on top of ph-menu
+}
