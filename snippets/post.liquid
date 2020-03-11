@@ -3,6 +3,9 @@
   <header>
 
     <div class="post-title">
+      <a href="{{ post.url }}">
+        <date>{{ post.published_at | local_date: "%B %e, %Y" }}</date>
+      </a>
       <h2>
         {% if post.private? %}
           <span class="private-indicator" title="This post is private. Only you and people you've sent the link to have access to this post.">
@@ -14,50 +17,6 @@
 
         <a href="{{ post.url }}">{{ post.title }}</a>
       </h2>
-
-      {% if show_aside %}
-        <aside>
-          <section>
-            <div class="meta">
-              Posted
-              <time>
-                <a href="{{ post.url }}">{{ post.published_at | relative_date }}</a>
-                on {{ post.published_at | local_date: "%B %e, %Y" }} at {{ post.published_at | local_date: "%l:%M %p" }}
-              </time>
-              {% if request.template == 'post' and post.show_byline? %}
-                <span class="author">
-                  by
-                  {% if post.author.url %}
-                    <a href="{{ post.author.url }}">{{ post.author.name }}</a>
-                  {% else %}
-                    {{ post.author.name }}
-                  {% endif %}
-                </span>
-              {% endif %}
-              <span class="stat">
-                &bullet; {{ post | view_count }}
-              </span>
-              <span class="measure">
-                views
-              </span>
-            </div>
-          </section>
-
-          {% if post.tags.size > 0 %}
-            <section>
-              <div class="tags">
-                <ul>
-                  {% for post_tag in post.tags %}
-                    <li>
-                      <a href="{{ post_tag.url }}">{{ post_tag.name }}</a>
-                    </li>
-                  {% endfor %}
-                </ul>
-              </div>
-            </section>
-          {% endif %}
-        </aside>
-      {% endif %}
     </div>
   </header>
 

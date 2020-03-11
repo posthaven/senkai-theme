@@ -10,7 +10,10 @@
     <link href="{{ 'images/favicon.ico' | asset_url }}" rel="shortcut icon" type="image/x-icon">
     {% comment %}
     {{ "blog.css" | local_file | style_tag }}
+    
+    {{ "blog.scss.css" | asset_url | stylesheet_tag }}
     {% endcomment %}
+
     {{ "blog.css" | asset_url | stylesheet_tag }}
 
     {{ posthaven.includes_for_head }}
@@ -24,12 +27,14 @@
 
   </head>
 
-  <body id="site_{{ site.id }}">
+  <body id="site_{{ site.id }}" class="{{ request.template }}-template">
     <div id="site-container">
       <div id="header_parent">
         <div class="container">
           <div class="navigation">
-            {% include "nav_menu" %}
+            <section class="menu">
+              <div class="menu-trigger">☰ Menu</div>
+            </section>
             {{ posthaven.user_menu_v2 }}
           </div>
         </div>
@@ -67,21 +72,22 @@
           <div class="main-content">
             {{ content_for_layout }}
           </div>
-
+          {% comment %}
           {% include "footer" %}
+          {% endcomment %}
         </div>
       </div>
     </div>
 
     {{ posthaven.includes_for_body }}
-
+    {% include "nav_menu" %}
     <div id="svg-icons" style="display:none;"></div>
 
     <script type="text/javascript">
 
-      function resize(){
+      /*function resize(){
         if(Posthaven.$(window).width() < 769) {
-          Posthaven.$("nav.menu").show();
+          Posthaven.$("section.menu").show();
           Posthaven.$(".navigation nav.menu").hide();
         } else {
           Posthaven.$("nav.menu").hide();
@@ -95,11 +101,11 @@
       Posthaven.$(document).ready(function () {
         Posthaven.$(".navigation nav.menu").clone().insertAfter("#site-container")
         resize();
-      });
+      });*/
 
       Posthaven.$(document).ready(function () {
         Posthaven.$(".menu-trigger").click(function(){
-          Posthaven.$("body").toggleClass("menu-active");
+          Posthaven.$("body").addClass("menu-active");
         });
 
         Posthaven.$(".ph-trigger").click(function(){
@@ -108,9 +114,7 @@
           Posthaven.$(".ph-canvas").toggleClass("active");
         });
         Posthaven.$(".ph-canvas").click(function(){
-          Posthaven.$(".ph-menu").toggle(500,"easeOutQuint");
-          Posthaven.$(".ph-trigger").toggleClass("active");
-          Posthaven.$(".ph-canvas").toggleClass("active");
+          Posthaven.$("body").removeClass("menu-active");
         });
         Posthaven.$.get( "{{ 'images/icons.svg' | asset_url }}", function( icons ) {
           Posthaven.$( "#svg-icons" ).html( icons.getElementsByTagName("svg")[0] );

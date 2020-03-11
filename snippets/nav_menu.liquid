@@ -1,4 +1,9 @@
-<section class="menu">
+<section class="side_navigation">
+  <div class="search-form">
+    <form action="/archive" class="posthaven-archive-form">
+      <input name="query" placeholder="Search" type="text">
+    </form>
+  </div>
   {% if site.navigation_menu and site.navigation_menu.items != empty %}
     <nav class="menu">
       {% if site.navigation_menu and site.navigation_menu.items != empty %}
@@ -11,6 +16,5 @@
         </ul>
       {% endif %}
     </nav>
-    <div class="menu-trigger">☰</div>
   {% endif %}
 </section>
