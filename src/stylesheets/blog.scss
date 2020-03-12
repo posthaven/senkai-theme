@@ -7,16 +7,6 @@
 @import 'footer';
 @import 'social';
 
-@import "compass/css3/opacity";
-@import "compass/css3/images";
-@import "compass/css3/border-radius";
-@import "compass/css3/box-shadow";
-@import "compass/css3/text-shadow";
-@import "compass/utilities/general/clearfix";
-@import "compass/css3/transition";
-@import "compass/css3/user-interface";
-
-
 @font-face {
   font-family: 'Proxima Nova';
   src: url('fonts/proximanova-extrabold-webfont.woff2') format('woff2'),
@@ -170,7 +160,7 @@ input[type='submit'],
   padding:8px;
   border:1px solid #ddd;
   background:#fff;
-  @include border-radius(5px);
+  border-radius: 5px;
 
   &:before {
     content:"";
