@@ -857,22 +857,40 @@
    left: -330px;
    overflow: auto;
    position: fixed;
+   padding: 0 50px;
    top: 0;
    transition: left 0.5s ease-in-out;
-   width: 330px;
+   width: 230px;
    z-index: 10;
    background: #fff;
    font-family: "SF Pro";
  }
- .side_navigation nav.menu {
+ .side_navigation .search-form, 
+ .side_navigation nav.menu,
+ .side_navigation .all-tags,
+ .side_navigation .archives {
    margin: 40px auto;
  }
- .side_navigation nav.menu ul{
-   padding: 0 50px;
+ .side_navigation ul{
+   padding: 0;
+   margin: 0;
+ }
+ .side_navigation h3{
+   font-size: 14px;
+   line-height: 28px;
+   color: rgba(0, 0, 0, 0.5);
+   font-weight: 500;
+   margin: 0;
+ }
+ .side_navigation .more_links{
+   font-size: 14px;
+   font-family: "SF Pro";
+   line-height: 28px;
+   color: #ec9405;
  }
  
  body.menu-active .side_navigation {
-   z-index: 10;
+   z-index: 99;
    left: 0;
    /* transition: left 1s ease; */
    /* animation-delay: .5s; */
@@ -901,11 +919,13 @@
    padding: 0;
  }
  section.menu ul li,
- .side_navigation nav.menu ul li {
+ .side_navigation ul li {
    list-style: none;
    margin-right: 25px;
    font-size: 14px;
    line-height: 28px;
+   color: rgba(0, 0, 0, 0.9);
+   font-weight: 500;
  }
  
  /*********************************************************
@@ -919,6 +939,7 @@
  .post-template .header,
  .page-template .header{
    padding: 20px 0;
+   position: relative;
  }
  @media (min-width: 769px) {
    .header {
@@ -928,6 +949,10 @@
  @media (max-width: 768px) {
    .header {
      padding: 100px 10px;
+   }
+   .post-template .header,
+   .page-template .header{
+    text-align: center;
    }
  }
  .header h1 {
@@ -1088,7 +1113,7 @@
    z-index: -1;
  }
  body.menu-active .ph-canvas{
-   z-index: 2;
+   z-index: 11;
    opacity: 1;
  }
  .ph-canvas.active {
@@ -1324,11 +1349,19 @@
    text-align: left;
    font-family: "Garamond";
  }
+ .post-template .post .post-title,
+ .page-template .post .post-title{
+   margin-top: 60px;
+ }
  .post .post-title h2 {
    font-size: 48px;
    line-height: 1em;
    margin-top: 15px;
    margin-bottom: 15px;
+ }
+ .post-template .post .post-title h2,
+ .page-template .post .post-title h2{
+   margin-bottom: 80px;
  }
  .post .post-title h2 a {
    color: #000;
@@ -1701,6 +1734,12 @@
    font-style: normal;
  }
  @font-face {
+  font-family: 'SF Pro';
+  src: url("fonts/SFProText-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+ @font-face {
    font-family: 'SF Pro';
    src: url("fonts/SFProText-Bold.ttf") format("truetype");
    font-weight: bold;
@@ -1793,10 +1832,10 @@
    width: 100%;
    box-sizing: border-box;
    height: 50px;
-   border: 2px solid rgba(0, 0, 0, 0.15);
-   border-radius: 2px;
+   border: none;
+   border-bottom: 2px solid #ccc;
    background-color: #FFFFFF;
-   font-size: 20px;
+   font-size: 18px;
    outline: none;
  }
  textarea::-webkit-input-placeholder, input[type=text]::-webkit-input-placeholder {
@@ -1816,10 +1855,12 @@
    font-style: normal;
  }
  textarea:hover, input[type=text]:hover {
-   border: 2px solid rgba(0, 0, 0, 0.5);
+   border: none;
+   border-bottom: 2px solid #ccc;
  }
  textarea:active, textarea:focus, input[type=text]:active, input[type=text]:focus {
-   border: 2px solid black;
+   border: none;
+   border-bottom: 2px solid #ccc;
  }
  
  input[type='submit'],
@@ -2176,6 +2217,9 @@
  
  .post-responses h4 {
    margin: 50px 0 20px;
+   font-family: "SF Pro";
+   font-size: 20px;
+   line-height: 24px;
  }
  .post-responses .responses .response {
    position: relative;
@@ -2191,6 +2235,10 @@
    display: flex;
    justify-content: space-between;
    flex-direction: row;
+   font-family: "SF Pro";
+   font-size: 16px;
+   line-height: 19px;
+   color: #000;
  }
  .post-responses .responses .response .byline time {
    color: #ccc;
@@ -2277,9 +2325,13 @@
  }
  .posthaven-comment-form .posthaven-field label {
    display: none;
+   font-family: "SF Pro";
+   font-size: 15px;
+   line-height: 30px;
  }
  .posthaven-comment-form .posthaven-field textarea, .posthaven-comment-form .posthaven-field input[type=text] {
    width: 100%;
+   font-family: "SF Pro";
  }
  .posthaven-comment-form .posthaven-field input[type=checkbox] {
    margin-right: 3px;
@@ -2290,7 +2342,7 @@
    width: 100%;
  }
  .posthaven-comment-form .posthaven-field.posthaven-comment-body-field textarea {
-   min-height: 70px;
+   min-height: 40px;
  }
  .posthaven-comment-form .posthaven-comment-verification {
    width: 500px;
@@ -2352,17 +2404,15 @@
    background-image: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0nMTAnIGhlaWdodD0nMTAnIHhtbG5zPSdodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2Zyc+PHBhdGggZD0nTTEwIDEuODE0TDguMTg1IDAgNSAzLjE4NCAxLjgxNSAwIDAgMS44MTQgMy4xODUgNSAwIDguMTgzbDEuODE1IDEuODE1TDUgNi44MTQgOC4xODUgMTAgMTAgOC4xODQgNi44MTUgNC45OTh6JyBmaWxsPScjZmZmJyAvPjwvc3ZnPg==);
    text-indent: -5000em;
  }
- .side_navigation .search-form{
-   margin: 40px auto;
-   padding: 0 50px;
- }
  .posthaven-archive-form input {
    width: 100%;
-   padding: 5px 5px 5px 40px;
+   padding: 0px 5px 0px 20px;
    background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAASFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACrhKybAAAAGHRSTlMAf3k0JTwKZwZ2ckgYEwJkK2xgW09AHg3UoahVAAAAhUlEQVQYGQXBhQHDQAAEIO4tLvX9Ny3A6Fcpj+0AoC1JkqQDtGRqY/6+kw6MJdsJWrKDnukEfPICVxrAXMoJJT8AU3YoGQCeOeCRL4CSGba8Ae5c4Ehu4LekAT3ZZtxLygD0JNOzJCVrBeyvkmRqY00qwLkfM2qSCgCoSSoAoCYrAEBdP3+fjwOToiafFQAAAABJRU5ErkJggg==);
    background-repeat: no-repeat;
-   background-position: 12px 13px;
-   background-size: 18px 18px;
+   background-position: 0px 7px;
+   background-size: 13px 13px;
+   height: 30px;
+   font-size: 14px;
  }
  
  .archive-link {
@@ -2375,7 +2425,7 @@
  
  time {
    color: rgba(0, 0, 0, 0.3);
-   font-size: 18px;
+   font-size: 15px;
    -webkit-font-smoothing: subpixel-antialiased;
    -moz-osx-font-smoothing: auto;
    font-family: "SF Pro";
