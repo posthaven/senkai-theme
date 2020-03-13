@@ -18,35 +18,52 @@
 
 
 @font-face {
-  font-family: 'Proxima Nova';
-  src: url('fonts/proximanova-extrabold-webfont.woff2') format('woff2'),
-       url('fonts/proximanova-extrabold-webfont.woff') format('woff');
-  font-weight: bold;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Proxima Nova';
-  src: url('fonts/proximanova-extraboldit-webfont.woff2') format('woff2'),
-       url('fonts/proximanova-extraboldit-webfont.woff') format('woff');
-  font-weight: bold;
-  font-style: italic;
-}
-
-@font-face {
-  font-family: 'Proxima Nova';
-  src: url('fonts/proximanova-medium-webfont.woff2') format('woff2'),
-       url('fonts/proximanova-medium-webfont.woff') format('woff');
+  font-family: 'Garamond';
+  src: url("fonts/GaramondPremrPro.otf") format("opentype");
   font-weight: normal;
   font-style: normal;
 }
-
 @font-face {
-  font-family: 'Proxima Nova';
-  src: url('fonts/proximanova-mediumit-webfont.woff2') format('woff2'),
-       url('fonts/proximanova-mediumit-webfont.woff') format('woff');
+  font-family: 'Garamond';
+  src: url("fonts/GaramondPremrPro-It.otf") format("opentype");
   font-weight: normal;
   font-style: italic;
+}
+@font-face {
+  font-family: 'Garamond';
+  src: url("fonts/GaramondPremrPro-Med.otf") format("opentype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Garamond';
+  src: url("fonts/GaramondPremrPro-Smbd.otf") format("opentype");
+  font-weight: 600;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Garamond';
+  src: url("fonts/GaramondPremrPro-Bd.otf") format("opentype");
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SF Pro';
+  src: url("fonts/SFProText-Regular.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SF Pro';
+  src: url("fonts/SFProText-Medium.ttf") format("truetype");
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'SF Pro';
+  src: url("fonts/SFProText-Bold.ttf") format("truetype");
+  font-weight: bold;
+  font-style: normal;
 }
 
 /*********************************************************
@@ -109,23 +126,15 @@ h5 { font-size: 22px; font-weight: normal; opacity: 0.6 }
 textarea, input[type=text] {
   padding: 10px 20px;
   width: 100%;
-	box-sizing: border-box;
-	height: 50px;
-	border: 2px solid rgba(0,0,0,0.15);
-	border-radius: 2px;
-	background-color: #FFFFFF;
-  font-size: 20px;
+  box-sizing: border-box;
+  height: 50px;
+  border: none;
+  border-bottom: 2px solid #ccc;
+  background-color: #FFFFFF;
+  font-size: 18px;
   outline: none;
   
   @include placeholder(rgba(0,0,0,.5));
-
-  &:hover {
-  	border: 2px solid rgba(0,0,0,0.5);
-  }
-  &:active,
-  &:focus {
-  	border: 2px solid rgba(0,0,0,1);
-  }
 }
 input[type='submit'],
 .posthaven-user-subscribe a,
@@ -149,10 +158,6 @@ input[type='submit'],
 
   &:hover {
     background: rgba(0,0,0,1);
-  }
-
-  &:active {
-
   }
 
   &:focus {
@@ -209,17 +214,23 @@ input[type='submit'],
 .container {
   box-sizing: border-box;
   margin: auto;
-  max-width: 1600px;
   position: relative;
 
   @media (min-width: 1200px) {
-    padding: 0 130px;
+    padding: 0 30px;
+  }
+}
+.post-template,
+.page-template{
+  #header_parent .container{
+    position: absolute;
+    width: 100%;
   }
 }
 
 section.subhead {
   margin: 50px 0 20px;
-  text-align: center;
+  text-align: left;
 
   h3 {
     margin: 0;
@@ -313,8 +324,8 @@ section.subhead {
   }
 
   .posthaven-wordmark {
-    --color-1: rgba($primary, .5);
-    --color-2: rgba($primary, .35);
+    // --color-1: rgba($primary, .5);
+    // --color-2: rgba($primary, .35);
     height: 13px;
     width: 120px;
   }
@@ -322,6 +333,8 @@ section.subhead {
 
 #main_container {
   position: relative;
+  max-width: $postWidth;
+  margin: 0 auto;
 }
 
 .main-content {
@@ -372,10 +385,6 @@ section.subhead {
   .posthaven-subscribe-error { color: #a00; }
 }
 
-.post-responses h4 {
-  text-align: center;
-}
-
 .posthaven-user-subscribed .post-responses .subscribe {
   display: none;
 }
@@ -399,7 +408,7 @@ section.subhead {
 #main.archive-results {
   max-width: $postWidth;
   margin: auto;
-  text-align: center;
+  text-align: left;
 }
 
 /*********************************************************
@@ -437,12 +446,31 @@ section.subhead {
       }
 
         a {
-          color: rgba($primary, 1);
-          font-size: 20px;
-          @include animate-links;
+          color: rgba($primary, 0.7);
+          font-size: 14px;
+          position: relative;
+          font-family: $accentFont;
+          text-transform: uppercase;
+          padding: 10px 20px;
+          border: 1px solid #ccc;
+          border-radius: 5px;
         }
       }
 
+      &.previous {
+        a:before{
+          font-size: 20px;
+          content: "\2039";
+          margin-right: 10px;
+        }
+      }
+      &.next {
+        a:after{
+          font-size: 20px;
+          content: "\203A";
+          margin-left: 10px;
+        }
+      }
       // page numbers
       &.number {
         &.active {
@@ -481,6 +509,9 @@ section.subhead {
 .post-responses {
   h4 {
     margin: 50px 0 20px;
+    font-family: $accentFont;
+    font-size: 20px;
+    line-height: 24px;
   }
 
   .responses {
@@ -499,6 +530,10 @@ section.subhead {
         display: flex;
         justify-content: space-between;
         flex-direction: row;
+        font-family: $accentFont;
+        font-size: 16px;
+        line-height: 19px;
+        color: #000;
 
         time {
           color: #ccc;
@@ -540,9 +575,6 @@ section.subhead {
   input[type="checkbox"] + label {
     cursor: pointer;
     display: flex;
-    @media (min-width: 768px) {
-      justify-content: center;
-    }
     line-height: normal;
     margin-left: -4px;
     padding: 5px;
@@ -609,10 +641,14 @@ section.subhead {
 
     label {
       display: none;
+      font-family: $accentFont;
+      font-size: 15px;
+      line-height: 30px;
     }
 
     textarea, input[type=text] {
       width: 100%;
+      font-family: $accentFont;
     }
 
     input[type=checkbox] {
@@ -631,7 +667,7 @@ section.subhead {
       }
 
       textarea {
-        min-height: 70px;
+        min-height: 40px;
       }
     }
   }
@@ -655,18 +691,8 @@ section.subhead {
   	font-weight: bold;
   	line-height: 22px;
     outline: none;
-    border-bottom: 2px dashed rgba(0,0,0,0);
     &:first-child {
       margin-right: 40px;
-    }
-    &.active {
-      border-bottom-color: rgba(0,0,0,0.1);
-    }
-    &:hover {
-      border-bottom-color: rgba(0,0,0,0.4);
-    }
-    &:active {
-      border-bottom-color: rgba(0,0,0,0.7);
     }
   }
 }
@@ -701,11 +727,13 @@ section.subhead {
 .posthaven-archive-form {
   input {
     width: 100%;
-    padding: 5px 5px 5px 40px;
+    padding: 0px 5px 0px 20px;
     background-image: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAMAAABhEH5lAAAASFBMVEUAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACrhKybAAAAGHRSTlMAf3k0JTwKZwZ2ckgYEwJkK2xgW09AHg3UoahVAAAAhUlEQVQYGQXBhQHDQAAEIO4tLvX9Ny3A6Fcpj+0AoC1JkqQDtGRqY/6+kw6MJdsJWrKDnukEfPICVxrAXMoJJT8AU3YoGQCeOeCRL4CSGba8Ae5c4Ehu4LekAT3ZZtxLygD0JNOzJCVrBeyvkmRqY00qwLkfM2qSCgCoSSoAoCYrAEBdP3+fjwOToiafFQAAAABJRU5ErkJggg==);
     background-repeat: no-repeat;
-    background-position: 12px 13px;
-    background-size: 18px 18px;
+    background-position: 0px 7px;
+    background-size: 13px 13px;
+    height: 30px;
+    font-size: 14px;
   }
 }
 
@@ -719,9 +747,10 @@ input.archive-search.archive-tooltip {
 
 time {
   color: rgba($primary,.3);
-  font-size: 18px;
+  font-size: 15px;
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
+  font-family: $accentFont;
 }
 
 .archive-results {
@@ -733,25 +762,10 @@ time {
     }
   }
 
-   a {
-    border-bottom: transparent 2px solid;
+  a {
     display: inline-flex;
     flex-direction: column;
-
-    h4 {
-      span {
-        border-bottom: 2px none rgba(0,0,0,0.1);
-      }
-    }
-
-    &:hover {
-      h4 {
-        span {
-          border-bottom: 2px dashed rgba(0,0,0,0.1);
-        }
-      }
-    }
-   }
+  }
 
   h4 {
     margin: 5px;
