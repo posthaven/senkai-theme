@@ -4,7 +4,7 @@
 
     <div class="post-title">
       <a href="{{ post.url }}">
-        <date>{{ post.published_at | local_date: "%B %e, %Y" }}</date>
+        <span class="date">{{ post.published_at | local_date: "%B %e, %Y" }}</span>
       </a>
       <h2>
         {% if post.private? %}

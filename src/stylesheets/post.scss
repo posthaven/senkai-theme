@@ -233,7 +233,7 @@ aside {
     }
   }
 
-  date{
+  span.date{
     color: rgba($primary, 0.5);
     font-size: 15px;
     font-family: $accentFont;
@@ -282,7 +282,7 @@ aside {
 .page-template{
   .post .post-title{
     margin-top: 60px;
-    
+
     h2{
       margin-bottom: 80px;
     }

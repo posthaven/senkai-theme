@@ -47,19 +47,21 @@ body.menu-active .overlay {
   }
 
   .menu-trigger {
-    cursor: pointer;
-    font-size: 14px;
-    font-family: 'SF Pro';
-    text-transform: uppercase;
-    font-weight: bold;
     border: 1px solid #ccc;
-    padding: 10px 15px;
     border-radius: 5px;
+    cursor: pointer;
+    font-family: $accentFont;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 15px;
+    text-transform: uppercase;
   }
 }
 
 // the follow applies only to mobile menu
 .side_navigation {
+  background: #fff;
+  font-family: $accentFont;
   height: 100vh;
   left: -330px;
   overflow: auto;
@@ -69,8 +71,6 @@ body.menu-active .overlay {
   transition: left 0.5s ease-in-out;
   width: 230px;
   z-index: 10;
-  background: #fff;
-  font-family: $accentFont;
   .search-form {
 		margin: 40px auto;
 	}
@@ -84,14 +84,14 @@ body.menu-active .overlay {
 		margin: 40px auto;
   }
   ul{
-    padding: 0;
     margin: 0;
+    padding: 0;
   }
   h3{
-    font-size: 14px;
-    line-height: 28px;
     color: rgba(0, 0, 0, 0.5);
     font-weight: 500;
+    font-size: 14px;
+    line-height: 28px;
     margin: 0;
   }
   .more_links{
@@ -129,12 +129,12 @@ section.menu,
 section.menu,
 .side_navigation {
   ul li{
+    color: rgba($primary, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 28px;
     list-style: none;
     margin-right: 25px;
-    font-size: 14px;
-    line-height: 28px;
-    color: rgba($primary, 0.9);
-    font-weight: 500;
   }
 }
 /*********************************************************
@@ -143,8 +143,8 @@ section.menu,
 
 
 .header {
-  text-align: left;
   max-width: $postWidth;
+  text-align: left;
   @media (min-width: 769px) {
     padding: 100px 0;
   }
@@ -154,9 +154,9 @@ section.menu,
   margin: auto;
 
   h1 {
+    font-size: 36px;
     margin: 0 0 5px;
     word-wrap: break-word;
-    font-size: 36px;
 
     &:hover {
       text-decoration: none;
@@ -308,8 +308,8 @@ section.menu,
     box-shadow: 0 0 20px rgba(0,0,0,.15);
     display: flex;
     flex-direction: column;
-    right: 17px;
     position: absolute;
+    right: 17px;
     top: 22px;
     z-index: 9;
 
@@ -347,11 +347,11 @@ section.menu,
   background: rgba($primary, 0.5);
   height: 100vh;
   left: 0;
+  opacity: 0;
   position: fixed;
   top: 0;
   transition: background .25s ease;
   width: 100%;
-  opacity: 0;
   z-index: -1;
 
   &.active {
@@ -360,7 +360,7 @@ section.menu,
   }
 }
 body.menu-active .ph-canvas{
-  z-index: 11;
   opacity: 1;
+  z-index: 11;
 }
 
