@@ -7,16 +7,6 @@
 @import 'footer';
 @import 'social';
 
-@import "compass/css3/opacity";
-@import "compass/css3/images";
-@import "compass/css3/border-radius";
-@import "compass/css3/box-shadow";
-@import "compass/css3/text-shadow";
-@import "compass/utilities/general/clearfix";
-@import "compass/css3/transition";
-@import "compass/css3/user-interface";
-
-
 @font-face {
   font-family: 'Garamond';
   src: url("fonts/GaramondPremrPro.otf") format("opentype");
@@ -169,13 +159,13 @@ input[type='submit'],
 .alert {
   background:#fff;
   border:1px solid rgba($primary, 0.15);
+  border-radius: 5px;
   font-size: 14px;
   margin: 10px 0px 10px 60px;
   max-width: 100%;
   padding:8px;
   position:relative;
   width: $postWidth;
-  @include border-radius(5px);
 
   &:before {
     content:"";
