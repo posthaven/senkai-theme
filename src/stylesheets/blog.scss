@@ -224,6 +224,7 @@ section.subhead {
 // wordmark is referenced in #id, then the .class sits
 // on the <svg> in the html to use css color variables
 // so we can colorize from css
+
 .posthaven {
   display: flex;
   justify-content: center;
@@ -265,8 +266,8 @@ section.subhead {
   }
 
   .posthaven-wordmark {
-    // --color-1: rgba($primary, .5);
-    // --color-2: rgba($primary, .35);
+    #{--color-1}: rgba($primary, .5);
+    #{--color-2}: rgba($primary, .35);
     height: 13px;
     width: 120px;
   }
@@ -285,7 +286,6 @@ section.subhead {
 .main-content,
 .subscribe-footer {
   box-sizing: border-box;
-  padding: 0 20px;
 }
 
 /*********************************************************
@@ -376,49 +376,56 @@ section.subhead {
       &.previous,
       &.next {
         flex: 0 0 100px;
-        font-weight: 800;
+        font-weight: bold;
+        text-transform: uppercase;
+      }
 
       &.previous {
         text-align: left;
-      }
 
-      &.next {
-        text-align: right;
-      }
-
-        a {
-          border: 1px solid #ccc;
-          border-radius: 5px;
-          color: rgba($primary, 0.7);
-          font-size: 14px;
-          font-family: $accentFont;
-          padding: 10px 20px;
-          position: relative;
-          text-transform: uppercase;
-        }
-      }
-
-      &.previous {
-        a:before{
+        a:before {
           content: "\2039";
           font-size: 20px;
           margin-right: 10px;
         }
       }
+
       &.next {
-        a:after{
+        text-align: right;
+
+        a:after {
           content: "\203A";
           font-size: 20px;
           margin-left: 10px;
         }
       }
+
+      a {
+        align-items: center;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        color: rgba($primary, 0.7);
+        display: flex;
+        font-size: 14px;
+        font-family: $accentFont;
+        padding: 10px 20px;
+        position: relative;
+
+        &:active,
+        &:focus {
+          outline: 5px auto -webkit-focus-ring-color;
+        }
+      }
+
       // page numbers
       &.number {
         &.active {
           a {
             color: rgba($primary, .3);
             cursor: default;
+            border: solid 1px transparent;
             font-size: 18px;
+            justify-content: center;
 
             &:hover,
             &:active {

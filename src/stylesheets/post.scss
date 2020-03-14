@@ -102,7 +102,6 @@ aside {
   }
 
   .posthaven-gallery {
-
     .posthaven-gallery-chrome {
       .posthaven-gallery-info {
         align-items: center;
@@ -110,7 +109,6 @@ aside {
         float: none;
         font-family: $bodyFont;
         font-size: 14px;
-        justify-content: center;
 
         span {
           padding: 5px 3px;
@@ -131,8 +129,6 @@ aside {
     }
 
     .posthaven-gallery-thumb-holder {
-      display: flex;
-      justify-content: center; // @todo needs a <div> inside so we can margin: auto to center automatically
 
       a {
         border-bottom: solid 2px transparent;
@@ -206,16 +202,32 @@ aside {
 
   .posthaven-post-body {
     .posthaven-gallery {
+
+      /*
+
+      // section below makes the image sit a little outside of the bounds of the page
+      // for a nice visual effect
+
       @media (min-width: 769px) {
-        margin-left: -100px;
-        margin-right: -100px;
-      }
-      @media (max-width: 768px) {
         margin-left: -20px;
         margin-right: -20px;
-      }
 
-      text-align: center;
+        .posthaven-gallery-chrome,
+        .posthaven-gallery-thumb-holder {
+          margin: 0 20px;
+        }
+      }
+      @media (max-width: 768px) {
+        margin-left: -10px;
+        margin-right: -10px;
+        
+        .posthaven-gallery-chrome,
+        .posthaven-gallery-thumb-holder {
+          margin: 0 10px;
+        }
+      }
+      
+      */
 
       .posthaven-gallery-chrome {
         margin-bottom: 10px;
@@ -259,8 +271,6 @@ aside {
   .homepage-post-footer {
     display: flex;
     margin: 30px 0;
-    justify-content: center;
-    text-align: center;
 
     .tags {
       margin: 10px 0;

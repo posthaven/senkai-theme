@@ -1,4 +1,4 @@
-<section class="side_navigation">
+<section class="side-navigation">
   <div class="search-form">
     <form action="/archive" class="posthaven-archive-form">
       <input name="query" placeholder="Search..." type="text">
@@ -19,40 +19,16 @@
     </nav>
   {% endif %}
 
-{% unless site.blogroll == empty %}
-  {% for menu in site.blogroll %}
-    {% unless menu.items == empty %}
-      <div class="projects">
-        <nav>
-          <h3>{{ menu.title }}</h3>
-          {% unless menu.items == empty %}
-            <ul>
-              {% for menu_item in menu.items %}
-                <li class="{{ menu_item.url | text_if_current}}">
-                  <a href="{{ menu_item.url }}">{{ menu_item.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          {% endunless %}
-        </nav>
-      </div>
-    {% endunless %}
-  {% endfor %}
-{% endunless %}
+  {% include 'blogroll' %}
 
-  {% if site.blogroll and site.blogroll.items != empty %}
-    <nav class="menu">
-      {% if site.blogroll and site.blogroll.items != empty %}
-        <ul>
-        {% for menu_item in site.blogroll.items %}
-          <li id="menu_item_{{ menu_item.id }}" class="menu-item {{ menu_item.url | text_if_current}}">
-            <a href="{{ menu_item.url }}">{{ menu_item.title }}</a>
-          </li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    </nav>
-  {% endif %}  
+  <!-- @todo -->
+  {% if site.subscription_enabled? %}
+    <section class="subscribe-footer">
+      <div class="subscribe-wrapper show-button-on-keyup ignore-anon">
+        {% form 'subscribe' include_prompt:false, show_instructions:true %}
+      </div>
+    </section>
+  {% endif %}
 
   <div class="all-tags">
     <h3>Tags</h3>
@@ -71,8 +47,14 @@
     <a class="more_links" href="/tags">View all {{ tagCount }} tags</a>
     {% endif %}
   </div>
+
   <div class="archives">
     <h3>Archive</h3>
     <a class="more_links" href="{{ site.archive_url }}">Browse archive</a>
   </div>
+
+  <!-- @todo -->
+    {% include 'bio' %}
+    {% include 'social' %}
+    {% include 'contributors_section' %}
 </section>
