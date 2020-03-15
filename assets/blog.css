@@ -2175,12 +2175,11 @@ section.subhead h3 {
 
 .posthaven-share-links {
   display: flex;
-  justify-content: center;
   flex-direction: row;
 }
 .posthaven-share-links .posthaven-share-item {
   display: inline-block;
-  margin: 0px 5px;
+  margin: 0px 10px 0 0;
 }
 
 @media handheld, only screen and (max-width: 414px) {
