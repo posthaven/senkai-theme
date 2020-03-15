@@ -1,7 +1,7 @@
 {% unless site.blogroll == empty %}
   {% for menu in site.blogroll %}
     {% unless menu.items == empty %}
-      <div class="projects">
+      <section class="linklist">
         <nav>
           <h3>{{ menu.title }}</h3>
           {% unless menu.items == empty %}
@@ -14,7 +14,7 @@
             </ul>
           {% endunless %}
         </nav>
-      </div>
+      </section>
     {% endunless %}
   {% endfor %}
 {% endunless %}

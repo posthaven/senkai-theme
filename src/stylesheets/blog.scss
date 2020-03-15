@@ -32,29 +32,6 @@ a {
 }
 
 a:hover { text-decoration: none; }
-.post-body a,
-.subscribe-footer a,
-.search-archive a,
-section.blogroll a,
-section.contributors a {
-  border-bottom: 2px dashed rgba(0,0,0,0.1);
-  outline: none;
-  &:hover {
-    border-bottom-color: rgba(0,0,0,0.4);
-  }
-  &:active {
-    border-bottom-color: rgba(0,0,0,0.7);
-  }
-}
-
-// for links that show a dashed underline but also include
-// the link animation, make the dashed underline transparent
-// on hover for a cleaner animation
-section.blogroll a {
-  &:hover {
-    border-bottom: solid 2px transparent;
-  }
-}
 
 .small {
   font-size: 18px;
@@ -71,16 +48,23 @@ h5 { font-size: 22px; font-weight: normal; opacity: 0.6 }
 
 textarea, input[type=text] {
   background-color: #FFFFFF;
+  border-bottom: 2px solid rgba($primary,0.15) !important;
   border: none;
-  border-bottom: 2px solid rgba($primary,0.15);
   box-sizing: border-box;
-  height: 50px;
+  font-family: $accentFont;
   font-size: 18px;
+  height: 50px;
   outline: none;
   padding: 10px 0;
+  transition: border .5s ease;
   width: 100%;
   
   @include placeholder(rgba(0,0,0,.5));
+
+  &:focus {
+    border-bottom: 2px solid rgba($primary,0.75) !important;
+    transition: border .1s ease;
+  }
 }
 
 input[type='submit'],
@@ -287,22 +271,15 @@ section.subhead {
 *********************************************************/
 
 .subscribe-footer {
-  margin: 0 0 100px;
-  text-align: center;
 
   h3 {
     margin-bottom: 0px;
   }
 
   .subscribe-wrapper {
-    font-size: 18px;
-    margin: auto;
-    max-width: 100%;
-    width: 500px;
 
     p {
-      font-size: 20px;
-      opacity: .7;
+      font-size: 14px;
       margin: 0 0 10px;
      }
   }
@@ -707,7 +684,7 @@ time {
   }
 
   h4 {
-    margin: 5px;
+    margin: 5px 0;
   }
 
   .count {

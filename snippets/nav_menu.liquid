@@ -1,9 +1,9 @@
-<section class="side-navigation">
-  <div class="search-form">
+<aside class="side-navigation">
+  <section class="search-form">
     <form action="/archive" class="posthaven-archive-form">
       <input name="query" placeholder="Search..." type="text">
     </form>
-  </div>
+  </section>
 
   {% if site.navigation_menu and site.navigation_menu.items != empty %}
     <nav class="menu">
@@ -30,7 +30,7 @@
     </section>
   {% endif %}
 
-  <div class="all-tags">
+  <section class="all-tags">
     <h3>Tags</h3>
     <ul>
       {% for t in site.tags limit:5 %}
@@ -46,15 +46,15 @@
     {% if tagCount > 3 %}
     <a class="more_links" href="/tags">View all {{ tagCount }} tags</a>
     {% endif %}
-  </div>
+  </section>
 
-  <div class="archives">
+  <section class="archives">
     <h3>Archive</h3>
     <a class="more_links" href="{{ site.archive_url }}">Browse archive</a>
-  </div>
+  </section>
 
   <!-- @todo -->
     {% include 'bio' %}
     {% include 'social' %}
     {% include 'contributors_section' %}
-</section>
+</aside>

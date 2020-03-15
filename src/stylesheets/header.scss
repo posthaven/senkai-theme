@@ -66,27 +66,22 @@ body.menu-active .overlay {
   left: -330px;
   overflow: auto;
   position: fixed;
-  padding: 0 50px;
+  padding: 25px 50px;
   top: 0;
   transition: left 0.5s ease-in-out;
   width: 230px;
   z-index: 10;
-  .search-form {
-		margin: 40px auto;
-	}
-	nav.menu {
-		margin: 40px auto;
-	}
-	.all-tags {
-		margin: 40px auto;
-	}
-	.archives {
-		margin: 40px auto;
+
+  nav.menu,
+  section {
+    margin: 0 0 40px;
   }
+
   ul{
     margin: 0;
     padding: 0;
   }
+
   h3{
     color: rgba(0, 0, 0, 0.5);
     font-weight: 500;
@@ -94,6 +89,7 @@ body.menu-active .overlay {
     line-height: 28px;
     margin: 0;
   }
+
   .more_links{
     font-size: 14px;
     font-family: $accentFont;
@@ -126,6 +122,7 @@ section.menu,
     padding: 0;
   }
 }
+
 section.menu,
 .side-navigation {
   ul li{
@@ -145,7 +142,7 @@ section.menu,
 .header {
   max-width: $postWidth;
   text-align: left;
-  
+
   @media (min-width: 769px) {
     padding: 100px 0;
   }
