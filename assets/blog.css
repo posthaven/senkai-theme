@@ -719,6 +719,30 @@ table {
   border-radius: 4px;
 }
 
+.button, .navigation .menu-trigger, input[type='submit'],
+.posthaven-user-subscribe a,
+.posthaven-read-more-link a, .pagination ul li.first a, .pagination ul li.previous a, .pagination ul li.next a, .pagination ul li.last a {
+  align-items: center;
+  border: 2px solid rgba(0, 0, 0, 0.5);
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: rgba(0, 0, 0, 0.75);
+  cursor: pointer;
+  display: flex;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  user-select: none;
+}
+.button:hover, .navigation .menu-trigger:hover, input[type='submit']:hover,
+.posthaven-user-subscribe a:hover,
+.posthaven-read-more-link a:hover, .pagination ul li.first a:hover, .pagination ul li.previous a:hover, .pagination ul li.next a:hover, .pagination ul li.last a:hover {
+  border: solid 2px #000;
+  color: black;
+}
+
 .chips a, .tags ul li a, .archive-all-dates a {
   align-items: baseline;
   border-radius: 100px;
@@ -842,14 +866,13 @@ body.menu-active .overlay {
   }
 }
 .navigation .menu-trigger {
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  cursor: pointer;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  font-size: 14px;
-  font-weight: bold;
-  padding: 10px 15px;
-  text-transform: uppercase;
+  position: fixed;
+}
+
+.posthaven-user-menu {
+  position: fixed !important;
+  right: 15px;
+  top: 10px;
 }
 
 .side-navigation {
@@ -1682,13 +1705,17 @@ section.social ul li a:active {
 *  General
 *********************************************************/
 body {
-  line-height: 1.5;
   color: rgba(0, 0, 0, 0.8);
-  margin: 0 0;
   font-family: "garamond-premier-pro", sans-serif;
+  line-height: 1.5;
+  margin: 0 0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+body .overlay {
+  background: transparent;
+  transition: background .5s ease;
 }
 
 a {
@@ -1768,7 +1795,7 @@ textarea, input[type=text] {
   height: 50px;
   font-size: 18px;
   outline: none;
-  padding: 10px 20px;
+  padding: 10px 0;
   width: 100%;
 }
 textarea::-webkit-input-placeholder, input[type=text]::-webkit-input-placeholder {
@@ -1791,33 +1818,13 @@ textarea:-ms-input-placeholder, input[type=text]:-ms-input-placeholder {
 input[type='submit'],
 .posthaven-user-subscribe a,
 .posthaven-read-more-link a {
-  background: rgba(0, 0, 0, 0.85);
-  border-radius: 2px;
-  border: 2px solid #000000;
-  box-sizing: border-box;
-  color: white;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 20px;
+  font-size: 18px;
   font-weight: bold;
-  margin: 0px;
   outline: none;
-  padding: 7px 0px;
   position: relative;
   text-align: center;
   text-decoration: none;
   width: 100%;
-}
-input[type='submit']:hover,
-.posthaven-user-subscribe a:hover,
-.posthaven-read-more-link a:hover {
-  background: black;
-}
-input[type='submit']:focus,
-.posthaven-user-subscribe a:focus,
-.posthaven-read-more-link a:focus {
-  background: black;
-  box-shadow: white 0px 0px 0px 1px, rgba(0, 0, 0, 0.25) 0px 0px 0px 3px;
 }
 
 .alert {
@@ -1870,7 +1877,6 @@ input[type='submit']:focus,
 .container {
   box-sizing: border-box;
   margin: auto;
-  position: relative;
 }
 @media (min-width: 1200px) {
   .container {
@@ -2083,8 +2089,6 @@ section.subhead h3 {
 }
 .pagination ul li.previous, .pagination ul li.next {
   flex: 0 0 100px;
-  font-weight: bold;
-  text-transform: uppercase;
 }
 .pagination ul li.previous {
   text-align: left;
@@ -2103,14 +2107,6 @@ section.subhead h3 {
   margin-left: 10px;
 }
 .pagination ul li a {
-  align-items: center;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  color: rgba(0, 0, 0, 0.7);
-  display: flex;
-  font-size: 14px;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
-  padding: 10px 20px;
   position: relative;
 }
 .pagination ul li a:active, .pagination ul li a:focus {

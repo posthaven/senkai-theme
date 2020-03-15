@@ -1,5 +1,26 @@
 @import 'variables';
 
+.button {
+  align-items: center;
+  border: 2px solid rgba($primary, .5);
+  border-radius: 5px;
+  box-sizing: border-box;
+  color: rgba($primary, .75);
+  cursor: pointer;
+  display: flex;
+  font-family: $accentFont;
+  font-size: 14px;
+  font-weight: bold;
+  padding: 10px 15px;
+  text-transform: uppercase;
+  user-select: none;
+
+  &:hover {
+    border: solid 2px $primary;
+    color: rgba($primary, 1);
+  }
+}
+
 // tags ui, used in footer, top of tag page, and date in archive view
 .chips {
   a {

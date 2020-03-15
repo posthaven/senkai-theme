@@ -12,13 +12,18 @@
 *********************************************************/
 
 body {
-  line-height: 1.5;
   color: rgba($primary, .8);
-  margin: 0 0;
   font-family: $bodyFont;
+  line-height: 1.5;
+  margin: 0 0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  .overlay {
+    background: transparent;
+    transition: background .5s ease;
+  }
 }
 
 a {
@@ -72,38 +77,28 @@ textarea, input[type=text] {
   height: 50px;
   font-size: 18px;
   outline: none;
-  padding: 10px 20px;
+  padding: 10px 0;
   width: 100%;
   
   @include placeholder(rgba(0,0,0,.5));
 }
+
 input[type='submit'],
 .posthaven-user-subscribe a,
 .posthaven-read-more-link a {
-  background: rgba(0,0,0,0.85);
-  border-radius: 2px;
-  border: 2px solid #000000;
-  box-sizing: border-box;
-  color: white;
-  cursor: pointer;
-  display: inline-block;
-  font-size: 20px;
+  @extend .button;
+  font-size: 18px;
   font-weight: bold;
-  margin: 0px;
   outline: none;
-  padding: 7px 0px;
   position: relative;
   text-align: center;
   text-decoration: none;
   width: 100%;
 
   &:hover {
-    background: rgba(0,0,0,1);
   }
 
   &:focus {
-  background: rgba(0,0,0,1);
-  box-shadow: rgb(255, 255, 255) 0px 0px 0px 1px, rgba(0, 0, 0, 0.25) 0px 0px 0px 3px;
   }
 }
 
@@ -155,7 +150,6 @@ input[type='submit'],
 .container {
   box-sizing: border-box;
   margin: auto;
-  position: relative;
 
   @media (min-width: 1200px) {
     padding: 0 30px;
@@ -373,11 +367,16 @@ section.subhead {
     li {
       list-style: none;
 
+      &.first a,
+      &.previous a,
+      &.next a,
+      &.last a{
+        @extend .button;
+      }
+
       &.previous,
       &.next {
         flex: 0 0 100px;
-        font-weight: bold;
-        text-transform: uppercase;
       }
 
       &.previous {
@@ -401,14 +400,6 @@ section.subhead {
       }
 
       a {
-        align-items: center;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        color: rgba($primary, 0.7);
-        display: flex;
-        font-size: 14px;
-        font-family: $accentFont;
-        padding: 10px 20px;
         position: relative;
 
         &:active,

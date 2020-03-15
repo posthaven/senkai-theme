@@ -47,15 +47,15 @@ body.menu-active .overlay {
   }
 
   .menu-trigger {
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    cursor: pointer;
-    font-family: $accentFont;
-    font-size: 14px;
-    font-weight: bold;
-    padding: 10px 15px;
-    text-transform: uppercase;
+    @extend .button;
+    position: fixed;
   }
+}
+
+.posthaven-user-menu {
+  position: fixed !important;
+  right: 15px;
+  top: 10px;
 }
 
 // the follow applies only to mobile menu
@@ -145,6 +145,7 @@ section.menu,
 .header {
   max-width: $postWidth;
   text-align: left;
+  
   @media (min-width: 769px) {
     padding: 100px 0;
   }
