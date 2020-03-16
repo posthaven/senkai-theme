@@ -878,6 +878,7 @@ body.menu-active .overlay {
 
 .side-navigation {
   background: #fff;
+  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   height: 100vh;
@@ -974,8 +975,13 @@ section.menu ul li,
 
 .post-template .header,
 .page-template .header {
+  align-items: flex-start;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   padding: 20px 0;
   position: relative;
+  top: 10px;
 }
 @media (max-width: 768px) {
   .post-template .header,

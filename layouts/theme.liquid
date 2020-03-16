@@ -8,11 +8,6 @@
     {{ meta_tags }}
 
     <link href="{{ 'images/favicon.ico' | asset_url }}" rel="shortcut icon" type="image/x-icon">
-    {% comment %}
-    {{ "blog.css" | local_file | style_tag }}
-    
-    {{ "blog.scss.css" | asset_url | stylesheet_tag }}
-    {% endcomment %}
 
     {{ "blog.css" | asset_url | stylesheet_tag }}
     <link rel="stylesheet" href="https://use.typekit.net/iim1sys.css">
@@ -90,7 +85,7 @@
         });
 
         Posthaven.$(".ph-trigger").click(function(){
-          Posthaven.$(".ph-menu").toggle(500,"easeOutQuint");
+          Posthaven.$(".ph-menu").toggle(500,"ease");
           Posthaven.$(".ph-trigger").toggleClass("active");
           Posthaven.$(".ph-canvas").toggleClass("active");
         });

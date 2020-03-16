@@ -61,6 +61,7 @@ body.menu-active .overlay {
 // the follow applies only to mobile menu
 .side-navigation {
   background: #fff;
+  box-shadow: 0 0px 30px rgba(0,0,0,.15);
   box-sizing: border-box;
   font-family: $accentFont;
   height: 100vh;
@@ -171,8 +172,14 @@ section.menu,
 .page-template{
 
   .header{
+    align-items: flex-start;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     padding: 20px 0;
     position: relative;
+    top: 10px;
+
     @media (max-width: 768px) {
       text-align: center;
     }
@@ -357,6 +364,7 @@ section.menu,
     display: block;
   }
 }
+
 body.menu-active .ph-canvas{
   opacity: 1;
   z-index: 11;
