@@ -91,6 +91,9 @@
         });
         Posthaven.$(".ph-canvas").click(function(){
           Posthaven.$("body").removeClass("menu-active");
+          Posthaven.$(".ph-menu").toggle(500,"easeOutQuint");
+          Posthaven.$(".ph-trigger").toggleClass("active");
+          Posthaven.$(".ph-canvas").toggleClass("active");
         });
         Posthaven.$.get( "{{ 'images/icons.svg' | asset_url }}", function( icons ) {
           Posthaven.$( "#svg-icons" ).html( icons.getElementsByTagName("svg")[0] );
