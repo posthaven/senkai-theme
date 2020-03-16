@@ -878,15 +878,16 @@ body.menu-active .overlay {
 
 .side-navigation {
   background: #fff;
+  box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   height: 100vh;
   left: -330px;
   overflow: auto;
-  position: fixed;
   padding: 25px 50px;
+  position: fixed;
   top: 0;
   transition: left 0.5s ease-in-out;
-  width: 230px;
+  width: 330px;
   z-index: 10;
 }
 .side-navigation nav.menu,
@@ -938,7 +939,6 @@ section.menu ul li,
   font-weight: 500;
   line-height: 28px;
   list-style: none;
-  margin-right: 25px;
 }
 
 /*********************************************************
@@ -1561,42 +1561,15 @@ footer.footer section.bio p {
   margin: 5px 0;
 }
 
-section.search-archive h4 a {
-  position: relative;
-  transition: background .25s ease, color .4s ease, width .25s ease;
-}
-section.search-archive h4 a:after {
-  background: transparent;
-  bottom: -3px;
-  content: "";
-  display: block;
-  height: 3px;
-  left: 50%;
-  position: absolute;
-  transition: all .25s ease;
-  width: 0%;
-}
-section.search-archive h4 a:hover {
-  color: black;
-  transition: background .25s ease, color 0s ease, width .25s ease;
-}
-section.search-archive h4 a:hover:after {
-  background: #000;
-  left: 0%;
-  width: 100%;
-}
-
 section.blogroll,
 section.contributors {
   max-width: 600px;
-  margin: auto;
 }
 section.blogroll ul,
 section.contributors ul {
+  align-items: flex-start;
   display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
+  flex-direction: column;
   margin: 0;
   padding: 0;
   width: 100%;
@@ -1604,69 +1577,19 @@ section.contributors ul {
 section.blogroll ul li,
 section.contributors ul li {
   box-sizing: border-box;
-  font-size: 18px;
   list-style: none;
   margin-bottom: 3px;
-}
-@media (min-width: 768px) {
-  section.blogroll ul li,
-  section.contributors ul li {
-    flex: 0 50%;
-  }
-}
-@media (max-width: 767px) {
-  section.blogroll ul li,
-  section.contributors ul li {
-    flex: 0 0 100%;
-  }
-}
-@media (min-width: 768px) {
-  section.blogroll ul li:nth-child(odd):not(:last-child),
-  section.contributors ul li:nth-child(odd):not(:last-child) {
-    padding-right: 25px;
-  }
-  section.blogroll ul li:nth-child(even),
-  section.contributors ul li:nth-child(even) {
-    padding-left: 25px;
-  }
 }
 section.blogroll ul li a,
 section.contributors ul li a {
   box-sizing: border-box;
   display: flex;
   justify-content: center;
-  padding: 7px 7px 9px;
-  width: 100%;
-  position: relative;
-  transition: background .25s ease, color .4s ease, width .25s ease;
-}
-section.blogroll ul li a:after,
-section.contributors ul li a:after {
-  background: transparent;
-  bottom: -3px;
-  content: "";
-  display: block;
-  height: 3px;
-  left: 50%;
-  position: absolute;
-  transition: all .25s ease;
-  width: 0%;
-}
-section.blogroll ul li a:hover,
-section.contributors ul li a:hover {
-  color: black;
-  transition: background .25s ease, color 0s ease, width .25s ease;
-}
-section.blogroll ul li a:hover:after,
-section.contributors ul li a:hover:after {
-  background: #000;
-  left: 0%;
   width: 100%;
 }
 
 section.social ul {
   display: flex;
-  justify-content: center;
   margin: 0;
   padding: 0;
 }
@@ -1884,28 +1807,6 @@ section.subhead h3 {
 .tags .all-tags .show-all-tags {
   cursor: pointer;
   font-weight: 800;
-  position: relative;
-  transition: background .25s ease, color .4s ease, width .25s ease;
-}
-.tags .all-tags .show-all-tags:after {
-  background: transparent;
-  bottom: -3px;
-  content: "";
-  display: block;
-  height: 3px;
-  left: 50%;
-  position: absolute;
-  transition: all .25s ease;
-  width: 0%;
-}
-.tags .all-tags .show-all-tags:hover {
-  color: black;
-  transition: background .25s ease, color 0s ease, width .25s ease;
-}
-.tags .all-tags .show-all-tags:hover:after {
-  background: #000;
-  left: 0%;
-  width: 100%;
 }
 .tags ul {
   display: inline-flex;
@@ -2016,8 +1917,15 @@ section.subhead h3 {
 /*********************************************************
 *  Posts
 *********************************************************/
-#main {
-  margin: 0 auto 100px;
+@media (min-width: 768px) {
+  #main {
+    margin: 0 auto 100px;
+  }
+}
+@media (max-width: 767px) {
+  #main {
+    margin: 0 30px 100px;
+  }
 }
 
 #main.archive-results {

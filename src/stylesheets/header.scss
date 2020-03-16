@@ -61,15 +61,16 @@ body.menu-active .overlay {
 // the follow applies only to mobile menu
 .side-navigation {
   background: #fff;
+  box-sizing: border-box;
   font-family: $accentFont;
   height: 100vh;
   left: -330px;
   overflow: auto;
-  position: fixed;
   padding: 25px 50px;
+  position: fixed;
   top: 0;
   transition: left 0.5s ease-in-out;
-  width: 230px;
+  width: 330px;
   z-index: 10;
 
   nav.menu,
@@ -77,12 +78,12 @@ body.menu-active .overlay {
     margin: 0 0 40px;
   }
 
-  ul{
+  ul {
     margin: 0;
     padding: 0;
   }
 
-  h3{
+  h3 {
     color: rgba(0, 0, 0, 0.5);
     font-weight: 500;
     font-size: 14px;
@@ -90,7 +91,7 @@ body.menu-active .overlay {
     margin: 0;
   }
 
-  .more_links{
+  .more_links {
     font-size: 14px;
     font-family: $accentFont;
     line-height: 28px;
@@ -131,7 +132,6 @@ section.menu,
     font-weight: 500;
     line-height: 28px;
     list-style: none;
-    margin-right: 25px;
   }
 }
 /*********************************************************

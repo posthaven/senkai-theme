@@ -81,56 +81,28 @@ footer.footer {
 // @extend ul.tags;
 }
 
-section.search-archive {
-  h4 a {
-    @include animate-links;
-  }
-}
-
 section.blogroll,
 section.contributors {
   max-width: $postWidth;
-  margin: auto;
 
   ul {
+    align-items: flex-start;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
+    flex-direction: column;
     margin: 0;
     padding: 0;
     width: 100%;
 
     li {
       box-sizing: border-box;
-      @media (min-width: 768px) {
-        flex: 0 50%;
-      }
-      @media (max-width: 767px) {
-        flex: 0 0 100%;
-      }
-      font-size: 18px;
       list-style: none;
       margin-bottom: 3px;
-
-      @media (min-width: 768px) {
-        // don't add padding if last-child is an orphan because we center links
-        &:nth-child(odd):not(:last-child) {
-          padding-right: 25px;
-        }
-
-        &:nth-child(even) {
-          padding-left: 25px;
-        }
-      }
 
       a {
         box-sizing: border-box;
         display: flex;
         justify-content: center;
-        padding: 7px 7px 9px;
         width: 100%;
-        @include animate-links;
       }
     }
   }

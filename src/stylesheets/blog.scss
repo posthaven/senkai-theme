@@ -173,7 +173,6 @@ section.subhead {
     .show-all-tags {
       cursor: pointer;
       font-weight: 800;
-      @include animate-links;
     }
   }
   ul {
@@ -314,7 +313,13 @@ section.subhead {
 *********************************************************/
 
 #main {
-  margin: 0 auto 100px;
+  @media (min-width: 768px) {
+    margin: 0 auto 100px;
+  }
+
+  @media (max-width: 767px) {
+    margin: 0 30px 100px;
+  }
 }
 
 #main.archive-results {

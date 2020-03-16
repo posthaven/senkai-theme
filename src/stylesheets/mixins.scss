@@ -145,34 +145,6 @@
   }
 }
 
-@mixin animate-links {
-  position: relative;
-  transition: background .25s ease, color .4s ease, width .25s ease;
-
-  &:after {
-    background: transparent;
-    bottom: -3px;
-    content: "";
-    display: block;
-    height: 3px;
-    left: 50%;
-    position: absolute;
-    transition: all .25s ease;
-    width: 0%;
-  }
-
-  &:hover {
-    color: rgba($primary, 1);
-    transition: background .25s ease, color 0s ease, width .25s ease;
-
-    &:after {
-      background: $primary;
-      left: 0%;
-      width: 100%;
-    }
-  }
-}
-
 @mixin link-decoration($type) {
   border-bottom: 2px $type rgba(0,0,0,0.1);
   outline: none;
