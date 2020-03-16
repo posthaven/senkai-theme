@@ -2049,6 +2049,7 @@ section.subhead h3 {
 .posthaven-share-links {
   display: flex;
   flex-direction: row;
+  margin-left: 10px;
 }
 .posthaven-share-links .posthaven-share-item {
   display: inline-block;
