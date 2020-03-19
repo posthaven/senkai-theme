@@ -855,6 +855,12 @@ body.menu-active .overlay {
   width: 100%;
   z-index: 1;
 }
+@media (max-width: 768px) {
+  .navigation {
+    background: #fff;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+  }
+}
 @media (min-width: 1200px) {
   .navigation {
     padding: 20px 30px;
@@ -885,12 +891,12 @@ body.menu-active .overlay {
 }
 @media (min-width: 769px) {
   .header {
-    padding: 100px 0;
+    padding: 100px 10px;
   }
 }
 @media (max-width: 768px) {
   .header {
-    padding: 100px 10px;
+    padding: 150px 30px 100px;
   }
 }
 .header h1 {
@@ -1079,14 +1085,24 @@ aside.sidebar {
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   height: 100vh;
-  left: -330px;
   overflow: auto;
   padding: 25px 50px;
   position: fixed;
   top: 0;
   transition: left 0.5s ease-in-out;
-  width: 330px;
   z-index: 10;
+}
+@media (max-width: 768px) {
+  aside.sidebar {
+    left: calc(-100% - 25px);
+    width: calc(100% - 25px);
+  }
+}
+@media (min-width: 769px) {
+  aside.sidebar {
+    left: -350px;
+    width: 330px;
+  }
 }
 aside.sidebar nav.menu,
 aside.sidebar section {

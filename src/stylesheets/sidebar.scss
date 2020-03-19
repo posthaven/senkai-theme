@@ -7,14 +7,22 @@ aside.sidebar {
   box-sizing: border-box;
   font-family: $accentFont;
   height: 100vh;
-  left: -330px;
   overflow: auto;
   padding: 25px 50px;
   position: fixed;
   top: 0;
   transition: left 0.5s ease-in-out;
-  width: 330px;
   z-index: 10;
+
+  @media (max-width: 768px) {
+    left: calc(-100% - 25px);
+    width: calc(100% - 25px);
+  }
+
+  @media (min-width: 769px) {
+    left: -350px;
+    width: 330px;
+  }
 
   nav.menu,
   section {
