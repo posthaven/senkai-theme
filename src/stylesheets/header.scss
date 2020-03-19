@@ -31,11 +31,15 @@ body.menu-active .overlay {
 *********************************************************/
 .navigation {
   align-items: center;
+  box-sizing: border-box;
   display: flex;
   justify-content: space-between;
+  position: fixed;
+  width: 100%;
+  z-index: 1;
 
   @media (min-width: 1200px) {
-    padding: 20px 0;
+    padding: 20px 30px;
   }
 
   @media (min-width: 769px) and (max-width: 1199px) {
@@ -48,93 +52,13 @@ body.menu-active .overlay {
 
   .menu-trigger {
     @extend .button;
-    position: fixed;
   }
 }
 
-.posthaven-user-menu {
-  position: fixed !important;
-  right: 15px;
-  top: 10px;
+#header_parent .container {
+  padding: 0;
 }
 
-// the follow applies only to mobile menu
-.side-navigation {
-  background: #fff;
-  box-shadow: 0 0px 30px rgba(0,0,0,.15);
-  box-sizing: border-box;
-  font-family: $accentFont;
-  height: 100vh;
-  left: -330px;
-  overflow: auto;
-  padding: 25px 50px;
-  position: fixed;
-  top: 0;
-  transition: left 0.5s ease-in-out;
-  width: 330px;
-  z-index: 10;
-
-  nav.menu,
-  section {
-    margin: 0 0 40px;
-  }
-
-  ul {
-    margin: 0;
-    padding: 0;
-  }
-
-  h3 {
-    color: rgba(0, 0, 0, 0.5);
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 28px;
-    margin: 0;
-  }
-
-  .more_links {
-    font-size: 14px;
-    font-family: $accentFont;
-    line-height: 28px;
-    color: #ec9405;
-  }
-}
-
-body.menu-active .side-navigation {
-  z-index: 99;
-  left: 0;
-}
-
-@keyframes activateMenu {
-    0% {
-      z-index: -1;
-    }
-
-    100% {
-      z-index: 1;
-    }   
-}
-
-section.menu,
-.navigation nav.menu {
-
-  ul {
-    display: flex;
-    margin: 0;
-    padding: 0;
-  }
-}
-
-section.menu,
-.side-navigation {
-  ul li{
-    color: rgba($primary, 0.9);
-    font-size: 14px;
-    font-weight: 500;
-    line-height: 28px;
-    list-style: none;
-  }
-}
 /*********************************************************
 *  Topbar and Header
 *********************************************************/
@@ -350,6 +274,7 @@ section.menu,
 
 .ph-canvas {
   background: rgba($primary, 0.5);
+  display: none;
   height: 100vh;
   left: 0;
   opacity: 0;
@@ -357,18 +282,11 @@ section.menu,
   top: 0;
   transition: background .25s ease;
   width: 100%;
-  z-index: -1;
 
   &.active {
     background: rgba(255,255,255,.5);
     display: block;
     opacity: 1;
-    z-index: 2;
   }
-}
-
-body.menu-active .ph-canvas{
-  opacity: 1;
-  z-index: 11;
 }
 

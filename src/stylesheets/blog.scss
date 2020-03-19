@@ -3,6 +3,7 @@
 @import 'mixins';
 @import 'variables';
 @import 'header';
+@import 'sidebar';
 @import 'post';
 @import 'footer';
 @import 'social';
@@ -261,7 +262,7 @@ section.subhead {
 }
 
 .main-content,
-.subscribe-footer {
+.subscribe {
   box-sizing: border-box;
 }
 
@@ -269,7 +270,7 @@ section.subhead {
 *  Subscribe Form
 *********************************************************/
 
-.subscribe-footer {
+.subscribe {
 
   h3 {
     margin-bottom: 0px;

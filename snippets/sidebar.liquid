@@ -1,4 +1,4 @@
-<aside class="side-navigation">
+<aside class="sidebar">
   <section class="search-form">
     <form action="/archive" class="posthaven-archive-form">
       <input name="query" placeholder="Search..." type="text">
@@ -21,13 +21,8 @@
 
   {% include 'blogroll' %}
 
-  <!-- @todo -->
   {% if site.subscription_enabled? %}
-    <section class="subscribe-footer">
-      <div class="subscribe-wrapper show-button-on-keyup ignore-anon">
-        {% form 'subscribe' include_prompt:false, show_instructions:true %}
-      </div>
-    </section>
+    {% include 'subscribe' %}
   {% endif %}
 
   <section class="all-tags">
@@ -53,7 +48,7 @@
     <a class="more_links" href="{{ site.archive_url }}">Browse archive</a>
   </section>
 
-    {% include 'contributors_section' %}
+    {% include 'contributors' %}
     {% include 'bio' %}
     {% include 'social' %}
 </aside>

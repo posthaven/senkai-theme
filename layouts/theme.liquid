@@ -74,26 +74,36 @@
     </div>
 
     {{ posthaven.includes_for_body }}
-    {% include "nav_menu" %}
+    {% include "sidebar" %}
     <div id="svg-icons" style="display:none;"></div>
 
     <script type="text/javascript">
 
       Posthaven.$(document).ready(function () {
+        // when clicking nav menu (to open)
         Posthaven.$(".menu-trigger").click(function(){
-          Posthaven.$("body").addClass("menu-active");
+          Posthaven.$("body").toggleClass("menu-active");
+          Posthaven.$(".ph-canvas").toggleClass("active");
+          Posthaven.$(".ph-menu").addClass("open");
         });
 
+        // when clicking posthaven icon
         Posthaven.$(".ph-trigger").click(function(){
-          Posthaven.$(".ph-menu").toggle(500,"ease");
-          Posthaven.$(".ph-trigger").toggleClass("active");
-          Posthaven.$(".ph-canvas").toggleClass("active");
-        });
-        Posthaven.$(".ph-canvas").click(function(){
-          Posthaven.$("body").removeClass("menu-active");
           Posthaven.$(".ph-menu").toggle(500,"easeOutQuint");
           Posthaven.$(".ph-trigger").toggleClass("active");
           Posthaven.$(".ph-canvas").toggleClass("active");
+        });
+
+        // when clicking the background canvas, which should close both
+        // menu and ph button
+        Posthaven.$(".ph-canvas").click(function(){
+          if(Posthaven.$(".ph-trigger").hasClass('active')) {
+            Posthaven.$(".ph-trigger").removeClass("active");
+            Posthaven.$(".ph-menu").toggle(500,"easeOutQuint");
+            Posthaven.$(".ph-menu").removeClass("open");
+          }
+          Posthaven.$(".ph-canvas").removeClass("active");
+          Posthaven.$("body").removeClass("menu-active");
         });
         Posthaven.$.get( "{{ 'images/icons.svg' | asset_url }}", function( icons ) {
           Posthaven.$( "#svg-icons" ).html( icons.getElementsByTagName("svg")[0] );

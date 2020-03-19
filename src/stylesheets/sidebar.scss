@@ -1,0 +1,83 @@
+@import 'mixins';
+@import 'variables';
+
+aside.sidebar {
+  background: #fff;
+  box-shadow: 0 0px 30px rgba(0,0,0,.15);
+  box-sizing: border-box;
+  font-family: $accentFont;
+  height: 100vh;
+  left: -330px;
+  overflow: auto;
+  padding: 25px 50px;
+  position: fixed;
+  top: 0;
+  transition: left 0.5s ease-in-out;
+  width: 330px;
+  z-index: 10;
+
+  nav.menu,
+  section {
+    margin: 0 0 40px;
+  }
+
+  ul {
+    margin: 0;
+    padding: 0;
+  }
+
+  h3 {
+    color: rgba(0, 0, 0, 0.5);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 28px;
+    margin: 0;
+  }
+
+  .more_links {
+    font-size: 14px;
+    font-family: $accentFont;
+    line-height: 28px;
+    color: #ec9405;
+  }
+
+  .subscribe {
+    font-size: 14px;
+  }
+}
+
+body.menu-active .sidebar {
+  z-index: 99;
+  left: 0;
+}
+
+@keyframes activateMenu {
+    0% {
+      z-index: -1;
+    }
+
+    100% {
+      z-index: 1;
+    }   
+}
+
+section.menu,
+.navigation nav.menu {
+
+  ul {
+    display: flex;
+    margin: 0;
+    padding: 0;
+  }
+}
+
+section.menu,
+.sidebar {
+  ul li{
+    color: rgba($primary, 0.9);
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 28px;
+    list-style: none;
+  }
+}
