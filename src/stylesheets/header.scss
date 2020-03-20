@@ -2,8 +2,6 @@
 @import 'variables';
 
 body.menu-active {
-  overflow-y: scroll;
-  position: fixed; // preserves space for scrollbar when it always appears (like when you have a mouse with scroll wheel plugged in: http://cory.la/o4DycB)
   width: 100%;
 }
 
@@ -38,22 +36,23 @@ body.menu-active .overlay {
   justify-content: space-between;
   position: fixed;
   width: 100%;
-  z-index: 1;
+  z-index: 2;
 
-  @media (max-width: 768px) {
+  @media (max-width: 860px) {
     background: #fff;
     box-shadow: 0 0 30px rgba(0,0,0,.15);
+    top: 0;
   }
 
   @media (min-width: 1200px) {
     padding: 20px 30px;
   }
 
-  @media (min-width: 769px) and (max-width: 1199px) {
+  @media (min-width: 861px) and (max-width: 1199px) {
     padding: 10px 20px;
   }
 
-  @media (max-width: 768px) {
+  @media (max-width: 860px) {
     padding: 10px;
   }
 
@@ -75,11 +74,11 @@ body.menu-active .overlay {
   max-width: $postWidth;
   text-align: left;
 
-  @media (min-width: 769px) {
-    padding: 100px 10px;
+  @media (min-width: 861px) {
+    padding: 100px 15px;
   }
-  @media (max-width: 768px) {
-    padding: 150px 30px 100px;
+  @media (max-width: 860px) {
+    padding: 150px 35px 100px;
   }
   margin: auto;
 
@@ -107,13 +106,12 @@ body.menu-active .overlay {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: 20px 0;
+    padding-top: 20px;
+    padding-bottom: 20px;
     position: relative;
     top: 10px;
+    z-index: 1;
 
-    @media (max-width: 768px) {
-      text-align: center;
-    }
     h1{
       font-size: 20px;
     }

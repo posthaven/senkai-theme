@@ -58,18 +58,16 @@
       </div>
 
       <div class="container">
-        <div id="main_container">
-          {% if subhead_content %}
-            <section class="subhead">
-              {{ subhead_content }}
-            </section>
-          {% endif %}
+        {% if subhead_content %}
+          <section class="subhead">
+            {{ subhead_content }}
+          </section>
+        {% endif %}
 
-          <div class="main-content">
-            {{ content_for_layout }}
-          </div>
-          {% include "footer" %}
+        <div class="main-content">
+          {{ content_for_layout }}
         </div>
+        {% include "footer" %}
       </div>
     </div>
 

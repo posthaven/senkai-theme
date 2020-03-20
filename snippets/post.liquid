@@ -1,7 +1,13 @@
 {% if post %}
 
-  <header>
-
+  <header
+    {% if request.template == 'post' %}
+      {% if post.post_image %}
+        class="has-image" 
+        style="background-image: url({{ post.post_image.large.url }})"
+      {% endif %}
+    {% endif %}
+  >
     <div class="post-title">
       <a href="{{ post.url }}">
         <span class="date">{{ post.published_at | local_date: "%B %e, %Y" }}</span>
@@ -17,6 +23,13 @@
 
         <a href="{{ post.url }}">{{ post.title }}</a>
       </h2>
+
+      {% comment %} on list page, show thumbnail image if it exists. we switch to flexbox for this. {% endcomment %}
+      {% if post.post_image %}
+        {% if request.template != 'post' %}
+          <figure style="background-image: url({{ post.post_image.thumb.url }})"></figure>
+        {% endif %}
+      {% endif %}
     </div>
   </header>
 

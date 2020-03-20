@@ -64,18 +64,147 @@ aside {
 }
 
 .post {
+  font-size: $bodyFontSize;
   margin: 0 auto;
   max-width: 100%;
-  width: $postWidth;
-  font-size: $bodyFontSize;
+
+  @media (min-width: 861px) {
+    width: calc(100% - 280px); // so full-width post images can pass "between" the menu and posthaven button
+  }
+
+  @media (max-width: 860px) {
+    width: calc(100% - 70px); // images are full width on mobile
+  }
+
+  header {
+
+    .post-title {
+      line-height: 1em;
+      margin: 0 auto;
+      max-width: 100%;
+      width: $postWidth;
+
+      a {
+        color: rgba(#fff, 0.3);
+
+        span.date {
+          font-family: $accentFont;
+          font-size: 15px;
+
+        }
+      }
+
+      h2 {
+        font-size: 48px;
+        line-height: 1em;
+
+        a {
+          color: #fff;
+        }
+      }
+
+      // thumbnail on post list page
+      figure {
+        background-position: center;
+        background-size: cover;
+        border-radius: 10px;
+        box-shadow: 0 10px 25px rgba(0,0,0,.15);
+        height: 150px;
+        width: 200px;
+      }
+    }
+
+    &.has-image {
+      align-items: flex-end;
+      background-size: cover;
+      background-position: center;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,.15);
+      display: flex;
+      @media (min-width: 513px) {
+        min-height: 50vh;
+      }
+      @media (max-width: 512px) {
+        min-height: 30vh;
+      }
+      margin: 50px -20px 50px;
+      overflow: hidden;
+      padding-bottom: 30px;
+      position: relative;
+
+      &:after {
+        background: linear-gradient(0deg, black 0%, rgba(0,0,0,.5) 35%, transparent 100%);
+        bottom: 0;
+        content: "";
+        height: 25vh;
+        left: 0;
+        opacity: .5;
+        position: absolute;
+        right: 0;
+      }
+
+      .post-title {
+        position: relative;
+        z-index: 1;
+
+        @media (max-width: 872px) {
+          margin: 0 20px;
+        }
+
+        @media (min-width: 873px) {
+          margin: 0 auto;
+        }
+
+        a {
+          text-shadow: 0 2px 5px rgba(0,0,0,.25);
+
+          .date {
+            color: rgba(255,255,255,.6);
+            font-weight: bold;
+          }
+        }
+
+        h2 {
+          margin: 20px 0 0;
+        }
+
+        figure {
+
+        }
+      }
+    }
+
+    &:not(.has-image) {
+      margin-top: 100px;
+
+      .post-title {
+        margin: 20px auto;
+
+        a {
+          .date {
+            color: rgba($primary, 0.75);
+          }
+        }
+
+        h2 {
+          margin: 40px 0 0;
+          
+          a {
+            color: $primary;
+          }
+        }
+      }
+    }
+  }
 
   .posthaven-post-body {
-    margin-top: 25px;
-    font-size: 20px;
-    line-height: 28px;
     color: rgba($primary, 0.8);
     font-family: $defaultFont;
-
+    font-size: 20px;
+    line-height: 28px;
+    margin: 25px auto 0;
+    max-width: 100%;
+    width: $postWidth;
     @include selection($primary);
   
   p {
@@ -245,32 +374,16 @@ aside {
     }
   }
 
-  span.date{
-    color: rgba($primary, 0.5);
-    font-size: 15px;
-    font-family: $accentFont;
-  }
-
-  .post-title {
-    margin: 20px auto 20px;
-    text-align: left;
-    font-family: $defaultFont;
-
-    h2 {
-      font-size: 48px;
-      line-height: 1em;
-      margin-top: 15px;
-      margin-bottom: 15px;
-
-      a {
-        color: $primary;
-      }
-    }
+  footer {
+    margin: 0 auto;
+    max-width: 100%;
+    width: $postWidth;
   }
 
   .homepage-post-footer {
     display: flex;
-    margin: 30px 0;
+    margin-top: 30px;
+    margin-bottom: 30px;
 
     .tags {
       margin: 10px 0;
@@ -288,9 +401,9 @@ aside {
   table p:first-child { margin-top: 0px;}
   table p:last-child { margin-bottom: 0px;}
 }
-.post-template,
+
 .page-template{
-  .post .post-title{
+  .post .post-title {
     margin-top: 60px;
 
     h2{
