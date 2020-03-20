@@ -2,7 +2,9 @@
 @import 'variables';
 
 body.menu-active {
-  overflow: hidden;
+  overflow-y: scroll;
+  position: fixed; // preserves space for scrollbar when it always appears (like when you have a mouse with scroll wheel plugged in: http://cory.la/o4DycB)
+  width: 100%;
 }
 
 #site-container {
