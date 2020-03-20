@@ -84,36 +84,38 @@ body.menu-active .overlay {
 
   h1 {
     font-size: 36px;
-    margin: 0 0 5px;
+    margin: 0; // also affects site header
     word-wrap: break-word;
 
     &:hover {
       text-decoration: none;
     }
   }
+
   h5 {
-    margin: 0px;
+    margin: 5px 0 0;
     word-wrap: break-word;
   }
 
 }
 
 .post-template,
-.page-template{
+.page-template {
 
-  .header{
+  // smaller headline-style for blog posts and pages
+  .header {
     align-items: flex-start;
     display: flex;
     flex-direction: column;
+    height: 65px;
     justify-content: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
+    padding: 0;
     position: relative;
-    top: 10px;
-    z-index: 1;
+    z-index: 2;
 
     h1{
       font-size: 20px;
+      padding-top: 4px;
     }
 
     h5{

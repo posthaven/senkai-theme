@@ -902,14 +902,14 @@ body.menu-active .overlay {
 }
 .header h1 {
   font-size: 36px;
-  margin: 0 0 5px;
+  margin: 0;
   word-wrap: break-word;
 }
 .header h1:hover {
   text-decoration: none;
 }
 .header h5 {
-  margin: 0px;
+  margin: 5px 0 0;
   word-wrap: break-word;
 }
 
@@ -918,16 +918,16 @@ body.menu-active .overlay {
   align-items: flex-start;
   display: flex;
   flex-direction: column;
+  height: 65px;
   justify-content: center;
-  padding-top: 20px;
-  padding-bottom: 20px;
+  padding: 0;
   position: relative;
-  top: 10px;
-  z-index: 1;
+  z-index: 2;
 }
 .post-template .header h1,
 .page-template .header h1 {
   font-size: 20px;
+  padding-top: 4px;
 }
 .post-template .header h5,
 .page-template .header h5 {
