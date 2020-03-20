@@ -468,10 +468,14 @@ section.subhead {
   }
 }
 
+.comment-count {
+  margin-right: 10px;
+}
+
 .posthaven-share-links {
   display: flex;
   flex-direction: row;
-  margin-left: 10px;
+  margin-right: 10px;
 
   .posthaven-share-item {
     display: inline-block;
