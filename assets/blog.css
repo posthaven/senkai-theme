@@ -1155,6 +1155,15 @@ section.menu ul li,
   list-style: none;
 }
 
+.post-image, .post-list figure, .post header.has-image {
+  background-position: center;
+  background-size: cover;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  display: flex;
+  overflow: hidden;
+}
+
 aside section {
   margin-bottom: 10px;
 }
@@ -1184,6 +1193,12 @@ aside ul li {
   list-style: none;
 }
 
+.post-list figure {
+  height: 400px;
+  margin: 0 auto;
+  max-width: 100%;
+  width: 600px;
+}
 .post-list .post {
   margin: 0 auto 125px;
 }
@@ -1240,23 +1255,9 @@ aside ul li {
 .post header .post-title h2 a {
   color: #fff;
 }
-.post header .post-title figure {
-  background-position: center;
-  background-size: cover;
-  border-radius: 10px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  height: 150px;
-  width: 200px;
-}
 .post header.has-image {
   align-items: flex-end;
-  background-size: cover;
-  background-position: center;
-  border-radius: 15px;
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  display: flex;
   margin: 50px -20px 50px;
-  overflow: hidden;
   padding-bottom: 30px;
   position: relative;
 }

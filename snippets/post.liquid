@@ -23,17 +23,17 @@
 
         <a href="{{ post.url }}">{{ post.title }}</a>
       </h2>
-
-      {% comment %} on list page, show thumbnail image if it exists. we switch to flexbox for this. {% endcomment %}
-      {% if post.post_image %}
-        {% if request.template != 'post' %}
-          <figure style="background-image: url({{ post.post_image.thumb.url }})"></figure>
-        {% endif %}
-      {% endif %}
     </div>
   </header>
 
+  {% if post.post_image %}
+    {% if request.template != 'post' %}
+      <figure style="background-image: url({{ post.post_image.medium.url }})"></figure>
+    {% endif %}
+  {% endif %}
+
   <div class="post-body" id="post_body_{{ post.id }}">
+
     {% if post.url.current_page? %}
       {{ post.body_large_image }}
     {% else %}
