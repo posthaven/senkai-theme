@@ -200,6 +200,10 @@ aside {
     }
   }
 
+  .post-body {
+    @include selection($primary); // adding outside of posthaven-post-body allows selection color modification for text not wrapped in <p> tags
+  }
+
   .posthaven-post-body {
     color: rgba($primary, 0.8);
     font-family: $defaultFont;
@@ -208,7 +212,6 @@ aside {
     margin: 25px auto 0;
     max-width: 100%;
     width: $postWidth;
-    @include selection($primary);
   
   p {
     line-height: 1.75em;

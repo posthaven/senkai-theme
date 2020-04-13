@@ -1060,20 +1060,20 @@ body.menu-active .overlay {
 }
 
 .ph-canvas {
-  background: rgba(0, 0, 0, 0.5);
-  display: none;
+  background: rgba(255, 255, 255, 0);
   height: 100vh;
   left: 0;
   opacity: 0;
   position: fixed;
   top: 0;
-  transition: background .25s ease;
+  transition: all .25s ease;
   width: 100%;
+  z-index: -1;
 }
 .ph-canvas.active {
-  background: rgba(255, 255, 255, 0.5);
-  display: block;
+  background: rgba(255, 255, 255, 0.75);
   opacity: 1;
+  z-index: 1;
 }
 
 aside.sidebar {
@@ -1086,7 +1086,7 @@ aside.sidebar {
   padding: 25px 50px;
   position: fixed;
   top: 0;
-  transition: left 0.5s ease-in-out;
+  transition: left 0.5s ease;
   z-index: 10;
 }
 @media (max-width: 860px) {
@@ -1320,6 +1320,14 @@ aside ul li {
 .post header:not(.has-image) .post-title h2 a {
   color: #000;
 }
+.post .post-body *::-moz-selection {
+  background: #000;
+  color: white;
+}
+.post .post-body *::selection {
+  background: #000;
+  color: white;
+}
 .post .posthaven-post-body {
   color: rgba(0, 0, 0, 0.8);
   font-family: "garamond-premier-pro", serif;
@@ -1329,14 +1337,6 @@ aside ul li {
   max-width: 100%;
   width: 600px;
   /* IE8 css bug */
-}
-.post .posthaven-post-body *::-moz-selection {
-  background: #000;
-  color: white;
-}
-.post .posthaven-post-body *::selection {
-  background: #000;
-  color: white;
 }
 .post .posthaven-post-body p {
   line-height: 1.75em;

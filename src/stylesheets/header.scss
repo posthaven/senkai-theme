@@ -280,20 +280,21 @@ body.menu-active .overlay {
 }
 
 .ph-canvas {
-  background: rgba($primary, 0.5);
-  display: none;
+  // background: rgba($primary, 0.5);
+  background: rgba(255,255,255,0);
   height: 100vh;
   left: 0;
   opacity: 0;
   position: fixed;
   top: 0;
-  transition: background .25s ease;
+  transition: all .25s ease;
   width: 100%;
+  z-index: -1;
 
   &.active {
-    background: rgba(255,255,255,.5);
-    display: block;
+    background: rgba(255,255,255,.75);
     opacity: 1;
+    z-index: 1;
   }
 }
 
