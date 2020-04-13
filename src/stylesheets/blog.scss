@@ -27,7 +27,7 @@ body {
   }
 
   @media (max-width: 860px) {
-    padding-top: 100px; // leave room for fixed header bar
+    padding-top: 85px; // leave room for fixed header bar
   }
 }
 
@@ -142,13 +142,6 @@ input[type='submit'],
 
   @media (min-width: 1200px) {
     padding: 0 30px;
-  }
-}
-.post-template,
-.page-template{
-  #header_parent .container{
-    position: absolute;
-    width: 100%;
   }
 }
 
@@ -334,6 +327,10 @@ section.subhead {
   margin: auto;
   max-width: $postWidth;
   text-align: center;
+
+  @media (max-width: 860px) {
+    padding: 0 35px;
+  }
 
   ul {
     align-items: baseline;

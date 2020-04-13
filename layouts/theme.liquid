@@ -25,39 +25,23 @@
 
   <body id="site_{{ site.id }}" class="{{ request.template }}-template">
     <div id="site-container">
-      <div id="header_parent">
-        <div class="container">
-          <div class="navigation">
-            <section class="menu">
-              <div class="menu-trigger button">☰ Menu</div>
-            </section>
-            {{ posthaven.user_menu_v2 }}
-          </div>
-        </div>
 
-          <div id="flash">
-            {% for alert in posthaven.alerts %}
-              <div class="alert alert-{{ alert.type }}">
-                {{ alert.message }}
-              </div>
-            {% endfor %}
-          </div>
+        <header class="header">
+          <h1>
+            <a href="{{ site.url }}">{% if site.name != "" %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}</a>
+          </h1>
 
-          {% unless hide_header %}
-            <header class="header">
-              <h1>
-                <a href="{{ site.url }}">{% if site.name != "" %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}</a>
-              </h1>
+          {% if site.description %}
+            <h5>{{ site.description | smarty_pants }}</h5>
+          {% endif %}
 
-              {% if site.description %}
-                <h5>{{ site.description | smarty_pants }}</h5>
-              {% endif %}
+          <section class="menu">
+            <div class="menu-trigger button">☰ Menu</div>
+          </section>
+          {{ posthaven.user_menu_v2 }}
 
-            </header>
-          {% endunless %}
-      </div>
+        </header>
 
-      <div class="container">
         {% if subhead_content %}
           <section class="subhead">
             {{ subhead_content }}
@@ -68,6 +52,13 @@
           {{ content_for_layout }}
         </div>
         {% include "footer" %}
+
+      <div id="flash">
+        {% for alert in posthaven.alerts %}
+          <div class="alert alert-{{ alert.type }}">
+            {{ alert.message }}
+          </div>
+        {% endfor %}
       </div>
     </div>
 

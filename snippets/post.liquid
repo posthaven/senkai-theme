@@ -28,7 +28,7 @@
 
   {% if post.post_image %}
     {% if request.template != 'post' %}
-      <figure style="background-image: url({{ post.post_image.medium.url }})"></figure>
+      <a href="{{ post.url }}"><figure style="background-image: url({{ post.post_image.medium.url }})"></figure></a>
     {% endif %}
   {% endif %}
 

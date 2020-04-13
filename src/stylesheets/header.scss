@@ -26,256 +26,261 @@ body.menu-active .overlay {
   z-index: 2;
 }
 
+@media (min-width: 861px) {
+  .post-template,
+  .page-template {
+    // smaller headline-style for blog posts and pages
+    // and shared with all mobile views
+    header.header {
+      display: flex;
+      flex-direction: column;
+      padding: 20px 0 0;
+      position: relative;
+
+      h1 {
+        font-size: 20px;
+        line-height: 1.25em;
+        padding-top: 4px;
+      }
+
+      h5 {
+        font-size: 18px;
+        line-height: 1.5em;
+      }
+    }
+  }
+}
+
 /*********************************************************
 *  Navigation
 *********************************************************/
-.navigation {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  width: 100%;
-  z-index: 2;
-
+header.header {
   @media (max-width: 860px) {
+    align-items: center;
     background: #fff;
     box-shadow: 0 0 30px rgba(0,0,0,.15);
-    top: 0;
-  }
-
-  @media (min-width: 1200px) {
-    padding: 20px 30px;
-  }
-
-  @media (min-width: 861px) and (max-width: 1199px) {
-    padding: 10px 20px;
-  }
-
-  @media (max-width: 860px) {
+    display: flex;
+    justify-content: center;
+    min-height: 60px;
     padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
+
+    h1 {
+      font-size: 20px;
+      padding-top: 4px;
+    }
   }
-
-  .menu-trigger {
-    @extend .button;
-  }
-}
-
-#header_parent .container {
-  padding: 0;
-}
-
-/*********************************************************
-*  Topbar and Header
-*********************************************************/
-
-
-.header {
-  max-width: $postWidth;
-  text-align: left;
 
   @media (min-width: 861px) {
-    padding: 100px 15px;
-  }
-  @media (max-width: 860px) {
-    padding: 150px 35px 100px;
-  }
-  margin: auto;
+    margin: auto;
+    max-width: $postWidth;
+    text-align: left;
 
-  h1 {
-    font-size: 36px;
-    margin: 0; // also affects site header
-    word-wrap: break-word;
+    h1 {
+      font-size: 36px;
+      margin: 0; // also affects site header
+      word-wrap: break-word;
 
-    &:hover {
-      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
     }
+  }
+
+  @media (min-width: 861px) {
+    padding: 120px 30px;
   }
 
   h5 {
     margin: 5px 0 0;
     word-wrap: break-word;
-  }
 
-}
-
-.post-template,
-.page-template {
-
-  // smaller headline-style for blog posts and pages
-  .header {
-    align-items: flex-start;
-    display: flex;
-    flex-direction: column;
-    height: 65px;
-    justify-content: center;
-    padding: 0;
-    position: relative;
-    z-index: 2;
-
-    h1{
-      font-size: 20px;
-      padding-top: 4px;
-    }
-
-    h5{
-      font-size: 18px;
+    @media (max-width: 860px) {
+      display: none;
     }
   }
-}
 
-.posthaven-user-menu {
-  flex: 0 auto;
-  position: relative;
+  .menu {
+    display: inline-flex;
+    left: 20px;
+    position: fixed;
+    top: 20px;
+  }
 
-  // icon/trigger (using .ph-trigger in js)
-  figure {
-    background: white;
-    border-radius: 40px;
-    border: solid 2px rgba(128,128,128,.3);
-    box-sizing: border-box;
-    cursor: pointer;
-    display: block;
-    font-size: 0px;
-    height: 40px;
-    padding: 2px;
-    position: relative;
-    transition: all .25s ease;
-    width: 40px;
-    z-index: 10;
+  .menu-trigger {
+    @extend .button;
+  }
 
-    // when menu has been clicked and "active" is on figure.ph-trigger
-    &.active {
-      // should mostly match hover state below
-      border: solid 2px rgba(128,128,128,.5);
-      box-shadow: 0 0 20px rgba(0,0,0,.15);
+  .posthaven-user-menu {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+
+    // icon/trigger (using .ph-trigger in js)
+    figure {
+      background: white;
+      border-radius: 40px;
+      border: solid 2px rgba(128,128,128,.3);
+      box-sizing: border-box;
+      cursor: pointer;
+      display: block;
+      font-size: 0px;
+      height: 40px;
+      padding: 2px;
+      position: relative;
+      transition: all .25s ease;
+      width: 40px;
+      z-index: 10;
+
+      // when menu has been clicked and "active" is on figure.ph-trigger
+      &.active {
+        // should mostly match hover state below
+        border: solid 2px rgba(128,128,128,.5);
+        box-shadow: 0 0 20px rgba(0,0,0,.15);
+
+        span {
+          // turns hamburger menu into an X to close menu
+          i {
+            opacity: 1;
+
+            &:before {
+              top: 2px;
+              transform: rotate(-45deg);
+            }
+            &:after {
+              bottom: 1px;
+              transform: rotate(45deg);
+            }
+          }
+        }
+      }
+
+      &:hover {
+        border: solid 2px rgba(128,128,128,.5);
+        box-shadow: 0 0 20px rgba(0,0,0,.15);
+
+        span {
+          i {
+            opacity: 1;
+          }
+
+          &:after {
+            top: calc(50% - 8px);
+          }
+        }
+      }
 
       span {
-        // turns hamburger menu into an X to close menu
+        align-items: center;
+        background: #3F3F3F;
+        border: none;
+        border-radius: 32px;
+        display: flex;
+        height: 32px;
+        justify-content: center;
+        overflow: hidden;
+        position: relative;
+        width: 32px;
+
+        // hamburger menu on hover
         i {
-          opacity: 1;
+          display: inline-block;
+          height: 6px;
+          left: 1px;
+          opacity: 0;
+          position: relative;
+          transition: opacity .25s ease;
+          width: 16px;
+
+          &:before,
+          &:after {
+            background: #fff;
+            border-radius: 3px;
+            content: "";
+            height: 3px;
+            position: absolute;
+            transition: all .25s ease;
+            width: 16px;
+          }
 
           &:before {
-            top: 2px;
-            transform: rotate(-45deg);
+            top: -2px;
           }
+
           &:after {
-            bottom: 1px;
-            transform: rotate(45deg);
+            bottom: -2px;
           }
         }
-      }
-    }
 
-    &:hover {
-      border: solid 2px rgba(128,128,128,.5);
-      box-shadow: 0 0 20px rgba(0,0,0,.15);
-
-      span {
-        i {
-          opacity: 1;
-        }
-
-        &:after {
-          top: calc(50% - 8px);
-        }
-      }
-    }
-
-    span {
-      align-items: center;
-      background: #3F3F3F;
-      border: none;
-      border-radius: 32px;
-      display: flex;
-      height: 32px;
-      justify-content: center;
-      overflow: hidden;
-      position: relative;
-      width: 32px;
-
-      // hamburger menu on hover
-      i {
-        display: inline-block;
-        height: 6px;
-        left: 1px;
-        opacity: 0;
-        position: relative;
-        transition: opacity .25s ease;
-        width: 16px;
-
-        &:before,
-        &:after {
-          background: #fff;
-          border-radius: 3px;
-          content: "";
-          height: 3px;
-          position: absolute;
-          transition: all .25s ease;
-          width: 16px;
-        }
-
+        // blue rectangle in logomark
         &:before {
-          top: -2px;
-        }
-
-        &:after {
-          bottom: -2px;
+          background: #1285F9;
+          content: '';
+          display: block;
+          height: 32px;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 10px;
         }
       }
+    }
 
-      // blue rectangle in logomark
-      &:before {
-        background: #1285F9;
-        content: '';
-        display: block;
-        height: 32px;
-        position: absolute;
-        right: 0;
-        top: 0;
-        width: 10px;
+    .ph-menu {
+      border: solid 1px rgba($primary, .05);
+      border-radius: 4px;
+      box-shadow: 0 0 20px rgba(0,0,0,.15);
+      display: flex;
+      flex-direction: column;
+      position: absolute;
+      right: 17px;
+      top: 22px;
+      z-index: 9;
+
+      ul {
+        border-radius: 4px;
+        margin: 0;
+        overflow: hidden;
+        padding: 0;
+
+        li {
+          background: #fff;
+          list-style: none;
+
+          &:not(:first-child) {
+            border-top: solid 1px rgba($primary, .05);
+          }
+
+          a {
+            display: flex;
+            left: 0;
+            padding: 10px 20px;
+            position: relative;
+            transition: left .15s ease;
+            user-select: none;
+            white-space: nowrap;
+
+            &:hover {
+              left: 5px;
+            }
+          }
+        }
       }
     }
   }
+}
 
-  .ph-menu {
-    border: solid 1px rgba($primary, .05);
-    border-radius: 4px;
-    box-shadow: 0 0 20px rgba(0,0,0,.15);
-    display: flex;
-    flex-direction: column;
-    position: absolute;
-    right: 17px;
-    top: 22px;
-    z-index: 9;
+body:not(.menu-active) {
+  .posthaven-user-menu {
+    z-index: 10;
+  }
 
-    ul {
-      margin: 0;
-      padding: 0;
-
-      li {
-        background: #fff;
-        list-style: none;
-
-        &:not(:first-child) {
-          border-top: solid 1px rgba($primary, .05);
-        }
-
-        a {
-          display: flex;
-          left: 0;
-          padding: 10px 20px;
-          position: relative;
-          transition: left .15s ease;
-          user-select: none;
-          white-space: nowrap;
-
-          &:hover {
-            left: 5px;
-          }
-        }
-      }
-    }
+  .post-template .header,
+  .page-template .header {
+    z-index: 2;
   }
 }
 

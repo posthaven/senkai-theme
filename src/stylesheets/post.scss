@@ -63,6 +63,14 @@ aside {
   }
 }
 
+body.post-template {
+  .post {
+    header:not(.has-image) {
+      margin-top: 100px;
+    }
+  }
+}
+
 .private-indicator {
   align-items: center;
   background: $primary;
@@ -113,7 +121,12 @@ aside {
       }
 
       h2 {
-        font-size: 48px;
+        @media (max-width: 860px) {
+          font-size: 36px;
+        }
+        @media (min-width: 861px) {
+          font-size: 48px;
+        }
         line-height: 1em;
 
         a {
@@ -178,7 +191,6 @@ aside {
     }
 
     &:not(.has-image) {
-      margin-top: 100px;
 
       .post-title {
         margin: 20px auto;
@@ -190,7 +202,7 @@ aside {
         }
 
         h2 {
-          margin: 40px 0 0;
+          margin: 20px 0 0;
           
           a {
             color: $primary;
