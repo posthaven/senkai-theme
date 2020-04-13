@@ -719,7 +719,7 @@ table {
   border-radius: 4px;
 }
 
-.button, .navigation .menu-trigger, input[type='submit'],
+.button, header.header .menu-trigger, input[type='submit'],
 .posthaven-user-subscribe a,
 .posthaven-read-more-link a, .pagination ul li.first a, .pagination ul li.previous a, .pagination ul li.next a, .pagination ul li.last a {
   align-items: center;
@@ -737,7 +737,7 @@ table {
   text-transform: uppercase;
   user-select: none;
 }
-.button:hover, .navigation .menu-trigger:hover, input[type='submit']:hover,
+.button:hover, header.header .menu-trigger:hover, input[type='submit']:hover,
 .posthaven-user-subscribe a:hover,
 .posthaven-read-more-link a:hover, .pagination ul li.first a:hover, .pagination ul li.previous a:hover, .pagination ul li.next a:hover, .pagination ul li.last a:hover {
   border: solid 2px #000;
@@ -843,102 +843,89 @@ body.menu-active .overlay {
   z-index: 2;
 }
 
+@media (min-width: 861px) {
+  .post-template header.header,
+  .page-template header.header {
+    display: flex;
+    flex-direction: column;
+    padding: 20px 0 0;
+    position: relative;
+  }
+  .post-template header.header h1,
+  .page-template header.header h1 {
+    font-size: 20px;
+    line-height: 1.25em;
+    padding-top: 4px;
+  }
+  .post-template header.header h5,
+  .page-template header.header h5 {
+    font-size: 18px;
+    line-height: 1.5em;
+  }
+}
 /*********************************************************
 *  Navigation
 *********************************************************/
-.navigation {
-  align-items: center;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: space-between;
-  position: fixed;
-  width: 100%;
-  z-index: 2;
-}
 @media (max-width: 860px) {
-  .navigation {
+  header.header {
+    align-items: center;
     background: #fff;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
-    top: 0;
-  }
-}
-@media (min-width: 1200px) {
-  .navigation {
-    padding: 20px 30px;
-  }
-}
-@media (min-width: 861px) and (max-width: 1199px) {
-  .navigation {
-    padding: 10px 20px;
-  }
-}
-@media (max-width: 860px) {
-  .navigation {
+    display: flex;
+    justify-content: center;
+    min-height: 60px;
     padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 10;
   }
-}
-
-#header_parent .container {
-  padding: 0;
-}
-
-/*********************************************************
-*  Topbar and Header
-*********************************************************/
-.header {
-  max-width: 600px;
-  text-align: left;
-  margin: auto;
+  header.header h1 {
+    font-size: 20px;
+    padding-top: 4px;
+  }
 }
 @media (min-width: 861px) {
-  .header {
-    padding: 100px 15px;
+  header.header {
+    margin: auto;
+    max-width: 600px;
+    text-align: left;
+  }
+  header.header h1 {
+    font-size: 36px;
+    margin: 0;
+    word-wrap: break-word;
+  }
+  header.header h1:hover {
+    text-decoration: none;
   }
 }
-@media (max-width: 860px) {
-  .header {
-    padding: 150px 35px 100px;
+@media (min-width: 861px) {
+  header.header {
+    padding: 120px 30px;
   }
 }
-.header h1 {
-  font-size: 36px;
-  margin: 0;
-  word-wrap: break-word;
-}
-.header h1:hover {
-  text-decoration: none;
-}
-.header h5 {
+header.header h5 {
   margin: 5px 0 0;
   word-wrap: break-word;
 }
-
-.post-template .header,
-.page-template .header {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: column;
-  height: 65px;
-  justify-content: center;
-  padding: 0;
-  position: relative;
-  z-index: 2;
+@media (max-width: 860px) {
+  header.header h5 {
+    display: none;
+  }
 }
-.post-template .header h1,
-.page-template .header h1 {
-  font-size: 20px;
-  padding-top: 4px;
+header.header .menu {
+  display: inline-flex;
+  left: 20px;
+  position: fixed;
+  top: 20px;
 }
-.post-template .header h5,
-.page-template .header h5 {
-  font-size: 18px;
+header.header .posthaven-user-menu {
+  position: fixed;
+  right: 20px;
+  top: 20px;
 }
-
-.posthaven-user-menu {
-  flex: 0 auto;
-  position: relative;
-}
-.posthaven-user-menu figure {
+header.header .posthaven-user-menu figure {
   background: white;
   border-radius: 40px;
   border: solid 2px rgba(128, 128, 128, 0.3);
@@ -953,32 +940,32 @@ body.menu-active .overlay {
   width: 40px;
   z-index: 10;
 }
-.posthaven-user-menu figure.active {
+header.header .posthaven-user-menu figure.active {
   border: solid 2px rgba(128, 128, 128, 0.5);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
-.posthaven-user-menu figure.active span i {
+header.header .posthaven-user-menu figure.active span i {
   opacity: 1;
 }
-.posthaven-user-menu figure.active span i:before {
+header.header .posthaven-user-menu figure.active span i:before {
   top: 2px;
   transform: rotate(-45deg);
 }
-.posthaven-user-menu figure.active span i:after {
+header.header .posthaven-user-menu figure.active span i:after {
   bottom: 1px;
   transform: rotate(45deg);
 }
-.posthaven-user-menu figure:hover {
+header.header .posthaven-user-menu figure:hover {
   border: solid 2px rgba(128, 128, 128, 0.5);
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
-.posthaven-user-menu figure:hover span i {
+header.header .posthaven-user-menu figure:hover span i {
   opacity: 1;
 }
-.posthaven-user-menu figure:hover span:after {
+header.header .posthaven-user-menu figure:hover span:after {
   top: calc(50% - 8px);
 }
-.posthaven-user-menu figure span {
+header.header .posthaven-user-menu figure span {
   align-items: center;
   background: #3F3F3F;
   border: none;
@@ -990,7 +977,7 @@ body.menu-active .overlay {
   position: relative;
   width: 32px;
 }
-.posthaven-user-menu figure span i {
+header.header .posthaven-user-menu figure span i {
   display: inline-block;
   height: 6px;
   left: 1px;
@@ -999,7 +986,7 @@ body.menu-active .overlay {
   transition: opacity .25s ease;
   width: 16px;
 }
-.posthaven-user-menu figure span i:before, .posthaven-user-menu figure span i:after {
+header.header .posthaven-user-menu figure span i:before, header.header .posthaven-user-menu figure span i:after {
   background: #fff;
   border-radius: 3px;
   content: "";
@@ -1008,13 +995,13 @@ body.menu-active .overlay {
   transition: all .25s ease;
   width: 16px;
 }
-.posthaven-user-menu figure span i:before {
+header.header .posthaven-user-menu figure span i:before {
   top: -2px;
 }
-.posthaven-user-menu figure span i:after {
+header.header .posthaven-user-menu figure span i:after {
   bottom: -2px;
 }
-.posthaven-user-menu figure span:before {
+header.header .posthaven-user-menu figure span:before {
   background: #1285F9;
   content: '';
   display: block;
@@ -1024,7 +1011,7 @@ body.menu-active .overlay {
   top: 0;
   width: 10px;
 }
-.posthaven-user-menu .ph-menu {
+header.header .posthaven-user-menu .ph-menu {
   border: solid 1px rgba(0, 0, 0, 0.05);
   border-radius: 4px;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
@@ -1035,18 +1022,20 @@ body.menu-active .overlay {
   top: 22px;
   z-index: 9;
 }
-.posthaven-user-menu .ph-menu ul {
+header.header .posthaven-user-menu .ph-menu ul {
+  border-radius: 4px;
   margin: 0;
+  overflow: hidden;
   padding: 0;
 }
-.posthaven-user-menu .ph-menu ul li {
+header.header .posthaven-user-menu .ph-menu ul li {
   background: #fff;
   list-style: none;
 }
-.posthaven-user-menu .ph-menu ul li:not(:first-child) {
+header.header .posthaven-user-menu .ph-menu ul li:not(:first-child) {
   border-top: solid 1px rgba(0, 0, 0, 0.05);
 }
-.posthaven-user-menu .ph-menu ul li a {
+header.header .posthaven-user-menu .ph-menu ul li a {
   display: flex;
   left: 0;
   padding: 10px 20px;
@@ -1055,8 +1044,16 @@ body.menu-active .overlay {
   user-select: none;
   white-space: nowrap;
 }
-.posthaven-user-menu .ph-menu ul li a:hover {
+header.header .posthaven-user-menu .ph-menu ul li a:hover {
   left: 5px;
+}
+
+body:not(.menu-active) .posthaven-user-menu {
+  z-index: 10;
+}
+body:not(.menu-active) .post-template .header,
+body:not(.menu-active) .page-template .header {
+  z-index: 2;
 }
 
 .ph-canvas {
@@ -1078,7 +1075,7 @@ body.menu-active .overlay {
 
 aside.sidebar {
   background: #fff;
-  box-shadow: 0 0px 30px rgba(0, 0, 0, 0.15);
+  box-shadow: 0 0px 100px 25px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   height: 100vh;
@@ -1203,6 +1200,10 @@ aside ul li {
   margin: 0 auto 125px;
 }
 
+body.post-template .post header:not(.has-image) {
+  margin-top: 100px;
+}
+
 .private-indicator {
   align-items: center;
   background: #000;
@@ -1249,8 +1250,17 @@ aside ul li {
   font-size: 15px;
 }
 .post header .post-title h2 {
-  font-size: 48px;
   line-height: 1em;
+}
+@media (max-width: 860px) {
+  .post header .post-title h2 {
+    font-size: 36px;
+  }
+}
+@media (min-width: 861px) {
+  .post header .post-title h2 {
+    font-size: 48px;
+  }
 }
 .post header .post-title h2 a {
   color: #fff;
@@ -1305,9 +1315,6 @@ aside ul li {
 .post header.has-image .post-title h2 {
   margin: 20px 0 0;
 }
-.post header:not(.has-image) {
-  margin-top: 100px;
-}
 .post header:not(.has-image) .post-title {
   margin: 20px auto;
 }
@@ -1315,7 +1322,7 @@ aside ul li {
   color: rgba(0, 0, 0, 0.75);
 }
 .post header:not(.has-image) .post-title h2 {
-  margin: 40px 0 0;
+  margin: 20px 0 0;
 }
 .post header:not(.has-image) .post-title h2 a {
   color: #000;
@@ -1746,7 +1753,7 @@ body .overlay {
 }
 @media (max-width: 860px) {
   body {
-    padding-top: 100px;
+    padding-top: 85px;
   }
 }
 
@@ -1893,12 +1900,6 @@ input[type='submit'],
   .container {
     padding: 0 30px;
   }
-}
-
-.post-template #header_parent .container,
-.page-template #header_parent .container {
-  position: absolute;
-  width: 100%;
 }
 
 section.subhead {
@@ -2048,6 +2049,11 @@ section.subhead h3 {
   margin: auto;
   max-width: 600px;
   text-align: center;
+}
+@media (max-width: 860px) {
+  .pagination {
+    padding: 0 35px;
+  }
 }
 .pagination ul {
   align-items: baseline;
