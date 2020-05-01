@@ -1,6 +1,10 @@
 @import 'mixins';
 @import 'variables';
 
+.posthaven-file-download {
+  font-family: $accentFont;
+}
+
 .post-image {
   background-position: center;
   background-size: cover;
@@ -56,6 +60,10 @@ aside {
     margin: 0 auto;
     max-width: 100%;
     width: $postWidth;
+
+    @media (max-width: 414px) {
+      max-height: 40vh;
+    }
   }
 
   .post {
@@ -131,6 +139,10 @@ body.post-template {
 
         a {
           color: #fff;
+
+          .date {
+            font-weight: 500;
+          }
         }
       }
     }
@@ -197,7 +209,8 @@ body.post-template {
 
         a {
           .date {
-            color: rgba($primary, 0.75);
+            color: rgba($primary, 0.3);
+            font-weight: 500;
           }
         }
 
@@ -466,6 +479,7 @@ body.post-template {
     font-size: 15px;
     font-weight: bold;
     line-height: 18px;
+    margin-left: 5px;
     opacity: 0.3;
   }
 }

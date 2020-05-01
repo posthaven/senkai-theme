@@ -721,8 +721,9 @@ table {
 
 .button, header.header .menu-trigger, input[type='submit'],
 .posthaven-user-subscribe a,
-.posthaven-read-more-link a, .pagination ul li.first a, .pagination ul li.previous a, .pagination ul li.next a, .pagination ul li.last a {
+.post .posthaven-post-body .posthaven-read-more-link a, .pagination ul li.first a, .pagination ul li.previous a, .pagination ul li.next a, .pagination ul li.last a {
   align-items: center;
+  background: #fff;
   border: 2px solid rgba(0, 0, 0, 0.5);
   border-radius: 5px;
   box-sizing: border-box;
@@ -739,7 +740,7 @@ table {
 }
 .button:hover, header.header .menu-trigger:hover, input[type='submit']:hover,
 .posthaven-user-subscribe a:hover,
-.posthaven-read-more-link a:hover, .pagination ul li.first a:hover, .pagination ul li.previous a:hover, .pagination ul li.next a:hover, .pagination ul li.last a:hover {
+.post .posthaven-post-body .posthaven-read-more-link a:hover, .pagination ul li.first a:hover, .pagination ul li.previous a:hover, .pagination ul li.next a:hover, .pagination ul li.last a:hover {
   border: solid 2px #000;
   color: black;
 }
@@ -906,7 +907,7 @@ body.menu-active .overlay {
   }
 }
 header.header h5 {
-  margin: 5px 0 0;
+  margin: 0;
   word-wrap: break-word;
 }
 @media (max-width: 860px) {
@@ -1152,6 +1153,10 @@ section.menu ul li,
   list-style: none;
 }
 
+.posthaven-file-download {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
 .post-image, .post-list figure, .post header.has-image {
   background-position: center;
   background-size: cover;
@@ -1195,6 +1200,11 @@ aside ul li {
   margin: 0 auto;
   max-width: 100%;
   width: 600px;
+}
+@media (max-width: 414px) {
+  .post-list figure {
+    max-height: 40vh;
+  }
 }
 .post-list .post {
   margin: 0 auto 125px;
@@ -1265,6 +1275,9 @@ body.post-template .post header:not(.has-image) {
 .post header .post-title h2 a {
   color: #fff;
 }
+.post header .post-title h2 a .date {
+  font-weight: 500;
+}
 .post header.has-image {
   align-items: flex-end;
   margin: 50px -20px 50px;
@@ -1319,7 +1332,8 @@ body.post-template .post header:not(.has-image) {
   margin: 20px auto;
 }
 .post header:not(.has-image) .post-title a .date {
-  color: rgba(0, 0, 0, 0.75);
+  color: rgba(0, 0, 0, 0.3);
+  font-weight: 500;
 }
 .post header:not(.has-image) .post-title h2 {
   margin: 20px 0 0;
@@ -1592,6 +1606,7 @@ body.post-template .post header:not(.has-image) {
   font-size: 15px;
   font-weight: bold;
   line-height: 18px;
+  margin-left: 5px;
   opacity: 0.3;
 }
 
@@ -1742,7 +1757,7 @@ body {
   color: rgba(0, 0, 0, 0.8);
   font-family: "garamond-premier-pro", serif;
   line-height: 1.5;
-  margin: 0 0;
+  margin: 0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -1835,8 +1850,7 @@ textarea:focus, input[type=text]:focus {
 
 input[type='submit'],
 .posthaven-user-subscribe a,
-.posthaven-read-more-link a {
-  font-size: 18px;
+.post .posthaven-post-body .posthaven-read-more-link a {
   font-weight: bold;
   outline: none;
   position: relative;
@@ -2036,6 +2050,7 @@ section.subhead h3 {
   }
 }
 
+section.subhead,
 #main.archive-results {
   max-width: 600px;
   margin: auto;
@@ -2119,20 +2134,21 @@ section.subhead h3 {
 #post_responses {
   margin: 40px auto;
   max-width: 600px;
+  width: calc(100% - 70px);
 }
 
 .post-responses h4 {
-  margin: 50px 0 20px;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 20px;
   line-height: 24px;
+  margin: 50px 0 20px;
 }
 .post-responses .responses .response {
   font-size: 18px;
-  margin: 10px 0px 30px;
   line-height: 1.6em;
-  position: relative;
   text-align: justify;
+  margin: 10px 0px 30px;
+  position: relative;
 }
 .post-responses .responses .response p {
   margin: 15px 0px;
@@ -2140,21 +2156,17 @@ section.subhead h3 {
 .post-responses .responses .response .byline {
   color: #000;
   display: flex;
-  justify-content: space-between;
   flex-direction: row;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 16px;
-  line-height: 19px;
+  justify-content: space-between;
+  margin-bottom: 5px;
 }
 .post-responses .responses .response .byline time {
   color: rgba(0, 0, 0, 0.15);
 }
 .post-responses .posthaven-loader {
   margin: 5em auto;
-}
-
-.comment-count {
-  margin-right: 10px;
 }
 
 .posthaven-share-links {
@@ -2168,6 +2180,10 @@ section.subhead h3 {
 }
 
 @media handheld, only screen and (max-width: 414px) {
+  .posthaven-share-links {
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
   .posthaven-share-links > .posthaven-share-item {
     display: block;
     margin: 5px 0;

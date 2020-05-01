@@ -16,7 +16,7 @@ body {
   color: rgba($primary, .8);
   font-family: $bodyFont;
   line-height: 1.5;
-  margin: 0 0;
+  margin: 0;
   overflow-x: hidden;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -74,9 +74,8 @@ textarea, input[type=text] {
 
 input[type='submit'],
 .posthaven-user-subscribe a,
-.posthaven-read-more-link a {
+.post .posthaven-post-body .posthaven-read-more-link a {
   @extend .button;
-  font-size: 18px;
   font-weight: bold;
   outline: none;
   position: relative;
@@ -313,6 +312,7 @@ section.subhead {
   }
 }
 
+section.subhead,
 #main.archive-results {
   max-width: $postWidth;
   margin: auto;
@@ -420,23 +420,24 @@ section.subhead {
 #post_responses {
   margin: 40px auto;
   max-width: 600px;
+  width: calc(100% - 70px);
 }
 
 .post-responses {
   h4 {
-    margin: 50px 0 20px;
     font-family: $accentFont;
     font-size: 20px;
     line-height: 24px;
+    margin: 50px 0 20px;
   }
 
   .responses {
     .response {
-	    font-size: 18px;
+      font-size: 18px;
+      line-height: 1.6em;
+      text-align: justify;
       margin: 10px 0px 30px;
-	    line-height: 1.6em;
       position: relative;
-	    text-align: justify;
 
       p {
         margin: 15px 0px;
@@ -445,11 +446,11 @@ section.subhead {
       .byline {
         color: $primary;
         display: flex;
-        justify-content: space-between;
         flex-direction: row;
         font-family: $accentFont;
         font-size: 16px;
-        line-height: 19px;
+        justify-content: space-between;
+        margin-bottom: 5px;
 
         time {
           color: rgba($primary, .15);
@@ -460,10 +461,6 @@ section.subhead {
   .posthaven-loader {
     margin: 5em auto;
   }
-}
-
-.comment-count {
-  margin-right: 10px;
 }
 
 .posthaven-share-links {
@@ -478,9 +475,14 @@ section.subhead {
 }
 
 @media handheld, only screen and (max-width: 414px) {
-  .posthaven-share-links > .posthaven-share-item {
-    display: block;
-    margin: 5px 0;
+  .posthaven-share-links {
+    flex-wrap: wrap;
+    justify-content: space-between;
+
+    > .posthaven-share-item {
+      display: block;
+      margin: 5px 0;
+    }
   }
 }
 
