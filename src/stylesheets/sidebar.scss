@@ -2,7 +2,6 @@
 @import 'variables';
 
 aside.sidebar {
-  background: #fff;
   box-shadow: 0 0px 100px 25px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
   font-family: $accentFont;
@@ -35,18 +34,16 @@ aside.sidebar {
   }
 
   h3 {
-    color: rgba(0, 0, 0, 0.5);
     font-weight: 500;
     font-size: 14px;
     line-height: 28px;
     margin: 0;
   }
 
-  .more_links {
-    font-size: 14px;
+  .cta-links {
     font-family: $accentFont;
+    font-size: 14px;
     line-height: 28px;
-    color: #ec9405;
   }
 
   .subscribe {

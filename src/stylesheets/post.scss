@@ -119,12 +119,9 @@ body.post-template {
       width: $postWidth;
 
       a {
-        color: rgba(#fff, 0.3);
-
         span.date {
           font-family: $accentFont;
           font-size: 15px;
-
         }
       }
 
@@ -138,7 +135,6 @@ body.post-template {
         line-height: 1em;
 
         a {
-          color: #fff;
 
           .date {
             font-weight: 500;
@@ -209,28 +205,18 @@ body.post-template {
 
         a {
           .date {
-            color: rgba($primary, 0.3);
             font-weight: 500;
           }
         }
 
         h2 {
           margin: 20px 0 0;
-          
-          a {
-            color: $primary;
-          }
         }
       }
     }
   }
 
-  .post-body {
-    @include selection($primary); // adding outside of posthaven-post-body allows selection color modification for text not wrapped in <p> tags
-  }
-
   .posthaven-post-body {
-    color: rgba($primary, 0.8);
     font-family: $defaultFont;
     font-size: 20px;
     line-height: 28px;
@@ -349,7 +335,6 @@ body.post-template {
 
     a {
       border: none;
-      color: $link;
       word-break: break-word;
     }
 

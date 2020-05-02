@@ -9,21 +9,37 @@
 
     <link href="{{ 'images/favicon.ico' | asset_url }}" rel="shortcut icon" type="image/x-icon">
 
+    {{ "blog.css" | local_file | style_tag }}
+    {% comment %}
     {{ "blog.css" | asset_url | stylesheet_tag }}
+    {% endcomment %}
+    
     <link rel="stylesheet" href="https://use.typekit.net/iim1sys.css">
 
     {{ posthaven.includes_for_head }}
 
     <style>
-      {% if settings.header_bg_color %}
-        #header_parent { background-color: {{ settings.header_bg_color }} !important; }
-        .header { padding-bottom: 130px !important; }
-      {% endif %}
+      .post a,
+      body.color-scheme-dark aside.sidebar a.cta-links,
+      body.color-scheme-light aside.sidebar a.cta-links {
+        color: var(--main);
+      }
+
+      :root {
+        --main: 255, 0, 0;
+      }
+
+
+      .posthaven-wordmark {
+        
+
+        /*--color-2: red !important; */
+      }
     </style>
 
   </head>
 
-  <body id="site_{{ site.id }}" class="{{ request.template }}-template">
+  <body id="site_{{ site.id }}" class="{{ request.template }}-template{% if settings.color-scheme %} color-scheme-{{ settings.color-scheme }}{% endif %}">
     <div id="site-container">
 
         <header class="header">

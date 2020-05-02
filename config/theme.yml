@@ -6,10 +6,11 @@ posts_per_page:
   include_in_settings: true
   default: 5
 settings:
-- id: header_bg_color
-  label: Header Background
+- id: link-color
+  label: Link color
   type: color
-- id: color_scheme
+  default: "#ec9405"
+- id: color-scheme
   label: Color scheme
   type: radio
   default: light

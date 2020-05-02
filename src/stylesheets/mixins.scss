@@ -2,11 +2,8 @@
 
 .button {
   align-items: center;
-  background: #fff;
-  border: 2px solid rgba($primary, .5);
   border-radius: 5px;
   box-sizing: border-box;
-  color: rgba($primary, .75);
   cursor: pointer;
   display: flex;
   font-family: $accentFont;
@@ -16,11 +13,6 @@
   padding: 10px 15px;
   text-transform: uppercase;
   user-select: none;
-
-  &:hover {
-    border: solid 2px $primary;
-    color: rgba($primary, 1);
-  }
 }
 
 // tags ui, used in footer, top of tag page, and date in archive view
@@ -28,9 +20,7 @@
   a {
     align-items: baseline;
     border-radius: 100px;
-    border: 2px solid rgba($primary, .13);
     box-sizing: border-box;
-    color: rgba($primary, .5);
     display: inline-flex;
     font-size: 18px;
     margin: 2px;
@@ -40,34 +30,23 @@
 
     span {
       // count
-      color: rgba($primary, .3);
       font-size: 16px;
       margin-left: 5px;
       transition: all .25s ease;
     }
 
-    .x {
-      color: #fff; // needed for svg's fill: currentColor;
-    }
-
     &:hover {
-      border: 2px solid rgba($primary, .4);
-      color: rgba($primary, .7);
       transition: all 0s ease;
 
       span {
-        color: rgba($primary, .5);
         transition: all 0s ease;
       }
     }
 
     &:active {
-      border: 2px solid rgba($primary, .7);
-      color: rgba($primary, .9);
       transition: all 0s ease;
 
       span {
-        color: rgba($primary, .7);
         transition: all 0s ease;
       }
     }
@@ -77,11 +56,9 @@
     span {
       // x replaces count
       align-items: center;
-      background: rgba($primary, .5);
       //background: url("data:image/svg+xml;charset=utf-8,<svg width='10' height='10' xmlns='http://www.w3.org/2000/svg'><path d='M10 1.814L8.185 0 5 3.184 1.815 0 0 1.814 3.185 5 0 8.183l1.815 1.815L5 6.814 8.185 10 10 8.184 6.815 4.998z' fill='#000' fill-rule='nonzero'/></svg>");
       border-radius: 10px;
       box-sizing: border-box;
-      color: #fff;
       cursor: pointer;
       display: flex;
       height: 18px;
@@ -95,22 +72,9 @@
         fill: currentColor;
       }
     }
-
-    &:hover {
-      span {
-        background: rgba($primary, .75);
-        color: choose-contrast-color($primary);
-      }
-    }
-
-    &:active {
-      span {
-        background: rgba($primary, .9);
-        color: choose-contrast-color($primary);
-      }
-    }
   }
 }
+
 
 @mixin placeholder($color) {
   &::-webkit-input-placeholder {

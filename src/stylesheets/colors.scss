@@ -1,0 +1,330 @@
+@import 'mixins';
+@import 'variables';
+
+body {
+  // white background, dark text
+  &.color-scheme-light {
+    color: rgba($primary, .8);
+
+    .button {
+      background: #fff;
+      border: 2px solid rgba($primary, .5);
+      color: rgba($primary, .75);
+
+      &:hover {
+        border: solid 2px $primary;
+        color: rgba($primary, 1);
+      }
+    }
+
+    textarea, input[type=text] {
+      border-bottom: 2px solid rgba($primary, .15) !important;
+      @include placeholder(rgba($primary, .5));
+
+      &:focus {
+        border-bottom: 2px solid rgba($primary, .75) !important;
+      }
+    }
+
+    aside.sidebar {
+      background: invert($primary);
+
+      h3 {
+        color: rgba($primary, .5);
+      }
+    }
+
+    .post {
+      header {
+        &.has-image {
+          .post-title {
+            a {
+              .date {
+
+              }
+            }
+          }
+        }
+
+        &:not(.has-image) {
+          .post-title {
+            // timestamp
+            a {
+              .date {
+                color: rgba($primary, 0.3);
+              }
+            }
+
+            h2 {
+              color: $primary;
+            }
+          }
+        }
+      }
+
+      .post-body {
+        @include selection($primary); // adding outside of posthaven-post-body allows selection color modification for text not wrapped in <p> tags
+      }
+    }
+
+    .post-responses {
+      .byline {
+        time {
+          color: rgba($primary, .15);
+        }
+      }
+    }
+
+    .posthaven-post-body {
+      color: rgba($primary, 0.8);
+    }
+
+    .chips {
+      a {
+        border: 2px solid rgba($primary, .13);
+        color: rgba($primary, .5);
+
+        span {
+          color: rgba($primary, .3);
+        }
+
+        .x {
+          color: #fff; // needed for svg's fill: currentColor;
+        }
+
+        &:hover {
+          border: 2px solid rgba($primary, .4);
+          color: rgba($primary, .7);
+
+          span {
+            color: rgba($primary, .5);
+          }
+        }
+
+        &:active {
+          border: 2px solid rgba($primary, .7);
+          color: rgba($primary, .9);
+
+          span {
+            color: rgba($primary, .7);
+          }
+        }
+      }
+
+      .clear-tag {
+        span {
+          background: rgba($primary, .5);
+          color: #fff;
+        }
+
+        &:hover {
+          span {
+            background: rgba($primary, .75);
+            color: choose-contrast-color($primary);
+          }
+        }
+
+        &:active {
+          span {
+            background: rgba($primary, .9);
+            color: choose-contrast-color($primary);
+          }
+        }
+      }
+    }
+
+    .ph-canvas {
+      background: invert(rgba($primary,0));
+
+      &.active {
+        background: invert(rgba($primary,.75));
+      }
+    }
+  }
+
+  .posthaven {
+    .posthaven-wordmark {
+      #{--color-1}: rgba($primary, .5);
+      #{--color-2}: rgba($primary, .35);
+    }
+  }
+
+
+
+
+
+  // dark background, light text
+  $dark-background: #1b262c;
+  &.color-scheme-dark {
+    --primary: 255, 192, 203;
+    background: $dark-background;
+    color: unquote("rgba(var(--primary), .8)");
+    // color: #{var(--primary)};
+
+    .button {
+      background: transparent;
+      border: 2px solid invert(rgba($primary, .5));
+      color: invert(rgba($primary, .75));
+
+      &:hover {
+        border: solid 2px invert($primary);
+        color: invert(rgba($primary, 1));
+      }
+    }
+
+    textarea, input[type=text] {
+      border-bottom: 2px solid invert(rgba($primary, .15));
+      @include placeholder(rgba(lighten($primary, 100%), .5));
+      color: invert($primary);
+
+      &:focus {
+        border-bottom: 2px solid invert(rgba($primary, .75));
+      }
+    }
+
+    aside.sidebar {
+      background: $dark-background;
+
+      h3 {
+        color: invert(rgba($primary, .3));
+      }
+
+      a {
+        color: invert(rgba($dark-background, .8));
+
+        &:hover {
+          color: lighten(rgba($dark-background, 1), 100%);
+        }
+      }
+    }
+
+    .post {
+      header {
+        h2 {
+          a {
+            color: lighten($dark-background, 100%);
+          }
+        }
+        &.has-image {
+          .post-title {
+            a {
+              .date {
+
+              }
+            }
+          }
+        }
+
+        &:not(.has-image) {
+          .post-title {
+            // timestamp
+            a {
+              .date {
+                color: invert(rgba($primary, 0.3));
+              }
+            }
+
+            h2 {
+              color: invert($primary);
+            }
+          }
+        }
+      }
+
+      .post-body {
+        @include selection(invert($primary)); // adding outside of posthaven-post-body allows selection color modification for text not wrapped in <p> tags
+      }
+    }
+
+    .post-responses {
+      .byline {
+        time {
+          color: invert(rgba($primary, .25));
+        }
+      }
+    }
+
+    .posthaven-post-body {
+      color: invert(rgba($primary, 0.8));
+    }
+
+    .chips {
+      a {
+        border: 2px solid invert(rgba($primary, .13));
+        color: invert(rgba($primary, .5));
+
+        span {
+          color: invert(rgba($primary, .3));
+        }
+
+        .x {
+          color: $dark-background; // needed for svg's fill: currentColor;
+        }
+
+        &:hover {
+          border: 2px solid invert(rgba($primary, .4));
+          color: invert(rgba($primary, .7));
+
+          span {
+            color: invert(rgba($primary, .5));
+          }
+        }
+
+        &:active {
+          border: 2px solid invert(rgba($primary, .7));
+          color: invert(rgba($primary, .9));
+
+          span {
+            color: invert(rgba($primary, .7));
+          }
+        }
+      }
+
+      .clear-tag {
+        span {
+          background: invert(rgba($primary, .5));
+          color: $dark-background;
+        }
+
+        &:hover {
+          span {
+            background: invert(rgba($primary, .75));
+            color: choose-contrast-color(invert($primary));
+          }
+        }
+
+        &:active {
+          span {
+            background: invert(rgba($primary, .9));
+            color: choose-contrast-color(invert($primary));
+          }
+        }
+      }
+    }
+
+    .ph-canvas {
+      background: rgba($dark-background,0);
+
+      &.active {
+        background: rgba($dark-background,.75);
+      }
+    }
+
+    section.social {
+      ul {
+        li {
+          a {
+            opacity: 1;
+          }
+        }
+      }
+    }
+  }
+
+  .posthaven {
+    .posthaven-wordmark {
+      #{--color-1}: rgba(white, .5);
+      #{--color-2}: rgba(white, .35);
+    }
+  }
+}

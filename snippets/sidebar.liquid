@@ -39,13 +39,13 @@
     {% assign tagCount = tagCount | plus : 1 %}
     {% endfor %}
     {% if tagCount > 3 %}
-    <a class="more_links" href="/tags">View all {{ tagCount }} tags</a>
+    <a class="cta-links" href="/tags">View all {{ tagCount }} tags</a>
     {% endif %}
   </section>
 
   <section class="archives">
     <h3>Archive</h3>
-    <a class="more_links" href="{{ site.archive_url }}">Browse archive</a>
+    <a class="cta-links" href="{{ site.archive_url }}">Browse archive</a>
   </section>
 
     {% include 'contributors' %}
