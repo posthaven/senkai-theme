@@ -1,5 +1,5 @@
 ---
-name: Browning New
+name: Browning
 author: Posthaven
 url: https//posthaven.com/
 posts_per_page:
@@ -9,36 +9,12 @@ settings:
 - id: header_bg_color
   label: Header Background
   type: color
-- id: social_dribbble
-  label: Dribbble URL
-  type: text
-- id: social_facebook
-  label: Facebook URL
-  type: text
-- id: social_github
-  label: Github URL
-  type: text
-- id: social_instagram
-  label: Instagram URL
-  type: text
-- id: social_linkedin
-  label: LinkedIn URL
-  type: text
-- id: social_pinterest
-  label: Pinterest URL
-  type: text
-- id: social_producthunt
-  label: Product Hunt URL
-  type: text
-- id: social_reddit
-  label: Reddit URL
-  type: text
-- id: social_twitter
-  label: Twitter URL
-  type: text
-- id: social_vimeo
-  label: Vimeo URL
-  type: text
-- id: social_youtube
-  label: YouTube URL
-  type: text
+- id: color_scheme
+  label: Color scheme
+  type: radio
+  default: light
+  options:
+  - value: light
+    label: Light background
+  - value: dark
+    label: Dark background
