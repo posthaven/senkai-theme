@@ -135,6 +135,7 @@ body.post-template {
         line-height: 1em;
 
         a {
+          color: unquote(" rgba(var(--primary), 1) ");
 
           .date {
             font-weight: 500;
@@ -205,17 +206,23 @@ body.post-template {
 
         a {
           .date {
+            color: unquote(" rgba(var(--primary), .3) ");
             font-weight: 500;
           }
         }
 
         h2 {
+          color: unquote(" rgba(var(--primary), 1) ");
           margin: 20px 0 0;
         }
       }
     }
   }
 
+  .post-body {
+    @include selection($primary); // adding outside of posthaven-post-body allows selection color modification for text not wrapped in <p> tags
+  }
+  
   .posthaven-post-body {
     font-family: $defaultFont;
     font-size: 20px;
@@ -223,6 +230,10 @@ body.post-template {
     margin: 25px auto 0;
     max-width: 100%;
     width: $postWidth;
+
+    a {
+      color: unquote(" rgba(var(--link), 1) ");
+    }
   
   p {
     line-height: 1.75em;

@@ -7,13 +7,39 @@
 @import 'post';
 @import 'footer';
 @import 'social';
-@import 'colors';
+
+// Use CSS variables (sometimes defined by user) to define rgb colors values.
+// DO NOT USE HEX
+// We need rgb so we can do client-side (CSS) opacity,
+// since CSS doesn't support opacity with hex values, use rgb
+
+// To use CSS variables with SCSS, escape the CSS here using unquote()
+// https://stackoverflow.com/questions/20935792/how-can-i-escape-string-css-in-sass-scss
+
+:root {
+
+}
+
+body.color-scheme-light {
+  --background: 255, 255, 255; // {{ settings.background }}
+  --primary: 0, 0 ,0; // {{ settings.primary }}
+  --link: 236, 148, 5; // {{ settings.link }}
+}
+
+body.color-scheme-dark {
+  --primary: 255, 255, 255;
+  --background: 27, 38, 44;
+  --link: 236, 148, 5; // {{ settings.link }}
+}
 
 /*********************************************************
 *  General
 *********************************************************/
 
 body {
+  //@include rgba(background,background,1);
+  background: unquote(" rgba(var(--background), 1) ");
+  color: unquote(" rgba(var(--primary), .8) ");
   font-family: $bodyFont;
   line-height: 1.5;
   margin: 0;
@@ -54,16 +80,20 @@ h5 { font-size: 22px; font-weight: normal; opacity: 0.6 }
 textarea, input[type=text] {
   background: transparent;
   border: none;
+  border-bottom: 2px solid unquote(" rgba(var(--primary), .15) ") !important;
   box-sizing: border-box;
+  color: placeholder(unquote(" rgba(var(--primary), 1) "));
   font-family: $accentFont;
   font-size: 18px;
   height: 50px;
   outline: none;
+  @include placeholder(unquote(" rgba(var(--primary), .5) "));
   padding: 10px 0;
   transition: border .5s ease;
   width: 100%;
 
   &:focus {
+    border-bottom: 2px solid unquote(" rgba(var(--primary), .75) ") !important;
     transition: border .1s ease;
   }
 }
@@ -444,6 +474,10 @@ section.subhead,
         font-size: 16px;
         justify-content: space-between;
         margin-bottom: 5px;
+
+        time {
+          color: unquote(" rgba(var(--primary), .25) ");
+        }
       }
     }
   }
@@ -772,4 +806,11 @@ li.archive-entry {
   }
   #back_to_blog { display: none; }
   .posthaven-archive-form input { width: 90%; }
+}
+
+.posthaven {
+  .posthaven-wordmark {
+    #{--color-1}: unquote(" rgba(var(--primary), .5) ");
+    #{--color-2}: unquote(" rgba(var(--primary), .35) ");
+  }
 }

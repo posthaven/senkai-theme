@@ -723,8 +723,11 @@ table {
 .posthaven-user-subscribe a,
 .post .posthaven-post-body .posthaven-read-more-link a, .pagination ul li.first a, .pagination ul li.previous a, .pagination ul li.next a, .pagination ul li.last a {
   align-items: center;
+  background:  rgba(var(--background), 1) ;
   border-radius: 5px;
+  border: 2px solid  rgba(var(--primary), .5) ;
   box-sizing: border-box;
+  color:  rgba(var(--primary), .75) ;
   cursor: pointer;
   display: flex;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -735,11 +738,19 @@ table {
   text-transform: uppercase;
   user-select: none;
 }
+.button:hover, header.header .menu-trigger:hover, input[type='submit']:hover,
+.posthaven-user-subscribe a:hover,
+.post .posthaven-post-body .posthaven-read-more-link a:hover, .pagination ul li.first a:hover, .pagination ul li.previous a:hover, .pagination ul li.next a:hover, .pagination ul li.last a:hover {
+  border: 2px solid  rgba(var(--primary), 1) ;
+  color:  rgba(var(--primary), 1) ;
+}
 
 .chips a, .tags ul li a, .archive-all-dates a {
   align-items: baseline;
+  border: 2px solid  rgba(var(--primary), .13) ;
   border-radius: 100px;
   box-sizing: border-box;
+  color:  rgba(var(--primary), .5) ;
   display: inline-flex;
   font-size: 18px;
   margin: 2px;
@@ -748,26 +759,38 @@ table {
   user-select: none;
 }
 .chips a span, .tags ul li a span, .archive-all-dates a span {
+  color:  rgba(var(--primary), .3) ;
   font-size: 16px;
   margin-left: 5px;
   transition: all .25s ease;
 }
 .chips a:hover, .tags ul li a:hover, .archive-all-dates a:hover {
+  border: 2px solid  rgba(var(--primary), .4) ;
+  color:  rgba(var(--primary), .7) ;
   transition: all 0s ease;
 }
 .chips a:hover span, .tags ul li a:hover span, .archive-all-dates a:hover span {
+  color:  rgba(var(--primary), .5) ;
   transition: all 0s ease;
 }
 .chips a:active, .tags ul li a:active, .archive-all-dates a:active {
+  border: 2px solid  rgba(var(--primary), .7) ;
+  color:  rgba(var(--primary), .9) ;
   transition: all 0s ease;
 }
 .chips a:active span, .tags ul li a:active span, .archive-all-dates a:active span {
+  color:  rgba(var(--primary), .7) ;
   transition: all 0s ease;
+}
+.chips a .x, .tags ul li a .x, .archive-all-dates a .x {
+  color:  rgba(var(--background), 1) ;
 }
 .chips .clear-tag span, .tags ul li .clear-tag span, .archive-all-dates .clear-tag span {
   align-items: center;
+  background:  rgba(var(--primary), .5) ;
   border-radius: 10px;
   box-sizing: border-box;
+  color:  rgba(var(--background), 1) ;
   cursor: pointer;
   display: flex;
   height: 18px;
@@ -779,6 +802,14 @@ table {
 }
 .chips .clear-tag span svg, .tags ul li .clear-tag span svg, .archive-all-dates .clear-tag span svg {
   fill: currentColor;
+}
+.chips .clear-tag:hover span, .tags ul li .clear-tag:hover span, .archive-all-dates .clear-tag:hover span {
+  background:  rgba(var(--primary), .75) ;
+  color: choose-contrast-color(#000);
+}
+.chips .clear-tag:active span, .tags ul li .clear-tag:active span, .archive-all-dates .clear-tag:active span {
+  background:  rgba(var(--primary), .9) ;
+  color: choose-contrast-color(#000);
 }
 
 theme-color-bg {
@@ -1026,6 +1057,7 @@ body:not(.menu-active) .page-template .header {
 }
 
 .ph-canvas {
+  background:  rgba(var(--background), 0) ;
   height: 100vh;
   left: 0;
   opacity: 0;
@@ -1036,11 +1068,13 @@ body:not(.menu-active) .page-template .header {
   z-index: -1;
 }
 .ph-canvas.active {
+  background:  rgba(var(--background), .75) ;
   opacity: 1;
   z-index: 1;
 }
 
 aside.sidebar {
+  background:  rgba(var(--background), 1) ;
   box-shadow: 0 0px 100px 25px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
@@ -1073,12 +1107,20 @@ aside.sidebar ul {
   padding: 0;
 }
 aside.sidebar h3 {
+  color:  rgba(var(--primary), .3) ;
   font-weight: 500;
   font-size: 14px;
   line-height: 28px;
   margin: 0;
 }
+aside.sidebar a {
+  color:  rgba(var(--primary), .8) ;
+}
+aside.sidebar a:hover {
+  color:  rgba(var(--primary), 1) ;
+}
 aside.sidebar .cta-links {
+  color:  rgba(var(--link), 1) ;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 14px;
   line-height: 28px;
@@ -1232,6 +1274,9 @@ body.post-template .post header:not(.has-image) {
     font-size: 48px;
   }
 }
+.post header .post-title h2 a {
+  color:  rgba(var(--primary), 1) ;
+}
 .post header .post-title h2 a .date {
   font-weight: 500;
 }
@@ -1289,10 +1334,20 @@ body.post-template .post header:not(.has-image) {
   margin: 20px auto;
 }
 .post header:not(.has-image) .post-title a .date {
+  color:  rgba(var(--primary), .3) ;
   font-weight: 500;
 }
 .post header:not(.has-image) .post-title h2 {
+  color:  rgba(var(--primary), 1) ;
   margin: 20px 0 0;
+}
+.post .post-body *::-moz-selection {
+  background: #000;
+  color: white;
+}
+.post .post-body *::selection {
+  background: #000;
+  color: white;
 }
 .post .posthaven-post-body {
   font-family: "garamond-premier-pro", serif;
@@ -1302,6 +1357,9 @@ body.post-template .post header:not(.has-image) {
   max-width: 100%;
   width: 600px;
   /* IE8 css bug */
+}
+.post .posthaven-post-body a {
+  color:  rgba(var(--link), 1) ;
 }
 .post .posthaven-post-body p {
   line-height: 1.75em;
@@ -1685,262 +1743,32 @@ section.social ul li a svg {
   width: 24px;
 }
 section.social ul li a:hover {
-  opacity: .4;
+  opacity: .6;
   transition: opacity 0s ease;
 }
 section.social ul li a:active {
-  opacity: .6;
+  opacity: .5;
   transition: opacity 0s ease;
 }
 
 body.color-scheme-light {
-  color: rgba(0, 0, 0, 0.8);
+  --background: 255, 255, 255;
+  --primary: 0, 0 ,0;
+  --link: 236, 148, 5;
 }
-body.color-scheme-light .button, body.color-scheme-light header.header .menu-trigger, header.header body.color-scheme-light .menu-trigger, body.color-scheme-light input[type='submit'],
-body.color-scheme-light .posthaven-user-subscribe a,
-.posthaven-user-subscribe body.color-scheme-light a,
-body.color-scheme-light .post .posthaven-post-body .posthaven-read-more-link a,
-.post .posthaven-post-body .posthaven-read-more-link body.color-scheme-light a, body.color-scheme-light .pagination ul li.first a, .pagination ul li.first body.color-scheme-light a, body.color-scheme-light .pagination ul li.previous a, .pagination ul li.previous body.color-scheme-light a, body.color-scheme-light .pagination ul li.next a, .pagination ul li.next body.color-scheme-light a, body.color-scheme-light .pagination ul li.last a, .pagination ul li.last body.color-scheme-light a {
-  background: #fff;
-  border: 2px solid rgba(0, 0, 0, 0.5);
-  color: rgba(0, 0, 0, 0.75);
-}
-body.color-scheme-light .button:hover, body.color-scheme-light header.header .menu-trigger:hover, header.header body.color-scheme-light .menu-trigger:hover, body.color-scheme-light input[type='submit']:hover,
-body.color-scheme-light .posthaven-user-subscribe a:hover,
-.posthaven-user-subscribe body.color-scheme-light a:hover,
-body.color-scheme-light .post .posthaven-post-body .posthaven-read-more-link a:hover,
-.post .posthaven-post-body .posthaven-read-more-link body.color-scheme-light a:hover, body.color-scheme-light .pagination ul li.first a:hover, .pagination ul li.first body.color-scheme-light a:hover, body.color-scheme-light .pagination ul li.previous a:hover, .pagination ul li.previous body.color-scheme-light a:hover, body.color-scheme-light .pagination ul li.next a:hover, .pagination ul li.next body.color-scheme-light a:hover, body.color-scheme-light .pagination ul li.last a:hover, .pagination ul li.last body.color-scheme-light a:hover {
-  border: solid 2px #000;
-  color: black;
-}
-body.color-scheme-light textarea, body.color-scheme-light input[type=text] {
-  border-bottom: 2px solid rgba(0, 0, 0, 0.15) !important;
-}
-body.color-scheme-light textarea::-webkit-input-placeholder, body.color-scheme-light input[type=text]::-webkit-input-placeholder {
-  color: rgba(0, 0, 0, 0.5);
-  font-style: normal;
-}
-body.color-scheme-light textarea:-moz-placeholder, body.color-scheme-light input[type=text]:-moz-placeholder {
-  color: rgba(0, 0, 0, 0.5);
-  font-style: normal;
-}
-body.color-scheme-light textarea::-moz-placeholder, body.color-scheme-light input[type=text]::-moz-placeholder {
-  color: rgba(0, 0, 0, 0.5);
-  font-style: normal;
-}
-body.color-scheme-light textarea:-ms-input-placeholder, body.color-scheme-light input[type=text]:-ms-input-placeholder {
-  color: rgba(0, 0, 0, 0.5);
-  font-style: normal;
-}
-body.color-scheme-light textarea:focus, body.color-scheme-light input[type=text]:focus {
-  border-bottom: 2px solid rgba(0, 0, 0, 0.75) !important;
-}
-body.color-scheme-light aside.sidebar {
-  background: white;
-}
-body.color-scheme-light aside.sidebar h3 {
-  color: rgba(0, 0, 0, 0.5);
-}
-body.color-scheme-light .post header:not(.has-image) .post-title a .date {
-  color: rgba(0, 0, 0, 0.3);
-}
-body.color-scheme-light .post header:not(.has-image) .post-title h2 {
-  color: #000;
-}
-body.color-scheme-light .post .post-body *::-moz-selection {
-  background: #000;
-  color: white;
-}
-body.color-scheme-light .post .post-body *::selection {
-  background: #000;
-  color: white;
-}
-body.color-scheme-light .post-responses .byline time {
-  color: rgba(0, 0, 0, 0.15);
-}
-body.color-scheme-light .posthaven-post-body {
-  color: rgba(0, 0, 0, 0.8);
-}
-body.color-scheme-light .chips a, body.color-scheme-light .tags ul li a, .tags ul body.color-scheme-light li a, body.color-scheme-light .archive-all-dates a {
-  border: 2px solid rgba(0, 0, 0, 0.13);
-  color: rgba(0, 0, 0, 0.5);
-}
-body.color-scheme-light .chips a span, body.color-scheme-light .tags ul li a span, .tags ul body.color-scheme-light li a span, body.color-scheme-light .archive-all-dates a span {
-  color: rgba(0, 0, 0, 0.3);
-}
-body.color-scheme-light .chips a .x, body.color-scheme-light .tags ul li a .x, .tags ul body.color-scheme-light li a .x, body.color-scheme-light .archive-all-dates a .x {
-  color: #fff;
-}
-body.color-scheme-light .chips a:hover, body.color-scheme-light .tags ul li a:hover, .tags ul body.color-scheme-light li a:hover, body.color-scheme-light .archive-all-dates a:hover {
-  border: 2px solid rgba(0, 0, 0, 0.4);
-  color: rgba(0, 0, 0, 0.7);
-}
-body.color-scheme-light .chips a:hover span, body.color-scheme-light .tags ul li a:hover span, .tags ul body.color-scheme-light li a:hover span, body.color-scheme-light .archive-all-dates a:hover span {
-  color: rgba(0, 0, 0, 0.5);
-}
-body.color-scheme-light .chips a:active, body.color-scheme-light .tags ul li a:active, .tags ul body.color-scheme-light li a:active, body.color-scheme-light .archive-all-dates a:active {
-  border: 2px solid rgba(0, 0, 0, 0.7);
-  color: rgba(0, 0, 0, 0.9);
-}
-body.color-scheme-light .chips a:active span, body.color-scheme-light .tags ul li a:active span, .tags ul body.color-scheme-light li a:active span, body.color-scheme-light .archive-all-dates a:active span {
-  color: rgba(0, 0, 0, 0.7);
-}
-body.color-scheme-light .chips .clear-tag span, body.color-scheme-light .tags ul li .clear-tag span, .tags ul body.color-scheme-light li .clear-tag span, body.color-scheme-light .archive-all-dates .clear-tag span {
-  background: rgba(0, 0, 0, 0.5);
-  color: #fff;
-}
-body.color-scheme-light .chips .clear-tag:hover span, body.color-scheme-light .tags ul li .clear-tag:hover span, .tags ul body.color-scheme-light li .clear-tag:hover span, body.color-scheme-light .archive-all-dates .clear-tag:hover span {
-  background: rgba(0, 0, 0, 0.75);
-  color: white;
-}
-body.color-scheme-light .chips .clear-tag:active span, body.color-scheme-light .tags ul li .clear-tag:active span, .tags ul body.color-scheme-light li .clear-tag:active span, body.color-scheme-light .archive-all-dates .clear-tag:active span {
-  background: rgba(0, 0, 0, 0.9);
-  color: white;
-}
-body.color-scheme-light .ph-canvas {
-  background: rgba(255, 255, 255, 0);
-}
-body.color-scheme-light .ph-canvas.active {
-  background: rgba(255, 255, 255, 0.75);
-}
-body .posthaven .posthaven-wordmark {
-  --color-1: rgba(0, 0, 0, 0.5);
-  --color-2: rgba(0, 0, 0, 0.35);
-}
+
 body.color-scheme-dark {
-  --primary: 255, 192, 203;
-  background: #1b262c;
-  color: rgba(var(--primary), .8);
-}
-body.color-scheme-dark .button, body.color-scheme-dark header.header .menu-trigger, header.header body.color-scheme-dark .menu-trigger, body.color-scheme-dark input[type='submit'],
-body.color-scheme-dark .posthaven-user-subscribe a,
-.posthaven-user-subscribe body.color-scheme-dark a,
-body.color-scheme-dark .post .posthaven-post-body .posthaven-read-more-link a,
-.post .posthaven-post-body .posthaven-read-more-link body.color-scheme-dark a, body.color-scheme-dark .pagination ul li.first a, .pagination ul li.first body.color-scheme-dark a, body.color-scheme-dark .pagination ul li.previous a, .pagination ul li.previous body.color-scheme-dark a, body.color-scheme-dark .pagination ul li.next a, .pagination ul li.next body.color-scheme-dark a, body.color-scheme-dark .pagination ul li.last a, .pagination ul li.last body.color-scheme-dark a {
-  background: transparent;
-  border: 2px solid rgba(255, 255, 255, 0.5);
-  color: rgba(255, 255, 255, 0.75);
-}
-body.color-scheme-dark .button:hover, body.color-scheme-dark header.header .menu-trigger:hover, header.header body.color-scheme-dark .menu-trigger:hover, body.color-scheme-dark input[type='submit']:hover,
-body.color-scheme-dark .posthaven-user-subscribe a:hover,
-.posthaven-user-subscribe body.color-scheme-dark a:hover,
-body.color-scheme-dark .post .posthaven-post-body .posthaven-read-more-link a:hover,
-.post .posthaven-post-body .posthaven-read-more-link body.color-scheme-dark a:hover, body.color-scheme-dark .pagination ul li.first a:hover, .pagination ul li.first body.color-scheme-dark a:hover, body.color-scheme-dark .pagination ul li.previous a:hover, .pagination ul li.previous body.color-scheme-dark a:hover, body.color-scheme-dark .pagination ul li.next a:hover, .pagination ul li.next body.color-scheme-dark a:hover, body.color-scheme-dark .pagination ul li.last a:hover, .pagination ul li.last body.color-scheme-dark a:hover {
-  border: solid 2px white;
-  color: white;
-}
-body.color-scheme-dark textarea, body.color-scheme-dark input[type=text] {
-  border-bottom: 2px solid rgba(255, 255, 255, 0.15);
-  color: white;
-}
-body.color-scheme-dark textarea::-webkit-input-placeholder, body.color-scheme-dark input[type=text]::-webkit-input-placeholder {
-  color: rgba(255, 255, 255, 0.5);
-  font-style: normal;
-}
-body.color-scheme-dark textarea:-moz-placeholder, body.color-scheme-dark input[type=text]:-moz-placeholder {
-  color: rgba(255, 255, 255, 0.5);
-  font-style: normal;
-}
-body.color-scheme-dark textarea::-moz-placeholder, body.color-scheme-dark input[type=text]::-moz-placeholder {
-  color: rgba(255, 255, 255, 0.5);
-  font-style: normal;
-}
-body.color-scheme-dark textarea:-ms-input-placeholder, body.color-scheme-dark input[type=text]:-ms-input-placeholder {
-  color: rgba(255, 255, 255, 0.5);
-  font-style: normal;
-}
-body.color-scheme-dark textarea:focus, body.color-scheme-dark input[type=text]:focus {
-  border-bottom: 2px solid rgba(255, 255, 255, 0.75);
-}
-body.color-scheme-dark aside.sidebar {
-  background: #1b262c;
-}
-body.color-scheme-dark aside.sidebar h3 {
-  color: rgba(255, 255, 255, 0.3);
-}
-body.color-scheme-dark aside.sidebar a {
-  color: rgba(228, 217, 211, 0.8);
-}
-body.color-scheme-dark aside.sidebar a:hover {
-  color: white;
-}
-body.color-scheme-dark .post header h2 a {
-  color: white;
-}
-body.color-scheme-dark .post header:not(.has-image) .post-title a .date {
-  color: rgba(255, 255, 255, 0.3);
-}
-body.color-scheme-dark .post header:not(.has-image) .post-title h2 {
-  color: white;
-}
-body.color-scheme-dark .post .post-body *::-moz-selection {
-  background: white;
-  color: black;
-}
-body.color-scheme-dark .post .post-body *::selection {
-  background: white;
-  color: black;
-}
-body.color-scheme-dark .post-responses .byline time {
-  color: rgba(255, 255, 255, 0.25);
-}
-body.color-scheme-dark .posthaven-post-body {
-  color: rgba(255, 255, 255, 0.8);
-}
-body.color-scheme-dark .chips a, body.color-scheme-dark .tags ul li a, .tags ul body.color-scheme-dark li a, body.color-scheme-dark .archive-all-dates a {
-  border: 2px solid rgba(255, 255, 255, 0.13);
-  color: rgba(255, 255, 255, 0.5);
-}
-body.color-scheme-dark .chips a span, body.color-scheme-dark .tags ul li a span, .tags ul body.color-scheme-dark li a span, body.color-scheme-dark .archive-all-dates a span {
-  color: rgba(255, 255, 255, 0.3);
-}
-body.color-scheme-dark .chips a .x, body.color-scheme-dark .tags ul li a .x, .tags ul body.color-scheme-dark li a .x, body.color-scheme-dark .archive-all-dates a .x {
-  color: #1b262c;
-}
-body.color-scheme-dark .chips a:hover, body.color-scheme-dark .tags ul li a:hover, .tags ul body.color-scheme-dark li a:hover, body.color-scheme-dark .archive-all-dates a:hover {
-  border: 2px solid rgba(255, 255, 255, 0.4);
-  color: rgba(255, 255, 255, 0.7);
-}
-body.color-scheme-dark .chips a:hover span, body.color-scheme-dark .tags ul li a:hover span, .tags ul body.color-scheme-dark li a:hover span, body.color-scheme-dark .archive-all-dates a:hover span {
-  color: rgba(255, 255, 255, 0.5);
-}
-body.color-scheme-dark .chips a:active, body.color-scheme-dark .tags ul li a:active, .tags ul body.color-scheme-dark li a:active, body.color-scheme-dark .archive-all-dates a:active {
-  border: 2px solid rgba(255, 255, 255, 0.7);
-  color: rgba(255, 255, 255, 0.9);
-}
-body.color-scheme-dark .chips a:active span, body.color-scheme-dark .tags ul li a:active span, .tags ul body.color-scheme-dark li a:active span, body.color-scheme-dark .archive-all-dates a:active span {
-  color: rgba(255, 255, 255, 0.7);
-}
-body.color-scheme-dark .chips .clear-tag span, body.color-scheme-dark .tags ul li .clear-tag span, .tags ul body.color-scheme-dark li .clear-tag span, body.color-scheme-dark .archive-all-dates .clear-tag span {
-  background: rgba(255, 255, 255, 0.5);
-  color: #1b262c;
-}
-body.color-scheme-dark .chips .clear-tag:hover span, body.color-scheme-dark .tags ul li .clear-tag:hover span, .tags ul body.color-scheme-dark li .clear-tag:hover span, body.color-scheme-dark .archive-all-dates .clear-tag:hover span {
-  background: rgba(255, 255, 255, 0.75);
-  color: black;
-}
-body.color-scheme-dark .chips .clear-tag:active span, body.color-scheme-dark .tags ul li .clear-tag:active span, .tags ul body.color-scheme-dark li .clear-tag:active span, body.color-scheme-dark .archive-all-dates .clear-tag:active span {
-  background: rgba(255, 255, 255, 0.9);
-  color: black;
-}
-body.color-scheme-dark .ph-canvas {
-  background: rgba(27, 38, 44, 0);
-}
-body.color-scheme-dark .ph-canvas.active {
-  background: rgba(27, 38, 44, 0.75);
-}
-body.color-scheme-dark section.social ul li a {
-  opacity: 1;
-}
-body .posthaven .posthaven-wordmark {
-  --color-1: rgba(255, 255, 255, 0.5);
-  --color-2: rgba(255, 255, 255, 0.35);
+  --primary: 255, 255, 255;
+  --background: 27, 38, 44;
+  --link: 236, 148, 5;
 }
 
 /*********************************************************
 *  General
 *********************************************************/
 body {
+  background:  rgba(var(--background), 1) ;
+  color:  rgba(var(--primary), .8) ;
   font-family: "garamond-premier-pro", serif;
   line-height: 1.5;
   margin: 0;
@@ -2003,7 +1831,9 @@ h5 {
 textarea, input[type=text] {
   background: transparent;
   border: none;
+  border-bottom: 2px solid  rgba(var(--primary), .15)  !important;
   box-sizing: border-box;
+  color: placeholder( rgba(var(--primary), 1) );
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 18px;
   height: 50px;
@@ -2012,7 +1842,24 @@ textarea, input[type=text] {
   transition: border .5s ease;
   width: 100%;
 }
+textarea::-webkit-input-placeholder, input[type=text]::-webkit-input-placeholder {
+  color:  rgba(var(--primary), .5) ;
+  font-style: normal;
+}
+textarea:-moz-placeholder, input[type=text]:-moz-placeholder {
+  color:  rgba(var(--primary), .5) ;
+  font-style: normal;
+}
+textarea::-moz-placeholder, input[type=text]::-moz-placeholder {
+  color:  rgba(var(--primary), .5) ;
+  font-style: normal;
+}
+textarea:-ms-input-placeholder, input[type=text]:-ms-input-placeholder {
+  color:  rgba(var(--primary), .5) ;
+  font-style: normal;
+}
 textarea:focus, input[type=text]:focus {
+  border-bottom: 2px solid  rgba(var(--primary), .75)  !important;
   transition: border .1s ease;
 }
 
@@ -2326,6 +2173,9 @@ section.subhead,
   justify-content: space-between;
   margin-bottom: 5px;
 }
+.post-responses .responses .response .byline time {
+  color:  rgba(var(--primary), .25) ;
+}
 .post-responses .posthaven-loader {
   margin: 5em auto;
 }
@@ -2621,4 +2471,8 @@ li.archive-entry .search-highlight {
   .posthaven-archive-form input {
     width: 90%;
   }
+}
+.posthaven .posthaven-wordmark {
+  --color-1:  rgba(var(--primary), .5) ;
+  --color-2:  rgba(var(--primary), .35) ;
 }

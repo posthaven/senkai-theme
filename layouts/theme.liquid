@@ -19,15 +19,21 @@
     {{ posthaven.includes_for_head }}
 
     <style>
-      .post a,
-      body.color-scheme-dark aside.sidebar a.cta-links,
-      body.color-scheme-light aside.sidebar a.cta-links {
-        color: var(--main);
+
+
+      {% comment %}
+
+      body.color-scheme-light {
+        --background: 255, 255, 255;
+        --primary: 0,0,0;
       }
 
-      :root {
-        --main: 255, 0, 0;
+      body.color-scheme-dark {
+        --primary: 255,255,255;
+        --background: 27,38,44;
       }
+
+      {{ settings.link-color }}; {% endcomment %}
 
 
       .posthaven-wordmark {

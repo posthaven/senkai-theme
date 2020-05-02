@@ -1,9 +1,35 @@
 @import 'variables';
 
+@mixin selection($color) {
+  *::-moz-selection {
+    background: $color;
+    color: choose-contrast-color($color);
+  }
+}
+
+// @mixin color($variable,$opacity) {
+//   .color {
+//     color: unquote(" rgba(var(--$variable), $opacity) ");
+//   }
+// }
+
+//$rgba: unquote(" rgba(var(--$variable), $opacity) ");
+
+@mixin background($value, $opacity) {
+  background: unquote(" rgba(var(--#{$value}), #{$opacity}) ");
+}
+
+@mixin rgba($property, $value: background, $opacity: 1) {
+  #{$property}: unquote(" rgba(var(--#{$value}), #{$opacity}) ");
+}
+
 .button {
   align-items: center;
+  background: unquote(" rgba(var(--background), 1) ");
   border-radius: 5px;
+  border: 2px solid unquote(" rgba(var(--primary), .5) ");
   box-sizing: border-box;
+  color: unquote(" rgba(var(--primary), .75) ");
   cursor: pointer;
   display: flex;
   font-family: $accentFont;
@@ -13,14 +39,21 @@
   padding: 10px 15px;
   text-transform: uppercase;
   user-select: none;
+
+  &:hover {
+    border: 2px solid unquote(" rgba(var(--primary), 1) ");
+    color: unquote(" rgba(var(--primary), 1) ");
+  }
 }
 
 // tags ui, used in footer, top of tag page, and date in archive view
 .chips {
   a {
     align-items: baseline;
+    border: 2px solid unquote(" rgba(var(--primary), .13) ");
     border-radius: 100px;
     box-sizing: border-box;
+    color: unquote(" rgba(var(--primary), .5) ");
     display: inline-flex;
     font-size: 18px;
     margin: 2px;
@@ -30,25 +63,36 @@
 
     span {
       // count
+      color: unquote(" rgba(var(--primary), .3) ");
       font-size: 16px;
       margin-left: 5px;
       transition: all .25s ease;
     }
 
     &:hover {
+      border: 2px solid unquote(" rgba(var(--primary), .4) ");
+      color: unquote(" rgba(var(--primary), .7) ");
       transition: all 0s ease;
 
       span {
+        color: unquote(" rgba(var(--primary), .5) ");
         transition: all 0s ease;
       }
     }
 
     &:active {
+      border: 2px solid unquote(" rgba(var(--primary), .7) ");
+      color: unquote(" rgba(var(--primary), .9) ");
       transition: all 0s ease;
 
       span {
+        color: unquote(" rgba(var(--primary), .7) ");
         transition: all 0s ease;
       }
+    }
+
+    .x {
+      color: unquote(" rgba(var(--background), 1) "); // needed for svg's fill: currentColor;
     }
   }
 
@@ -57,8 +101,10 @@
       // x replaces count
       align-items: center;
       //background: url("data:image/svg+xml;charset=utf-8,<svg width='10' height='10' xmlns='http://www.w3.org/2000/svg'><path d='M10 1.814L8.185 0 5 3.184 1.815 0 0 1.814 3.185 5 0 8.183l1.815 1.815L5 6.814 8.185 10 10 8.184 6.815 4.998z' fill='#000' fill-rule='nonzero'/></svg>");
+      background: unquote(" rgba(var(--primary), .5) ");
       border-radius: 10px;
       box-sizing: border-box;
+      color: unquote(" rgba(var(--background), 1) ");
       cursor: pointer;
       display: flex;
       height: 18px;
@@ -70,6 +116,20 @@
 
       svg {
         fill: currentColor;
+      }
+    }
+
+    &:hover {
+      span {
+        background: unquote(" rgba(var(--primary), .75) ");
+        color: choose-contrast-color($primary);
+      }
+    }
+
+    &:active {
+      span {
+        background: unquote(" rgba(var(--primary), .9) ");
+        color: choose-contrast-color($primary);
       }
     }
   }

@@ -2,6 +2,7 @@
 @import 'variables';
 
 aside.sidebar {
+  background: unquote(" rgba(var(--background), 1) ");
   box-shadow: 0 0px 100px 25px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
   font-family: $accentFont;
@@ -34,13 +35,23 @@ aside.sidebar {
   }
 
   h3 {
+    color: unquote(" rgba(var(--primary), .3) ");
     font-weight: 500;
     font-size: 14px;
     line-height: 28px;
     margin: 0;
   }
 
+  a {
+    color: unquote(" rgba(var(--primary), .8) ");
+
+    &:hover {
+      color: unquote(" rgba(var(--primary), 1) ");
+    }
+  }
+
   .cta-links {
+    color: unquote(" rgba(var(--link), 1) ");
     font-family: $accentFont;
     font-size: 14px;
     line-height: 28px;
