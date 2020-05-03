@@ -214,6 +214,12 @@ body.post-template {
         h2 {
           color: unquote(" rgba(var(--primary), 1) ");
           margin: 20px 0 0;
+
+          a {
+            &:hover {
+              @include highlighted-link(var(--link), .17); // color, background opacity, text color (optional)
+            }
+          }
         }
       }
     }
@@ -222,9 +228,9 @@ body.post-template {
   .post-body {
     @include selection($primary); // adding outside of posthaven-post-body allows selection color modification for text not wrapped in <p> tags
   }
-  
+
   .posthaven-post-body {
-    font-family: $defaultFont;
+    font-family: $postFont;
     font-size: 20px;
     line-height: 28px;
     margin: 25px auto 0;
@@ -232,11 +238,16 @@ body.post-template {
     width: $postWidth;
 
     a {
-      color: unquote(" rgba(var(--link), 1) ");
+      @include highlighted-link(var(--link), .1, .97); // color, background opacity, text color (optional)
+      padding: 0 2px;
+
+      &:hover {
+        @include highlighted-link(var(--link), .17, 1); // color, background opacity, text color (optional)
+      }
     }
   
   p {
-    line-height: 1.75em;
+    line-height: 1.6em;
 
     @media (min-width: 769px) {
       font-size: 20px;
@@ -254,7 +265,7 @@ body.post-template {
 
   ul, ol {
     li {
-      line-height: 1.75em;
+      line-height: 1.6em;
     }
   }
 
@@ -264,7 +275,7 @@ body.post-template {
         align-items: center;
         display: flex;
         float: none;
-        font-family: $bodyFont;
+        font-family: $themeFont;
         font-size: 14px;
 
         span {
@@ -321,14 +332,18 @@ body.post-template {
     display: block;
   }
 
+  ol, ul {
+    padding-left: 25px;
+  }
+
   blockquote {
-    padding-left: 30px;
+    margin-left: 5px;
+    padding-left: 20px;
     position: relative;
 
     &:before {
-      background: rgba($primary, .15);
+      background: unquote(" rgba(var(--primary), .05) ");
       bottom: 0;
-      border-radius: 8px;
       content: "";
       left: 0;
       position: absolute;
@@ -357,6 +372,8 @@ body.post-template {
   }
 
   .posthaven-post-body {
+    color: unquote(" rgba(var(--primary), .8) ");
+
     .posthaven-gallery {
 
       /*
@@ -436,47 +453,6 @@ body.post-template {
     h2{
       margin-bottom: 80px;
     }
-  }
-}
-
-.posthaven-share-links .posthaven-upvote,
-.comment-count {
-  align-items: center;
-  border: 2px solid #DDDDDD;
-  border-radius: 4px;
-  box-sizing: border-box;
-  font-family: "Proxima Nova";
-  display: flex;
-  height: 30px;
-  padding: 3px 5px 3px 9px;
-
-  &:hover {
-    border-color: rgba(0,0,0,0.5);
-    background-color: transparent;
-
-    .posthaven-upvote-label,
-    .posthaven-upvoted-label {
-      color: #509DFF;
-    }
-    .posthaven-upvote-number {
-      color: #000000;
-    }
-  }
-  .posthaven-upvote-label,
-  .posthaven-upvoted-label {
-    color: #509DFF;
-    font-size: 15px;
-    line-height: 18px;
-    font-weight: bold;
-    text-transform: uppercase;
-  }
-  .posthaven-upvote-number {
-    color: inherit;
-    font-size: 15px;
-    font-weight: bold;
-    line-height: 18px;
-    margin-left: 5px;
-    opacity: 0.3;
   }
 }
 

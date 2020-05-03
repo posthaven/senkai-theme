@@ -7,6 +7,7 @@
 @import 'post';
 @import 'footer';
 @import 'social';
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
 
 // Use CSS variables (sometimes defined by user) to define rgb colors values.
 // DO NOT USE HEX
@@ -20,17 +21,7 @@
 
 }
 
-body.color-scheme-light {
-  --background: 255, 255, 255; // {{ settings.background }}
-  --primary: 0, 0 ,0; // {{ settings.primary }}
-  --link: 236, 148, 5; // {{ settings.link }}
-}
 
-body.color-scheme-dark {
-  --primary: 255, 255, 255;
-  --background: 27, 38, 44;
-  --link: 236, 148, 5; // {{ settings.link }}
-}
 
 /*********************************************************
 *  General
@@ -40,7 +31,7 @@ body {
   //@include rgba(background,background,1);
   background: unquote(" rgba(var(--background), 1) ");
   color: unquote(" rgba(var(--primary), .8) ");
-  font-family: $bodyFont;
+  font-family: $themeFont;
   line-height: 1.5;
   margin: 0;
   overflow-x: hidden;
@@ -118,7 +109,7 @@ input[type='submit'],
 
 .alert {
   background:#fff;
-  border:1px solid rgba($primary, 0.15);
+  border: 1px solid unquote(" rgba(var(--primary), .15) ");
   border-radius: 5px;
   font-size: 14px;
   margin: 10px 0px 10px 60px;
@@ -253,19 +244,21 @@ section.subhead {
     }
 
     &:before {
-      background: rgba($primary, .5);
+      background: unquote(" rgba(var(--primary), .35) ");
       left: 0;
       width: 22px;
     }
 
     &:after {
-      background: rgba(0,0,0,.35);
+      background: unquote(" rgba(var(--primary), .5) ");
       right: 0;
       width: 10px;
     }
   }
 
   .posthaven-wordmark {
+    --color-1: unquote(" rgba(var(--primary), .35) ");
+    --color-2: unquote(" rgba(var(--primary), .5) ");
     height: 13px;
     width: 120px;
   }
@@ -413,7 +406,7 @@ section.subhead,
       &.number {
         &.active {
           a {
-            color: rgba($primary, .3);
+            color: unquote(" rgba(var(--primary), .3) ");
             cursor: default;
             border: solid 1px transparent;
             font-size: 18px;
@@ -489,11 +482,89 @@ section.subhead,
 .posthaven-share-links {
   display: flex;
   flex-direction: row;
+  line-height: normal;
   margin-right: 10px;
+
+  &.large {
+    .posthaven-control {
+      font-size: 18px;
+      height: 28px;
+    }
+    .posthaven-upvote .posthaven-upvote-icon {
+      height: 26px;
+      width: 26px;
+    }
+  }
+
+  &:not(.large) {
+    .posthaven-control {
+      font-size: 16px;
+      height: 20px;
+    }
+  }
 
   .posthaven-share-item {
     display: inline-block;
     margin: 0px 10px 0 0;
+  }
+        
+  .posthaven-control {
+    align-items: center;
+    @include highlighted-link("18, 133, 249", .2, 1); // color, background opacity, text color (optional)
+    border-radius: 4px;
+    box-sizing: border-box;
+    display: flex;
+    font-family: 'Rubik', sans-serif;
+    padding: 0 5px 0 3px;
+    user-select: none;
+
+    &:hover {
+      @include highlighted-link("18, 133, 249", .3, 1); // color, background opacity, text color (optional)
+
+      .posthaven-upvote-number {
+        color: unquote(" rgba(var(--primary), .35) ");
+      }
+    }
+
+    &.posthaven-upvote,
+    &.posthaven-upvoted {
+      .posthaven-upvote-holder {
+        align-items: center;
+        display: flex;
+
+        .posthaven-upvote-label,
+        .posthaven-upvoted-label {
+          color: rgb(18, 133, 249);
+
+          span {
+            color: unquote(" rgba(var(--primary), 1) ");
+          }
+        }
+      }
+    }
+
+    .posthaven-upvote-number {
+      color: unquote(" rgba(var(--primary), .2) ");
+      font-family: 'Rubik', sans-serif;
+      font-size: 16px;
+    }
+
+    .posthaven-upvote-icon {
+      //background-color: unquote(" rgba(var(--primary), 1) ");
+      display: none;
+
+      .posthaven-upvote-side,
+      .posthaven-upvote-arrow {
+        display: none;
+      }
+    }
+
+    &.posthaven-upvoted {
+      .posthaven-upvote-icon {
+        //background-image: url('data:image/svg+xml;utf8,<svg width="16" height="16" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg"><title>Checkmark</title><path d="M15.43 3.95l-1.793-1.793L6.38 9.412 2.795 5.825 1 7.62 6.38 13l1.795-1.794L15.43 3.95z" fill="%23FFF" fill-rule="evenodd"/></svg>') !important;
+
+      }
+    }
   }
 }
 
@@ -808,9 +879,3 @@ li.archive-entry {
   .posthaven-archive-form input { width: 90%; }
 }
 
-.posthaven {
-  .posthaven-wordmark {
-    #{--color-1}: unquote(" rgba(var(--primary), .5) ");
-    #{--color-2}: unquote(" rgba(var(--primary), .35) ");
-  }
-}

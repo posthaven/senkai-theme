@@ -23,6 +23,22 @@
   #{$property}: unquote(" rgba(var(--#{$value}), #{$opacity}) ");
 }
 
+// this makes highlighted links. pass:
+// 1. color (can be css variable or rgb color)
+// 2. amount of background opaicty
+// 3. optionally if you want the text color to change, include an opacity
+@mixin highlighted-link($color-variable, $background-opacity, $color-opacity: false) {
+  background:
+    linear-gradient(0deg,
+      rgba(255,255,255,0) 20%, 
+      unquote(" rgba(#{$color-variable}, #{$background-opacity}) ") 20%, 
+      unquote(" rgba(#{$color-variable}, #{$background-opacity}) ") 62%, 
+      rgba(255,255,255,0) 62%);
+  @if $color-variable {
+    color: unquote(" rgba(#{$color-variable}, #{$color-opacity}) ");
+  }
+}
+
 .button {
   align-items: center;
   background: unquote(" rgba(var(--background), 1) ");

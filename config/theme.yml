@@ -9,7 +9,7 @@ settings:
 - id: link-color
   label: Link color
   type: color
-  default: "#ec9405"
+  default: "#D88D14"
 - id: color-scheme
   label: Color scheme
   type: radio
@@ -19,3 +19,5 @@ settings:
     label: Light background
   - value: dark
     label: Dark background
+  - value: auto
+    label: Auto (matches browser preference)
