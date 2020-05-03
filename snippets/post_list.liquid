@@ -12,7 +12,17 @@
         {% unless post.has_excerpt? %}
           <footer class="homepage-post-footer">
 
-            {{ post | share_buttons_plus_comments_large }}
+            <div class="posthaven-share-links">
+              {{ post | comment_button }}
+              <div class="posthaven-share-item">
+                {{ post | upvote_button }}
+              </div>
+            </div>
+            
+            <div class="posthaven-share-buttons">
+                {{ post | twitter_button }}
+                {{ post | facebook_button }}
+            </div>
 
           </footer>
         {% endunless %}

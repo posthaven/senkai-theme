@@ -7,7 +7,7 @@
 @import 'post';
 @import 'footer';
 @import 'social';
-@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap');
 
 // Use CSS variables (sometimes defined by user) to define rgb colors values.
 // DO NOT USE HEX
@@ -479,12 +479,24 @@ section.subhead,
     margin: 5em auto;
   }
 }
+.posthaven-share-buttons {
+  display: flex;
+  flex-direction: row;
+  margin-top: 40px;
 
+  .posthaven-share-item {
+    line-height: 0;
+    margin-right: 10px;
+  }
+}
+
+// internal buttons
 .posthaven-share-links {
   display: flex;
   flex-direction: row;
   line-height: normal;
   margin-right: 10px;
+  width: 100%;
 
   .posthaven-comment-number {
     margin-left: 5px;
@@ -524,6 +536,7 @@ section.subhead,
   .posthaven-share-item {
     display: inline-block;
     margin: 0px 10px 0 0;
+    flex: 0 50%;
   }
         
   .posthaven-control {
@@ -533,6 +546,9 @@ section.subhead,
     box-sizing: border-box;
     display: flex;
     font-family: 'Rubik', sans-serif;
+    font-size: 14px !important;
+    height: 48px !important;
+    justify-content: center;
     padding: 0 10px;
     user-select: none;
 
@@ -578,6 +594,7 @@ section.subhead,
       .posthaven-upvote-holder {
         align-items: center;
         display: flex;
+        justify-content: center;
 
         .posthaven-upvote-label,
         .posthaven-upvoted-label {
