@@ -1078,7 +1078,7 @@ header.header .posthaven-user-menu .ph-menu ul li a {
   background:  rgba(var(--primary), .75) ;
   color:  rgba(var(--background), .9) ;
   display: flex;
-  padding: 10px 20px;
+  padding: 10px 40px 10px 20px;
   position: relative;
   user-select: none;
   transition: background .25s ease;
@@ -1335,7 +1335,7 @@ body.post-template .post header:not(.has-image) {
 }
 .post header.has-image {
   align-items: flex-end;
-  margin: 50px -20px 50px;
+  margin: 50px -20px 40px;
   padding-bottom: 30px;
   position: relative;
 }
@@ -1382,6 +1382,9 @@ body.post-template .post header:not(.has-image) {
 }
 .post header.has-image .post-title h2 {
   margin: 20px 0 0;
+}
+.post header.has-image .post-title h2 a {
+  color: #fff;
 }
 .post header:not(.has-image) .post-title {
   margin: 20px auto;
@@ -2196,7 +2199,8 @@ section.subhead,
 .posthaven-share-buttons {
   display: flex;
   flex-direction: row;
-  margin-top: 40px;
+  margin: 0 auto;
+  max-width: 600px;
 }
 .posthaven-share-buttons .posthaven-share-item {
   line-height: 0;

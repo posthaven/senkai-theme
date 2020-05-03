@@ -21,3 +21,7 @@ settings:
     label: Dark background
   - value: auto
     label: Auto (matches browser preference)
+- id: social-links
+  label: Show social share buttons
+  default: true
+  type: checkbox

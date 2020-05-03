@@ -31,6 +31,13 @@
       <a href="{{ post.url }}"><figure style="background-image: url({{ post.post_image.medium.url }})"></figure></a>
     {% endif %}
   {% endif %}
+    
+  {% if settings.social-links %}
+    <div class="posthaven-share-buttons">
+      {{ post | twitter_button }}
+      {{ post | facebook_button }}
+    </div>
+  {% endif %}
 
   <div class="post-body" id="post_body_{{ post.id }}">
 

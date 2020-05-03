@@ -482,7 +482,8 @@ section.subhead,
 .posthaven-share-buttons {
   display: flex;
   flex-direction: row;
-  margin-top: 40px;
+  margin: 0 auto;
+  max-width: $postWidth;
 
   .posthaven-share-item {
     line-height: 0;
