@@ -45,6 +45,16 @@
         }
       }
 
+      @media (prefers-color-scheme: light) {
+        body {
+          --background: 255, 255, 255;
+          --primary: 0, 0 ,0;
+          /* --link: {{ '#ff0000' | color_to_rgb }}; */
+          /* --link: {{ settings.link-color | color_to_rgb }}; */
+          --link: {{ hex2rgb_r }}, {{ hex2rgb_g }}, {{ hex2rgb_b }};
+        }
+      }
+
 
       {% comment %}
 

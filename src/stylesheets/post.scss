@@ -237,15 +237,18 @@ body.post-template {
     max-width: 100%;
     width: $postWidth;
 
-    a {
-      @include highlighted-link(var(--link), .1, .97); // color, background opacity, text color (optional)
-      padding: 0 2px;
+    :not(.posthaven-read-more-link) {
 
-      &:hover {
-        @include highlighted-link(var(--link), .17, 1); // color, background opacity, text color (optional)
+      a {
+        @include highlighted-link(var(--link), .1, .97); // color, background opacity, text color (optional)
+        padding: 0 2px;
+
+        &:hover {
+          @include highlighted-link(var(--link), .17, 1); // color, background opacity, text color (optional)
+        }
       }
     }
-  
+
   p {
     line-height: 1.6em;
 

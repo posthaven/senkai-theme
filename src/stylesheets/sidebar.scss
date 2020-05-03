@@ -46,12 +46,33 @@ aside.sidebar {
     color: unquote(" rgba(var(--primary), .8) ");
 
     &:hover {
-      color: unquote(" rgba(var(--primary), 1) ");
+      color: unquote(" rgba(var(--link), 1) ");
+    }
+  }
+
+  .tags-simple {
+    li {
+      a {
+        span {
+          font-weight: bold;
+          opacity: .5;
+        }
+
+        &:hover {
+          span {
+            opacity: 1;
+          }
+        }
+      }
+    }
+    .hide {
+      display: none;
     }
   }
 
   .cta-links {
     color: unquote(" rgba(var(--link), 1) ");
+    cursor: pointer;
     font-family: $accentFont;
     font-size: 14px;
     line-height: 28px;

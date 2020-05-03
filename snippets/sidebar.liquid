@@ -25,23 +25,35 @@
     {% include 'subscribe' %}
   {% endif %}
 
-  <section class="all-tags">
-    <h3>Tags</h3>
-    <ul>
-      {% for t in site.tags limit:5 %}
-        <li>
-          <a href="{{ t.url }}">{{ t.name }}</a>
-        </li>
-      {% endfor %}
-    </ul>
-    {% assign tagCount = 0 %}
-    {% for tg in site.tags %}
-    {% assign tagCount = tagCount | plus : 1 %}
-    {% endfor %}
-    {% if tagCount > 3 %}
-    <a class="cta-links" href="/tags">View all {{ tagCount }} tags</a>
-    {% endif %}
-  </section>
+  {% if site.tags.size > 0 %}
+    <section id="tag_list_menu" class="tags-simple">
+      <h3>Tags</h3>
+
+      <ul>
+        {% for t in site.tags %}
+          {% if forloop.index > 5 %}
+            <li class='hide'>
+          {% else %}
+            <li>
+          {% endif %}
+            {% if tag and tag == t.name %}
+              <strong>{{ t.name }} <span>{{ t.post_count }}</span></strong>
+            {% else %}
+              <a href="{{ t.url }}">{{ t.name }} <span>{{ t.post_count }}</span></a>
+            {% endif %}
+          </li>
+        {% endfor %}
+      </ul>
+
+      {% if site.tags.size > 5 %}
+        <div class="all-tags">
+          <span class="cta-links show-all-tags">
+            See all {{ site.tags.size }} tags
+          </span>
+        </div>
+      {% endif %}
+    </section>
+  {% endif %}
 
   <section class="archives">
     <h3>Archive</h3>
