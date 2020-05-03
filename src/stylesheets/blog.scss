@@ -354,6 +354,7 @@ section.subhead,
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    font-family: $accentFont;
     justify-content: space-evenly;
     margin: 0;
     padding: 0;
@@ -409,12 +410,12 @@ section.subhead,
             color: unquote(" rgba(var(--primary), .3) ");
             cursor: default;
             border: solid 1px transparent;
-            font-size: 18px;
+            font-size: 14px;
             justify-content: center;
 
             &:hover,
             &:active {
-              color: rgba($primary, .3);
+              color: unquote(" rgba(var(--primary), .3) ");
 
               &:after {
                 display: none;
