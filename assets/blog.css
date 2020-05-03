@@ -870,11 +870,14 @@ body.menu-active .overlay {
 @media (max-width: 860px) {
   header.header {
     align-items: center;
-    background: #fff;
+    backdrop-filter: blur(5px);
+    background:  rgba(var(--background), .9) ;
     box-shadow: 0 0 30px rgba(0, 0, 0, 0.15);
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     min-height: 60px;
+    max-height: 100px;
     padding: 10px;
     position: fixed;
     top: 0;
@@ -882,8 +885,32 @@ body.menu-active .overlay {
     z-index: 10;
   }
   header.header h1 {
+    display: flex;
+    flex: 1;
     font-size: 20px;
-    padding-top: 4px;
+    justify-content: center;
+    order: 2;
+    padding: 4px 10px 0;
+    text-align: center;
+  }
+  header.header .menu {
+    flex: 0 0 50px;
+    order: 1;
+  }
+  header.header .menu .menu-trigger {
+    background: none;
+    border: none;
+    font-size: 22px;
+    padding: 5px;
+  }
+  header.header .menu .menu-trigger > span {
+    display: none;
+  }
+  header.header .posthaven-user-menu {
+    display: flex;
+    flex: 0 0 50px;
+    justify-content: flex-end;
+    order: 3;
   }
 }
 @media (min-width: 861px) {
@@ -917,16 +944,23 @@ header.header h5 {
     display: none;
   }
 }
-header.header .menu {
-  display: inline-flex;
-  left: 20px;
-  position: fixed;
-  top: 20px;
+@media (min-width: 861px) {
+  header.header .menu {
+    display: inline-flex;
+    left: 20px;
+    position: fixed;
+    top: 20px;
+  }
 }
-header.header .posthaven-user-menu {
-  position: fixed;
-  right: 20px;
-  top: 20px;
+header.header .menu-trigger span {
+  margin-left: 5px;
+}
+@media (min-width: 861px) {
+  header.header .posthaven-user-menu {
+    position: fixed;
+    right: 20px;
+    top: 20px;
+  }
 }
 header.header .posthaven-user-menu figure {
   background:  rgba(var(--background), 1) ;

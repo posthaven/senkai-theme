@@ -56,11 +56,14 @@ body.menu-active .overlay {
 header.header {
   @media (max-width: 860px) {
     align-items: center;
-    background: #fff;
+    backdrop-filter: blur(5px);
+    background: unquote(" rgba(var(--background), .9) ");
     box-shadow: 0 0 30px rgba(0,0,0,.15);
+    box-sizing: border-box;
     display: flex;
     justify-content: center;
     min-height: 60px;
+    max-height: 100px;
     padding: 10px;
     position: fixed;
     top: 0;
@@ -68,8 +71,36 @@ header.header {
     z-index: 10;
 
     h1 {
+      display: flex;
+      flex: 1;
       font-size: 20px;
-      padding-top: 4px;
+      justify-content: center;
+      order: 2;
+      padding: 4px 10px 0;
+      text-align: center;
+    }
+
+    .menu {
+      flex: 0 0 50px;
+      order: 1;
+
+      .menu-trigger {
+        background: none;
+        border: none;
+        font-size: 22px;
+        padding: 5px;
+
+        > span {
+          display: none;
+        }
+      }
+    }
+
+    .posthaven-user-menu {
+      display: flex;
+      flex: 0 0 50px;
+      justify-content: flex-end;
+      order: 3;
     }
   }
 
@@ -107,20 +138,28 @@ header.header {
   }
 
   .menu {
-    display: inline-flex;
-    left: 20px;
-    position: fixed;
-    top: 20px;
+    @media (min-width: 861px) {
+      display: inline-flex;
+      left: 20px;
+      position: fixed;
+      top: 20px;
+    }
   }
 
   .menu-trigger {
     @extend .button;
+
+    span {
+      margin-left: 5px;
+    }
   }
 
   .posthaven-user-menu {
-    position: fixed;
-    right: 20px;
-    top: 20px;
+    @media (min-width: 861px) {
+      position: fixed;
+      right: 20px;
+      top: 20px;
+    }
 
     // icon/trigger (using .ph-trigger in js)
     figure {
