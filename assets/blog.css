@@ -2189,17 +2189,31 @@ section.subhead,
   line-height: normal;
   margin-right: 10px;
 }
+.posthaven-share-links .posthaven-comment-number {
+  margin-left: 5px;
+}
+.posthaven-share-links .posthaven-comment-number,
+.posthaven-share-links .posthaven-upvote-number {
+  color: #fff;
+  font-family: 'Rubik', sans-serif;
+}
+.posthaven-share-links.large {
+  font-size: 13px;
+}
 .posthaven-share-links.large .posthaven-control {
-  font-size: 18px;
+  font-size: 14px;
   height: 28px;
 }
-.posthaven-share-links.large .posthaven-upvote .posthaven-upvote-icon {
-  height: 26px;
-  width: 26px;
+.posthaven-share-links.large .posthaven-comment-number,
+.posthaven-share-links.large .posthaven-upvote-number {
+  font-size: 14px;
 }
 .posthaven-share-links:not(.large) .posthaven-control {
-  font-size: 16px;
+  font-size: 12px;
   height: 20px;
+}
+.posthaven-share-links:not(.large) .posthaven-upvote-number {
+  font-size: 12px;
 }
 .posthaven-share-links .posthaven-share-item {
   display: inline-block;
@@ -2207,47 +2221,76 @@ section.subhead,
 }
 .posthaven-share-links .posthaven-control {
   align-items: center;
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 20%,  rgba(18, 133, 249, 0.2)  20%,  rgba(18, 133, 249, 0.2)  62%, rgba(255, 255, 255, 0) 62%);
-  color:  rgba(18, 133, 249, 1) ;
+  background: #1285F9;
   border-radius: 4px;
   box-sizing: border-box;
   display: flex;
   font-family: 'Rubik', sans-serif;
-  padding: 0 5px 0 3px;
+  padding: 0 10px;
   user-select: none;
 }
 .posthaven-share-links .posthaven-control:hover {
-  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 20%,  rgba(18, 133, 249, 0.3)  20%,  rgba(18, 133, 249, 0.3)  62%, rgba(255, 255, 255, 0) 62%);
-  color:  rgba(18, 133, 249, 1) ;
+  background: #0678ec;
 }
 .posthaven-share-links .posthaven-control:hover .posthaven-upvote-number {
-  color:  rgba(var(--primary), .35) ;
+  color: #fff;
 }
-.posthaven-share-links .posthaven-control.posthaven-upvote .posthaven-upvote-holder, .posthaven-share-links .posthaven-control.posthaven-upvoted .posthaven-upvote-holder {
+.posthaven-share-links .posthaven-control:active {
+  background: #056cd3;
+  transform: scale(0.98);
+}
+.posthaven-share-links .posthaven-control .posthaven-comment-label {
+  padding-left: 24px;
+  position: relative;
+}
+.posthaven-share-links .posthaven-control .posthaven-comment-label:before {
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='18' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M9 1C4.567 1 1 4.144 1 8.012c0 2.217 1.167 4.192 2.967 5.482l.124 2.621c.023.489.36.648.75.357L7 14.864c.633.161 1.3.202 2 .202 4.433 0 8-3.144 8-7.013C17 4.183 13.433 1 9 1z' fill='%23FFF' fill-rule='nonzero'/%3E%3C/svg%3E");
+  content: "";
+  height: 18px;
+  left: 0;
+  position: absolute;
+  top: -1px;
+  width: 18px;
+}
+.posthaven-share-links .posthaven-control .posthaven-comment-count {
+  margin-left: 5px;
+}
+.posthaven-share-links .posthaven-control .posthaven-comment-label,
+.posthaven-share-links .posthaven-control .posthaven-comment-count, .posthaven-share-links .posthaven-control.posthaven-upvote, .posthaven-share-links .posthaven-control.posthaven-upvoted {
+  color: #fff;
+}
+.posthaven-share-links .posthaven-control .posthaven-comment-label .posthaven-upvote-holder,
+.posthaven-share-links .posthaven-control .posthaven-comment-count .posthaven-upvote-holder, .posthaven-share-links .posthaven-control.posthaven-upvote .posthaven-upvote-holder, .posthaven-share-links .posthaven-control.posthaven-upvoted .posthaven-upvote-holder {
   align-items: center;
   display: flex;
 }
-.posthaven-share-links .posthaven-control.posthaven-upvote .posthaven-upvote-holder .posthaven-upvote-label,
+.posthaven-share-links .posthaven-control .posthaven-comment-label .posthaven-upvote-holder .posthaven-upvote-label,
+.posthaven-share-links .posthaven-control .posthaven-comment-label .posthaven-upvote-holder .posthaven-upvoted-label,
+.posthaven-share-links .posthaven-control .posthaven-comment-count .posthaven-upvote-holder .posthaven-upvote-label,
+.posthaven-share-links .posthaven-control .posthaven-comment-count .posthaven-upvote-holder .posthaven-upvoted-label, .posthaven-share-links .posthaven-control.posthaven-upvote .posthaven-upvote-holder .posthaven-upvote-label,
 .posthaven-share-links .posthaven-control.posthaven-upvote .posthaven-upvote-holder .posthaven-upvoted-label, .posthaven-share-links .posthaven-control.posthaven-upvoted .posthaven-upvote-holder .posthaven-upvote-label,
 .posthaven-share-links .posthaven-control.posthaven-upvoted .posthaven-upvote-holder .posthaven-upvoted-label {
-  color: #1285f9;
+  color: #fff;
 }
-.posthaven-share-links .posthaven-control.posthaven-upvote .posthaven-upvote-holder .posthaven-upvote-label span,
-.posthaven-share-links .posthaven-control.posthaven-upvote .posthaven-upvote-holder .posthaven-upvoted-label span, .posthaven-share-links .posthaven-control.posthaven-upvoted .posthaven-upvote-holder .posthaven-upvote-label span,
-.posthaven-share-links .posthaven-control.posthaven-upvoted .posthaven-upvote-holder .posthaven-upvoted-label span {
-  color:  rgba(var(--primary), 1) ;
-}
-.posthaven-share-links .posthaven-control .posthaven-upvote-number {
-  color:  rgba(var(--primary), .2) ;
-  font-family: 'Rubik', sans-serif;
-  font-size: 16px;
-}
-.posthaven-share-links .posthaven-control .posthaven-upvote-icon {
-  display: none;
+.posthaven-share-links .posthaven-control .posthaven-upvote-icon,
+.posthaven-share-links .posthaven-control .posthaven-upvoted-icon {
+  background-image: url("data:image/svg+xml,%3Csvg width='18' height='56' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='%23FFF' fill-rule='nonzero'%3E%3Cpath d='M9.627.778c.527-.996 2.253-1.056 2.782-.061.02.02.02.04.04.08.325.67.305 1.443-.04 2.092-.488.914-1.32 1.788-1.198 2.458.02.122.142.224.264.224l4.529.224c.487.02.954.223 1.3.568.425.406.75 1.117.385 2.275 0 0 .853 1.665-.265 2.781 0 0 .792.995-.467 2.173 0 0 .528 1.666-.792 2.052-1.016.304-6.052.142-7.84.04-.487-.04-.974-.162-1.4-.406a4.326 4.326 0 0 0-1.869-.569.139.139 0 0 1-.142-.142V8.028c0-.142.102-.243.224-.284.386-.101.691-.304 1.442-1.482 0 0 .223-2.092 1.686-2.946.406-.71.853-1.563 1.36-2.538zm-5.748 6.54a.32.32 0 0 1 .325.325v7.087a.321.321 0 0 1-.325.325H.325A.321.321 0 0 1 0 14.73V7.643c0-.183.143-.325.325-.325zM18 44.631L5.952 55.863l-.084-.09-2.368-2.54L0 49.48l2.592-2.416 3.5 3.752L15.548 42z'/%3E%3C/g%3E%3C/svg%3E");
+  background-color: transparent;
+  background-position: 0 0;
+  background-repeat: no-repeat;
+  background-size: 100%;
+  height: 18px;
+  transition: background .25s ease;
+  width: 18px;
 }
 .posthaven-share-links .posthaven-control .posthaven-upvote-icon .posthaven-upvote-side,
-.posthaven-share-links .posthaven-control .posthaven-upvote-icon .posthaven-upvote-arrow {
+.posthaven-share-links .posthaven-control .posthaven-upvote-icon .posthaven-upvote-arrow,
+.posthaven-share-links .posthaven-control .posthaven-upvoted-icon .posthaven-upvote-side,
+.posthaven-share-links .posthaven-control .posthaven-upvoted-icon .posthaven-upvote-arrow {
   display: none;
+}
+.posthaven-share-links .posthaven-control.posthaven-upvoted .posthaven-upvote-icon {
+  background-position: 0 -40px;
 }
 
 @media handheld, only screen and (max-width: 414px) {
