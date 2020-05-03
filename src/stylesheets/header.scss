@@ -299,12 +299,11 @@ header.header {
           }
 
           &:not(:last-child) {
-            border-bottom: solid 1px unquote(" rgba(var(--background), .05) ");
           }
 
           a {
-            background: unquote(" rgba(var(--primary), .1) ");
-            color: unquote(" rgba(var(--primary), .75) ");
+            background: unquote(" rgba(var(--primary), .75) ");
+            color: unquote(" rgba(var(--background), .9) ");
             display: flex;
             padding: 10px 20px;
             position: relative;
@@ -313,8 +312,8 @@ header.header {
             white-space: nowrap;
 
             &:hover {
-              background: unquote(" rgba(var(--primary), .05) ");
-              color: unquote(" rgba(var(--primary), 1) ");
+              background: unquote(" rgba(var(--primary), .85) ");
+              color: unquote(" rgba(var(--background), 1) ");
               transition: background 0s ease;
             }
           }
