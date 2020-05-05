@@ -1255,7 +1255,7 @@ aside ul li {
 
 .post-list figure {
   height: 400px;
-  margin: 0 auto;
+  margin: 0 auto 40px;
   max-width: 100%;
   width: 600px;
 }
