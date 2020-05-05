@@ -3,7 +3,7 @@
 
     {% for social in site.profile.social %}
       <li class="{{ social.name }}">
-        <a href="//{{ social.url }}" target="_blank">
+        <a href="{{ social.url }}" target="_blank">
           <svg>
             {% comment %}<use xlink:href="#social-{{ social.name }}"></use>{% endcomment %}
             <use xlink:href="#social-{{ social.name }}"></use>
