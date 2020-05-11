@@ -15,7 +15,7 @@
     {{ "blog.css" | local_file | style_tag }}
     {% endcomment %}
     {{ "blog.css" | asset_url | stylesheet_tag }}
-    
+
     <link rel="stylesheet" href="https://use.typekit.net/iim1sys.css">
 
     {% assign hex2rgb_hex = settings.link-color %}
@@ -26,8 +26,8 @@
       body.color-scheme-light {
         --background: 255, 255, 255;
         --primary: 0, 0 ,0;
-        /* --link: {{ '#ff0000' | color_to_rgb }}; */
-        /* --link: {{ settings.link-color | color_to_rgb }}; */
+        /* --link: {{ '#ff0000' | color_to_hsl }}; */
+        --link: {{ settings.link-color | hex_to_rgb }};
         --link: {{ hex2rgb_r }}, {{ hex2rgb_g }}, {{ hex2rgb_b }};
       }
 
@@ -72,7 +72,7 @@
 
 
       .posthaven-wordmark {
-        
+
 
         /*--color-2: red !important; */
       }
