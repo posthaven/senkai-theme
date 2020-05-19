@@ -11,37 +11,33 @@
 
     {{ posthaven.includes_for_head }}
 
-    {% comment %}
     {{ "blog.css" | local_file | style_tag }}
-    {% endcomment %}
+    {% comment %}
     {{ "blog.css" | asset_url | stylesheet_tag }}
+    {% endcomment %}
 
     <link rel="stylesheet" href="https://use.typekit.net/iim1sys.css">
 
-    {% assign hex2rgb_hex = settings.link-color %}
-    {% include 'hex2rgb' %}
 
     <style>
 
       body.color-scheme-light {
         --background: 255, 255, 255;
         --primary: 0, 0 ,0;
-        /* --link: {{ '#ff0000' | color_to_hsl }}; */
         --link: {{ settings.link-color | hex_to_rgb }};
-        --link: {{ hex2rgb_r }}, {{ hex2rgb_g }}, {{ hex2rgb_b }};
       }
 
       body.color-scheme-dark {
         --primary: 255, 255, 255;
         --background: 27, 38, 44;
-        --link: {{ hex2rgb_r }}, {{ hex2rgb_g }}, {{ hex2rgb_b }};
+        --link: {{ settings.link-color | hex_to_rgb }};
       }
 
       @media (prefers-color-scheme: dark) {
         body {
           --primary: 255, 255, 255;
           --background: 27, 38, 44;
-          --link: {{ hex2rgb_r }}, {{ hex2rgb_g }}, {{ hex2rgb_b }};
+        --link: {{ settings.link-color | hex_to_rgb }};
         }
       }
 
@@ -49,27 +45,9 @@
         body {
           --background: 255, 255, 255;
           --primary: 0, 0 ,0;
-          /* --link: {{ '#ff0000' | color_to_rgb }}; */
-          /* --link: {{ settings.link-color | color_to_rgb }}; */
-          --link: {{ hex2rgb_r }}, {{ hex2rgb_g }}, {{ hex2rgb_b }};
+          --link: {{ settings.link-color | hex_to_rgb }};
         }
       }
-
-
-      {% comment %}
-
-      body.color-scheme-light {
-        --background: 255, 255, 255;
-        --primary: 0,0,0;
-      }
-
-      body.color-scheme-dark {
-        --primary: 255,255,255;
-        --background: 27,38,44;
-      }
-
-      {{ settings.link-color }}; {% endcomment %}
-
 
       .posthaven-wordmark {
 
@@ -85,7 +63,7 @@
 
         <header class="header">
           <h1>
-            <a href="{{ site.url }}">{% if site.name != "" %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}</a>
+            <a href="{{ site.url }}">{% if site.name %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}</a>
           </h1>
 
           {% if site.description %}

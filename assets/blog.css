@@ -742,6 +742,7 @@ table {
 .button:hover, header.header .menu-trigger:hover, input[type='submit']:hover,
 .posthaven-user-subscribe a:hover,
 .post .posthaven-post-body .posthaven-read-more-link a:hover, .pagination ul li.first a:hover, .pagination ul li.previous a:hover, .pagination ul li.next a:hover, .pagination ul li.last a:hover {
+  background: none !important;
   border: 2px solid  rgba(var(--primary), 1) ;
   color:  rgba(var(--primary), 1)  !important;
 }
@@ -867,6 +868,9 @@ body.menu-active .overlay {
 /*********************************************************
 *  Navigation
 *********************************************************/
+header.header h1 a {
+  color:  rgba(var(--primary), 1) ;
+}
 @media (max-width: 860px) {
   header.header {
     align-items: center;
@@ -993,7 +997,7 @@ header.header .posthaven-user-menu figure.active span i:after {
   transform: rotate(45deg);
 }
 header.header .posthaven-user-menu figure:hover {
-  border: solid 2px rgba(128, 128, 128, 0.5);
+  border: solid 2px  rgba(var(--primary), .3) ;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 header.header .posthaven-user-menu figure:hover span i {
@@ -1159,6 +1163,7 @@ aside.sidebar a {
   color:  rgba(var(--primary), .8) ;
 }
 aside.sidebar a:hover {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 20%,  rgba(var(--link), 0.17)  20%,  rgba(var(--link), 0.17)  62%, rgba(255, 255, 255, 0) 62%);
   color:  rgba(var(--link), 1) ;
 }
 aside.sidebar .tags-simple li a span {
@@ -1418,12 +1423,12 @@ body.post-template .post header:not(.has-image) {
   width: 600px;
   /* IE8 css bug */
 }
-.post .posthaven-post-body :not(.posthaven-read-more-link) a {
+.post .posthaven-post-body a {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0) 20%,  rgba(var(--link), 0.1)  20%,  rgba(var(--link), 0.1)  62%, rgba(255, 255, 255, 0) 62%);
   color:  rgba(var(--link), 0.97) ;
   padding: 0 2px;
 }
-.post .posthaven-post-body :not(.posthaven-read-more-link) a:hover {
+.post .posthaven-post-body a:hover {
   background: linear-gradient(0deg, rgba(255, 255, 255, 0) 20%,  rgba(var(--link), 0.17)  20%,  rgba(var(--link), 0.17)  62%, rgba(255, 255, 255, 0) 62%);
   color:  rgba(var(--link), 1) ;
 }
@@ -1800,12 +1805,11 @@ body .overlay {
 }
 
 a {
-  color: inherit;
+  color:  rgba(var(--link), .9) ;
   text-decoration: none;
 }
-
 a:hover {
-  text-decoration: none;
+  color:  rgba(var(--link), 1) ;
 }
 
 .small {
@@ -2435,11 +2439,16 @@ section.subhead,
   margin-bottom: 60px;
 }
 .archive-view a {
-  color: inherit;
+  color:  rgba(var(--primary), 1) ;
   font-size: 18px;
   font-weight: bold;
   line-height: 22px;
   outline: none;
+  margin: 5px 0;
+}
+.archive-view a:hover {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 20%,  rgba(var(--link), 0.17)  20%,  rgba(var(--link), 0.17)  62%, rgba(255, 255, 255, 0) 62%);
+  color:  rgba(var(--link), 1) ;
 }
 .archive-view a:first-child {
   margin-right: 40px;
@@ -2517,10 +2526,16 @@ time {
   flex-direction: column;
 }
 .archive-results h4 {
+  color:  rgba(var(--primary), 1) ;
   margin: 5px 0;
 }
+.archive-results h4:hover {
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0) 20%,  rgba(var(--link), 0.17)  20%,  rgba(var(--link), 0.17)  62%, rgba(255, 255, 255, 0) 62%);
+  color:  rgba(var(--link), 1) ;
+}
 .archive-results .count {
-  opacity: .3;
+  color:  rgba(var(--primary), .25) ;
+  font-family: Rubik, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   -webkit-font-smoothing: subpixel-antialiased;
   -moz-osx-font-smoothing: auto;
 }

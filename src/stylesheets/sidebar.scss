@@ -46,7 +46,7 @@ aside.sidebar {
     color: unquote(" rgba(var(--primary), .8) ");
 
     &:hover {
-      color: unquote(" rgba(var(--link), 1) ");
+      @include highlighted-link(var(--link), .17, 1); // color, background opacity, text color (optional)
     }
   }
 

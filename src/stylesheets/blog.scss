@@ -49,11 +49,13 @@ body {
 }
 
 a {
-  color: inherit;
+  color: unquote(" rgba(var(--link), .9) ");
   text-decoration: none;
-}
 
-a:hover { text-decoration: none; }
+  &:hover {
+    color: unquote(" rgba(var(--link), 1) ");
+  }
+}
 
 .small {
   font-size: 18px;
@@ -99,9 +101,6 @@ input[type='submit'],
   text-align: center;
   text-decoration: none;
   width: 100%;
-
-  &:hover {
-  }
 
   &:focus {
   }
@@ -770,11 +769,17 @@ section.subhead,
 .archive-view {
   margin-bottom: 60px;
   a {
-  	color: inherit;
+    color: unquote(" rgba(var(--primary), 1) ");
   	font-size: 18px;
   	font-weight: bold;
   	line-height: 22px;
     outline: none;
+    margin: 5px 0;
+
+    &:hover {
+      @include highlighted-link(var(--link), .17, 1); // color, background opacity, text color (optional)
+    }
+
     &:first-child {
       margin-right: 40px;
     }
@@ -874,11 +879,17 @@ time {
   }
 
   h4 {
+    color: unquote(" rgba(var(--primary), 1) ");
     margin: 5px 0;
+
+    &:hover {
+      @include highlighted-link(var(--link), .17, 1); // color, background opacity, text color (optional)
+    }
   }
 
   .count {
-    opacity: .3;
+    color: unquote(" rgba(var(--primary), .25) ");
+    font-family: $accentFont;
     -webkit-font-smoothing: subpixel-antialiased;
     -moz-osx-font-smoothing: auto;
   }

@@ -57,6 +57,7 @@
   user-select: none;
 
   &:hover {
+    background: none !important;
     border: 2px solid unquote(" rgba(var(--primary), 1) ");
     color: unquote(" rgba(var(--primary), 1) ") !important;
   }

@@ -241,17 +241,17 @@ body.post-template {
     max-width: 100%;
     width: $postWidth;
 
-    :not(.posthaven-read-more-link) {
+    a {
+      @include highlighted-link(var(--link), .1, .97); // color, background opacity, text color (optional)
+      padding: 0 2px;
 
-      a {
-        @include highlighted-link(var(--link), .1, .97); // color, background opacity, text color (optional)
-        padding: 0 2px;
-
-        &:hover {
-          @include highlighted-link(var(--link), .17, 1); // color, background opacity, text color (optional)
-        }
+      &:hover {
+        @include highlighted-link(var(--link), .17, 1); // color, background opacity, text color (optional)
       }
     }
+
+  p.posthaven-read-more-link {
+  }
 
   p {
     line-height: 1.6em;
