@@ -220,8 +220,10 @@ body.post-template {
           margin: 20px 0 0;
 
           a {
+            @include highlighted-link(var(--link), .17); // color, background opacity, text color (optional)
+
             &:hover {
-              @include highlighted-link(var(--link), .17); // color, background opacity, text color (optional)
+              @include highlighted-link(var(--link), .25); // color, background opacity, text color (optional)
             }
           }
         }

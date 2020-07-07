@@ -3,7 +3,6 @@
 
 aside.sidebar {
   background: unquote(" rgba(var(--background), 1) ");
-  box-shadow: 0 0px 100px 25px rgba(0, 0, 0, 0.15);
   box-sizing: border-box;
   font-family: $accentFont;
   height: 100vh;
@@ -84,6 +83,7 @@ aside.sidebar {
 }
 
 body.menu-active .sidebar {
+  box-shadow: 0 0px 100px 25px rgba(0, 0, 0, 0.15);
   z-index: 99;
   left: 0;
 }
