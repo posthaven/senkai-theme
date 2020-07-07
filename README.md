@@ -1,4 +1,4 @@
-# The Posthaven Omega Theme
+# The Posthaven Myers Theme
 
 ## Sceenshot
 
