@@ -15,12 +15,12 @@ settings:
   type: radio
   default: light
   options:
+  - value: auto
+    label: Auto (matches browser preference)
   - value: light
     label: Light background
   - value: dark
     label: Dark background
-  - value: auto
-    label: Auto (matches browser preference)
 - id: social-links
   label: Show social share buttons
   default: true
