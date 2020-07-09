@@ -291,7 +291,7 @@ body.post-template {
         align-items: center;
         display: flex;
         float: none;
-        font-family: $themeFont;
+        font-family: 'Rubik', sans-serif;
         font-size: 14px;
 
         span {
@@ -300,7 +300,7 @@ body.post-template {
       }
 
       .posthaven-gallery-next {
-        background-image: url(data:image/svg+xml;base64,PHN2ZyBpZD0iaWNvbi1jYXJldCIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj48cGF0aCBkPSJNOC4wMTQuNDc3Yy0uNjktLjY0My0xLjc0Ni0uNjQzLTIuNDExLjA0NUwuNDgzIDUuODVhMS42NjIgMS42NjIgMCAwMDAgMi4zNDJsNS4wOTYgNS4zMDRBMS42OCAxLjY4IDAgMDA2LjgyIDE0Yy40MzYgMCAuODUtLjE2IDEuMTk0LS40Ni42ODgtLjY0Mi42ODgtMS43NDUuMDQ1LTIuNDFMNC4wNjQgNy4wMmwzLjk1LTQuMTMyYy42ODgtLjY2Ni42ODgtMS43NjggMC0yLjQxMXoiIGZpbGwtcnVsZT0ibm9uemVybyIvPjwvc3ZnPg==);
+        // background-image lives in blog.scss for colorizing within color schemes
         text-indent: -5000em;
         height: 14px;
         margin-top: 9px;
@@ -315,6 +315,7 @@ body.post-template {
     .posthaven-gallery-thumb-holder {
 
       a {
+        background: none;
         border-bottom: solid 2px transparent;
         flex: 0 0 50px;
         margin-right: 5px;
@@ -329,6 +330,10 @@ body.post-template {
               opacity: 1;
             }
           }
+        }
+
+        &:focus {
+          outline: none;
         }
       }
     }
