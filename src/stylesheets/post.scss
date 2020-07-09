@@ -273,7 +273,7 @@ body.post-template {
   }
 
   hr {
-    background: rgba(var(--primary), .1);
+    background: unquote(" rgba(var(--primary), .1) ");;
     border: none;
     height: 4px;
     border-radius: 5px;
