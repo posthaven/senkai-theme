@@ -110,6 +110,20 @@ body.post-template {
     width: calc(100% - 70px); // images are full width on mobile
   }
 
+  &.no-posts {
+    border: solid 1px unquote(" rgba(var(--primary), .1) ");
+    border-radius: 10px;
+    padding: 20px 40px;
+
+    h2 {
+      margin-bottom: 0;
+    }
+
+    p {
+      margin-top: .25em;
+    }
+  }
+
   header {
 
     .post-title {
@@ -485,7 +499,9 @@ body.post-template {
 }
 
 .posthaven-file-download {
+  background: none;
   display: inline-flex !important;
+  line-height: 1.5em;
 }
 
 .posthaven-gallery-modal-glasspane {
