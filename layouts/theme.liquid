@@ -57,7 +57,7 @@
 
         <header class="header">
           <h1>
-            <a href="{{ site.url }}">{% if site.name %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}</a>
+            <a href="{{ site.url }}">{% if site.name or site.profile.name %}{% if site.name %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}{% else %}Untitled Posthaven{% endif %}</a>
           </h1>
 
           {% if site.description %}
