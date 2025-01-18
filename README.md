@@ -95,3 +95,11 @@ For changes to styles
 Use the watch command
 To reload styles in postforge
 `rake themes:import_all`
+
+## CSS File Structure
+
+The Tailwind CSS file is compiled to:
+`assets/stylesheets/tailwind.css`
+
+This file should be served at:
+`/stylesheets/tailwind.css`

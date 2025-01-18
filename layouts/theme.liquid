@@ -4,6 +4,9 @@
     <title>{{ request.page_title }}</title>
 
     <meta content="width=device-width,initial-scale=1" name="viewport">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
 
     {{ meta_tags }}
 
@@ -18,7 +21,9 @@
 
     <link rel="stylesheet" href="https://use.typekit.net/iim1sys.css">
 
-    <link rel="stylesheet" href="/stylesheets/tailwind.css">
+    <!-- Try local_file first -->
+    {{ "stylesheets/tailwind.css" | local_file | style_tag }}
+
 
     <style>
 
@@ -57,7 +62,7 @@
     <div id="site-container">
 
         <header class="header">
-          <div class="text-xl text-[#c00]">Hello world!</div>
+          <div class="text-xl text-[#00f]">Hello world!</div>
           <h1>
             <a href="{{ site.url }}">{% if site.name or site.profile.name %}{% if site.name %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}{% else %}Untitled Posthaven{% endif %}</a>!!!!
           </h1>
