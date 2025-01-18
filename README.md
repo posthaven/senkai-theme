@@ -6,6 +6,41 @@
 1. `bundle exec guard`
 1. `rake watch`
 
+---
+
+## Development Setup
+
+1. Install dependencies:
+```bash
+# Install Ruby dependencies
+bundle install
+
+# Install Node.js dependencies
+npm install
+```
+
+2. Start development servers:
+
+Run these commands in separate terminal windows:
+```bash
+# Watch and compile Tailwind CSS
+npm run dev
+
+# Start LiveReload server
+bundle exec guard
+```
+
+3. Install the LiveReload browser extension for your browser.
+
+## Building for Production
+
+```bash
+# Build Tailwind CSS
+npm run build
+```
+
+The compiled CSS will be in `assets/tailwind.css`.
+
 
 ## Sceenshot
 
