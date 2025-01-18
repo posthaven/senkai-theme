@@ -3,8 +3,7 @@
 ## v2
 
 1. `npm run dev`
-1. `bundle exec guard`
-1. `rake watch`
+1. `bundle exec guard --no-interactions`
 
 ---
 
@@ -30,7 +29,6 @@ npm run dev
 bundle exec guard
 ```
 
-3. Install the LiveReload browser extension for your browser.
 
 ## Building for Production
 

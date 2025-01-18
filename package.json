@@ -6,8 +6,7 @@
     "url": "git+https://github.com/posthaven/senkai-theme.git"
   },
   "scripts": {
-    "dev": "npm-run-all --parallel dev:*",
-    "dev:guard": "bundle exec guard",
+    "dev": "npm-run-all --parallel dev:css",
     "dev:css": "mkdir -p assets/stylesheets && cross-env TAILWIND_MODE=watch tailwindcss -i ./src/stylesheets/tailwind.css -o ./assets/stylesheets/tailwind.css --watch",
     "build": "mkdir -p assets/stylesheets && tailwindcss -i ./src/stylesheets/tailwind.css -o ./assets/stylesheets/tailwind.css --minify"
   },

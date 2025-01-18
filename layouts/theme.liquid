@@ -1,6 +1,13 @@
 <!DOCTYPE html>
 <html class="no-js">
   <head>
+      <script>
+        // Load LiveReload immediately
+        var script = document.createElement('script');
+        script.src = 'http://' + location.hostname + ':35729/livereload.js?snipver=1&force=true&host=' + location.hostname;
+        document.write(script.outerHTML);
+      </script>
+    
     <title>{{ request.page_title }}</title>
 
     <meta content="width=device-width,initial-scale=1" name="viewport">
@@ -58,7 +65,7 @@
 
   </head>
 
-  <body id="site_{{ site.id }}" class="{{ request.template }}-template{% if settings.color-scheme %} color-scheme-{{ settings.color-scheme }}{% endif %}">
+  <body id="site_{{ site.id }}" class="{{ request.template }}-template{% if settings.color-scheme %} color-scheme-{{ settings.color-scheme }}{% endif %} bg-canvas">
     <div id="site-container">
 
         <header class="header">
