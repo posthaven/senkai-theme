@@ -1,0 +1,14 @@
+  {% if site.navigation_menu and site.navigation_menu.items != empty %}
+    <nav class="menu">
+      {% if site.navigation_menu and site.navigation_menu.items != empty %}
+        <ul class="flex gap-4 items-center">
+        {% for menu_item in site.navigation_menu.items %}
+          <li id="menu_item_{{ menu_item.id }}" class="menu-item {{ menu_item.url | text_if_current}}">
+            <a href="{{ menu_item.url }}">{{ menu_item.title }}</a>
+          </li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    </nav>
+    <div class="menu-trigger">☰</div>
+  {% endif %}
