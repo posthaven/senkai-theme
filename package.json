@@ -1,0 +1,19 @@
+{
+  "name": "posthaven-senkai-theme",
+  "version": "1.0.0",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/posthaven/senkai-theme.git"
+  },
+  "scripts": {
+    "build:tailwind": "tailwindcss -i ./src/stylesheets/tailwind.css -o ./assets/tailwind.css",
+    "watch:tailwind": "tailwindcss -i ./src/stylesheets/tailwind.css -o ./assets/tailwind.css --watch",
+    "build": "npm run build:tailwind",
+    "dev": "npm run watch:tailwind"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "autoprefixer": "^10.4.17",
+    "postcss": "^8.4.35"
+  }
+} 

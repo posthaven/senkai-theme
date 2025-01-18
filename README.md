@@ -1,6 +1,15 @@
-# The Posthaven Myers Theme
+# The Posthaven Senkai Theme
+
+## v2
+
+1. `npm run dev`
+1. `bundle exec guard`
+1. `rake watch`
+
 
 ## Sceenshot
+
+tbd
 
 ![Screenshot](/assets/screenshot.png?raw=true)
 

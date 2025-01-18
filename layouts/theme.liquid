@@ -18,6 +18,10 @@
 
     <link rel="stylesheet" href="https://use.typekit.net/iim1sys.css">
 
+<<<<<<< HEAD
+=======
+    {{ "tailwind.css" | asset_url | stylesheet_tag }}
+>>>>>>> 65ba4bb (Initial commit of Senkai theme)
 
     <style>
 
@@ -56,8 +60,14 @@
     <div id="site-container">
 
         <header class="header">
+<<<<<<< HEAD
           <h1>
             <a href="{{ site.url }}">{% if site.name or site.profile.name %}{% if site.name %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}{% else %}Untitled Posthaven{% endif %}</a>
+=======
+          <div class="text-xl">Hello world!</div>
+          <h1>
+            <a href="{{ site.url }}">{% if site.name or site.profile.name %}{% if site.name %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}{% else %}Untitled Posthaven{% endif %}</a>!!!!
+>>>>>>> 65ba4bb (Initial commit of Senkai theme)
           </h1>
 
           {% if site.description %}
