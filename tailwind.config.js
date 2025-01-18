@@ -11,9 +11,9 @@ module.exports = {
   theme: {
     extend: {
       fontFamily: {
-        theme: ['garamond-premier-pro', 'serif'],
+        theme: ['Funnel Sans', 'serif'],
         accent: ['Rubik', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'],
-        post: ['garamond-premier-pro', 'serif'],
+        post: ['Funnel Sans', 'serif'],
       },
       maxWidth: {
         'post': '600px',
@@ -22,6 +22,7 @@ module.exports = {
         'body': '22px',
       },
       colors: {
+        canvas: '#EDEAE6',
         primary: {
           DEFAULT: 'rgb(var(--primary) / <alpha-value>)',
         },
@@ -32,9 +33,6 @@ module.exports = {
           DEFAULT: 'rgb(var(--link) / <alpha-value>)',
         },
       },
-    },
-    colors: {
-      canvas: '#EDEAE6',
     },
   },
   plugins: []

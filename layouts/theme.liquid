@@ -26,7 +26,9 @@
     {% endcomment %}
     {{ "blog.css" | asset_url | stylesheet_tag }}
 
-    <link rel="stylesheet" href="https://use.typekit.net/iim1sys.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Funnel+Sans:ital,wght@0,300..800;1,300..800&display=swap" rel="stylesheet">
 
     <!-- Try local_file first -->
     {{ "stylesheets/tailwind.css" | local_file | style_tag }}
@@ -65,7 +67,7 @@
 
   </head>
 
-  <body id="site_{{ site.id }}" class="{{ request.template }}-template{% if settings.color-scheme %} color-scheme-{{ settings.color-scheme }}{% endif %} bg-canvas">
+  <body id="site_{{ site.id }}" class="{{ request.template }}-template{% if settings.color-scheme %} color-scheme-{{ settings.color-scheme }}{% endif %} bg-canvas font-theme text-white">
     <div class="fixed inset-4 rounded-xl bg-[#111] shadow-[0px_4px_4px_rgba(0,0,0,0.25),0px_100px_80px_rgba(0,0,0,0.07),0px_41.7776px_33.4221px_rgba(0,0,0,0.0503198),0px_22.3363px_17.869px_rgba(0,0,0,0.0417275),0px_12.5216px_10.0172px_rgba(0,0,0,0.035),0px_6.6501px_5.32008px_rgba(0,0,0,0.0282725),inset_0px_1px_0px_2px_rgba(255,255,255,0.25)]"></div>
     <div class="fixed inset-4 rounded-xl bg-gradient-to-br from-[#000] via-transparent to-[#FFA52E] opacity-50"></div>
     {% comment %} <div class="fixed inset-4 rounded-xl bg-gradient-to-tr from-[#593200] via-[#4B3212] to-[#593200] opacity-25"></div> {% endcomment %}

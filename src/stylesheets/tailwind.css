@@ -4,3 +4,6 @@
 @tailwind utilities;
 
 /* Your custom styles here */
+ a{
+  @apply text-white underline;
+ }

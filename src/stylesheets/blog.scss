@@ -23,81 +23,10 @@
 
 body {
   //@include rgba(background,background,1);
-  background: unquote(" rgba(var(--background), 1) ");
-  color: unquote(" rgba(var(--primary), .8) ");
-  font-family: $themeFont;
   line-height: 1.5;
   margin: 0;
-  overflow-x: hidden;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-
-  .overlay {
-    background: transparent;
-    transition: background .5s ease;
-  }
-
-  @media (max-width: 860px) {
-    padding-top: 85px; // leave room for fixed header bar
-  }
 }
 
-a {
-  color: unquote(" rgba(var(--link), .9) ");
-  text-decoration: none;
-
-  &:hover {
-    color: unquote(" rgba(var(--link), 1) ");
-  }
-}
-
-.small {
-  font-size: 18px;
-  font-weight: 300;
-  opacity: 0.6
-}
-
-h1, h2, h3, h4, h5, h6 { font-weight: 800; line-height: 1em;}
-h1 { font-size: 48px; }
-h2 { font-size: 30px; }
-h3 { font-size: 36px; }
-h4 { font-size: 24px; }
-h5 { font-size: 22px; font-weight: normal; opacity: 0.6 }
-
-textarea, input[type=text] {
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid unquote(" rgba(var(--primary), .15) ") !important;
-  box-sizing: border-box;
-  color: placeholder(unquote(" rgba(var(--primary), 1) "));
-  font-family: $accentFont;
-  font-size: 16px;
-  outline: none;
-  @include placeholder(unquote(" rgba(var(--primary), .5) "));
-  padding: 10px 0;
-  transition: border .5s ease;
-  width: 100%;
-
-  &:focus {
-    border-bottom: 2px solid unquote(" rgba(var(--primary), .75) ") !important;
-    transition: border .1s ease;
-  }
-}
-
-input[type='submit'],
-.posthaven-user-subscribe a,
-.post .posthaven-post-body .posthaven-read-more-link a {
-  @extend .button;
-  font-weight: bold;
-  outline: none;
-  position: relative;
-  text-align: center;
-  text-decoration: none;
-  width: 100%;
-
-  &:focus {
-  }
-}
 
 .alert {
   background:#fff;
