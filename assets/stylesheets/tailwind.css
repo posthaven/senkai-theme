@@ -1133,6 +1133,10 @@ p {
   inset: 1rem;
 }
 
+.inset-0 {
+  inset: 0px;
+}
+
 .top-4 {
   top: 1rem;
 }
@@ -1173,6 +1177,10 @@ p {
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
+}
+
+.h-\[calc\(100vh_-_2rem\)\] {
+  height: calc(100vh - 2rem);
 }
 
 .min-h-\[calc\(100vh_-_2rem\)\] {
@@ -1231,6 +1239,10 @@ p {
 
 .divide-white\/10 > :not([hidden]) ~ :not([hidden]) {
   border-color: rgb(255 255 255 / 0.1);
+}
+
+.overflow-auto {
+  overflow: auto;
 }
 
 .overflow-x-auto {
