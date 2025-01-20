@@ -41,7 +41,7 @@
     <div class="fixed inset-4 rounded-xl bg-gradient-to-tr from-[#000] via-[rgba(0,0,0,0)] to-[#000] opacity-25"></div>
 
     <div class="relative m-4 grid grid-cols-12 min-h-[calc(100vh_-_2rem)]">
-      <div class="col-span-3 p-8 sticky top-4 h-fit">
+      <div class="col-span-12 md:col-span-3 p-8 sticky top-4 h-fit">
         <header class="header">
           <h1>
             <a href="{{ site.url }}">{% if site.name or site.profile.name %}{% if site.name %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}{% else %}Untitled Posthaven{% endif %}</a>!!!!
@@ -64,15 +64,15 @@
           </section>
         {% endif %}
       </div>
-      <div class="col-span-6 border-x border-white/10 ">
-        <nav class="sticky top-4 h-fit p-8 border-b border-white/10 bg-black/50 backdrop-blur-md overflow-x-auto">
+      <div class="col-span-12 md:col-span-6 border-x border-white/10 ">
+        <nav class="sticky top-4 h-fit p-8 border-y md:border-t-0 border-white/10 bg-black/50 backdrop-blur-md overflow-x-auto">
         {% include "navigation" %}
         </nav>
 
         {{ content_for_layout }}
 
       </div>
-      <div class="col-span-3 p-8 sticky top-4 h-fit">
+      <div class="col-span-12 md:col-span-3 p-8 sticky top-4 h-fit">
         {% include "sidebar" %}
       </div>
     </div>
