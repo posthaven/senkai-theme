@@ -43,3 +43,9 @@
 a {
   @apply text-white no-underline;
 }
+
+.posthaven-user-subscribe {
+  a {
+    @apply border-[1.5px] border-[#F0A848] text-[#F0A848] rounded-full px-2.5 py-1.5 font-medium text-sm;
+  }
+}

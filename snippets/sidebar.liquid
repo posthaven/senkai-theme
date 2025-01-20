@@ -18,7 +18,7 @@
     <section id="tag_list_menu" class="tags-simple">
       <h3>Tags</h3>
 
-      <ul>
+      <ul class="flex flex-wrap gap-1">
         {% for t in site.tags %}
           {% if forloop.index > 5 %}
             <li class='hide'>
@@ -28,7 +28,7 @@
             {% if tag and tag == t.name %}
               <strong>{{ t.name }} <span>{{ t.post_count }}</span></strong>
             {% else %}
-              <a href="{{ t.url }}">{{ t.name }} <span>{{ t.post_count }}</span></a>
+              <a href="{{ t.url }}" class="inline-block border-[1.5px] border-white/10 text-white hover:border-[#F0A848] hover:text-[#F0A848] rounded-full px-2.5 py-1 text-sm">{{ t.name }} <span>{{ t.post_count }}</span></a>
             {% endif %}
           </li>
         {% endfor %}
