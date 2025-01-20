@@ -1161,6 +1161,11 @@ p {
   display: grid;
 }
 
+.size-5 {
+  width: 1.25rem;
+  height: 1.25rem;
+}
+
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
@@ -1182,8 +1187,24 @@ p {
   align-items: center;
 }
 
+.justify-between {
+  justify-content: space-between;
+}
+
 .gap-1 {
   gap: 0.25rem;
+}
+
+.gap-4 {
+  gap: 1rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
+}
+
+.gap-3 {
+  gap: 0.75rem;
 }
 
 .space-y-16 > :not([hidden]) ~ :not([hidden]) {
@@ -1347,6 +1368,10 @@ p {
   --tw-gradient-to: #5F1B44 var(--tw-gradient-to-position);
 }
 
+.fill-white {
+  fill: #fff;
+}
+
 .p-8 {
   padding: 2rem;
 }
@@ -1385,6 +1410,10 @@ p {
 
 .opacity-50 {
   opacity: 0.5;
+}
+
+.opacity-75 {
+  opacity: 0.75;
 }
 
 .shadow-\[0px_4px_4px_rgba\(0\2c 0\2c 0\2c 0\.25\)\2c 0px_100px_80px_rgba\(0\2c 0\2c 0\2c 0\.07\)\2c 0px_41\.7776px_33\.4221px_rgba\(0\2c 0\2c 0\2c 0\.0503198\)\2c 0px_22\.3363px_17\.869px_rgba\(0\2c 0\2c 0\2c 0\.0417275\)\2c 0px_12\.5216px_10\.0172px_rgba\(0\2c 0\2c 0\2c 0\.035\)\2c 0px_6\.6501px_5\.32008px_rgba\(0\2c 0\2c 0\2c 0\.0282725\)\2c inset_0px_1px_0px_2px_rgba\(255\2c 255\2c 255\2c 0\.25\)\] {
@@ -1449,6 +1478,10 @@ a {
 
 .hover\:border-white\/30:hover {
   border-color: rgb(255 255 255 / 0.3);
+}
+
+.hover\:opacity-100:hover {
+  opacity: 1;
 }
 
 @media (min-width: 768px) {
