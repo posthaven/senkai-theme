@@ -43,12 +43,12 @@
     <div class="relative m-4 grid grid-cols-12 min-h-[calc(100vh_-_2rem)]">
       <div class="col-span-12 md:col-span-3 p-8 sticky top-4 h-fit">
         <header class="header">
-          <h1>
-            <a href="{{ site.url }}">{% if site.name or site.profile.name %}{% if site.name %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}{% else %}Untitled Posthaven{% endif %}</a>!!!!
+          <h1 class="mb-2 text-3xl">
+            <a href="{{ site.url }}">{% if site.name or site.profile.name %}{% if site.name %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}{% else %}Untitled Posthaven{% endif %}</a>
           </h1>
 
           {% if site.description %}
-            <h5>{{ site.description | smarty_pants }}</h5>
+            <p class="opacity-75 leading-tight">{{ site.description | smarty_pants }}</p>
           {% endif %}
 
           <section class="menu">
