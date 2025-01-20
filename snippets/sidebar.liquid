@@ -1,23 +1,12 @@
-<aside class="sidebar">
+<aside class="sidebar space-y-8">
   <section class="search-form">
     <form action="/archive" class="posthaven-archive-form">
       <input name="query" placeholder="Search..." type="text">
     </form>
   </section>
 
-  {% if site.navigation_menu and site.navigation_menu.items != empty %}
-    <nav class="menu">
-      {% if site.navigation_menu and site.navigation_menu.items != empty %}
-        <ul>
-        {% for menu_item in site.navigation_menu.items %}
-          <li id="menu_item_{{ menu_item.id }}" class="menu-item {{ menu_item.url | text_if_current}}">
-            <a href="{{ menu_item.url }}">{{ menu_item.title }}</a>
-          </li>
-        {% endfor %}
-        </ul>
-      {% endif %}
-    </nav>
-  {% endif %}
+
+
 
   {% include 'blogroll' %}
 

@@ -3,7 +3,43 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  h1 {
+    @apply text-4xl font-bold mb-6;
+  }
+  h2 {
+    @apply text-3xl font-bold mb-5;
+  }
+  h3 {
+    @apply text-2xl font-bold mb-4;
+  }
+  h4 {
+    @apply text-xl font-bold mb-3;
+  }
+  p {
+    @apply mb-4 leading-relaxed;
+  }
+}
+
+/* Article/blog content styles */
+.prose {
+  @apply max-w-none; /* Allows content to take full width of container */
+}
+
+.prose a {
+  @apply text-white no-underline; /* Preserves your existing link styles */
+}
+
+/* You can customize prose styles further */
+.prose h1, .prose h2, .prose h3, .prose h4 {
+  @apply text-white; /* Assuming you want white headings */
+}
+
+.prose p {
+  @apply text-gray-200; /* Light text for better readability */
+}
+
 /* Your custom styles here */
- a{
-  @apply text-white underline;
- }
+a {
+  @apply text-white no-underline;
+}

@@ -39,7 +39,7 @@
     </div>
   {% endif %}
 
-  <div class="post-body" id="post_body_{{ post.id }}">
+  <div class="prose prose-invert" id="post_body_{{ post.id }}">
 
     {% if post.url.current_page? %}
       {{ post.body_large_image }}

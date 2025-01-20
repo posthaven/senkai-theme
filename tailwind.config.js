@@ -33,7 +33,23 @@ module.exports = {
           DEFAULT: 'rgb(var(--link) / <alpha-value>)',
         },
       },
+      typography: {
+        DEFAULT: {
+          css: {
+            color: '#fff',
+            a: {
+              color: '#fff',
+              '&:hover': {
+                color: '#e5e7eb',
+              },
+            },
+            // Add more custom styles here
+          },
+        },
+      },
     },
   },
-  plugins: []
+  plugins: [
+    require('@tailwindcss/typography'),
+  ]
 } 
