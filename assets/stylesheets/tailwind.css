@@ -1137,6 +1137,10 @@ p {
   top: 1rem;
 }
 
+.top-0 {
+  top: 0px;
+}
+
 .col-span-12 {
   grid-column: span 12 / span 12;
 }
@@ -1245,6 +1249,11 @@ p {
   border-radius: 0.75rem;
 }
 
+.rounded-t-xl {
+  border-top-left-radius: 0.75rem;
+  border-top-right-radius: 0.75rem;
+}
+
 .border {
   border-width: 1px;
 }
@@ -1351,6 +1360,10 @@ p {
 
 .p-8 {
   padding: 2rem;
+}
+
+.p-4 {
+  padding: 1rem;
 }
 
 .px-3 {
@@ -1511,6 +1524,10 @@ a {
 }
 
 @media (min-width: 768px) {
+  .md\:top-4 {
+    top: 1rem;
+  }
+
   .md\:col-span-3 {
     grid-column: span 3 / span 3;
   }
@@ -1519,7 +1536,16 @@ a {
     grid-column: span 6 / span 6;
   }
 
+  .md\:rounded-t-none {
+    border-top-left-radius: 0px;
+    border-top-right-radius: 0px;
+  }
+
   .md\:border-t-0 {
     border-top-width: 0px;
+  }
+
+  .md\:p-8 {
+    padding: 2rem;
   }
 }
