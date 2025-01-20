@@ -1,13 +1,13 @@
     <nav class="menu">
       <ul class="flex gap-1 items-center text-sm">
-        <li class="border {% if request.template == 'homepage' %} border-white/20 bg-white/10 {% else %}border-transparent hover:border-white/30{% endif %} rounded-full px-3 py-1 font-medium">
-          <a href="{{ site.url }}">Home</a>
+        <li>
+          <a href="{{ site.url }}" class="border {% if request.template == 'homepage' %} border-white/20 bg-white/10 {% else %}border-transparent hover:border-white/30{% endif %} rounded-full px-3 py-1 font-medium">Home</a>
         </li>
         {% if site.navigation_menu and site.navigation_menu.items != empty %}
 
           {% for menu_item in site.navigation_menu.items %}
-            <li id="menu_item_{{ menu_item.id }}" class="border {% if menu_item.url != blank and request.url contains menu_item.url %} border-white/20 bg-white/10 {% else %}border-transparent hover:border-white/30{% endif %} rounded-full px-3 py-1 font-medium">
-              <a href="{{ menu_item.url }}">{{ menu_item.title }}</a>
+            <li id="menu_item_{{ menu_item.id }}">
+              <a href="{{ menu_item.url }}" class="whitespace-nowrap border {% if menu_item.url != blank and request.url contains menu_item.url %} border-white/20 bg-white/10 {% else %}border-transparent hover:border-white/30{% endif %} rounded-full px-3 py-1 font-medium">{{ menu_item.title }}</a>
             </li>
           {% endfor %}
         {% endif %}
