@@ -43,13 +43,31 @@
     <div class="relative grid grid-cols-12 overflow-auto h-[calc(100vh_-_2rem)]">
       <div class="col-span-12 md:col-span-3 p-4 md:p-8 sticky top-0 h-fit">
         <header class="header">
+          
+          {% include "profile_pic" %}
+
           <h1 class="mb-2 text-3xl">
-            <a href="{{ site.url }}">{% if site.name or site.profile.name %}{% if site.name %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}{% else %}Untitled Posthaven{% endif %}</a>
+            <a href="{{ site.url }}" class="hover:text-[#F0A848]">
+              {% if site.name or site.profile.name %}
+                {% if site.profile.name %}
+                  {{ site.profile.name }}
+                {% else %}
+                {{ site.name | smarty_pants }}
+              {% endif %}
+              {% else %}
+                Untitled Posthaven
+              {% endif %}
+            </a>
           </h1>
 
-          {% if site.description %}
+          {% if site.profile.bio %}
+            <p class="opacity-75 leading-tight">{{ site.profile.bio }}</p>
+          {% else %}
             <p class="opacity-75 leading-tight">{{ site.description | smarty_pants }}</p>
+            
           {% endif %}
+
+          {% include 'social' %}
 
           {{ posthaven.user_menu_v2 }}
 

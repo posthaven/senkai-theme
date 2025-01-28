@@ -1,7 +1,5 @@
 {% if site.profile.photo %}
-  <figure>
-    <img src="{{ site.profile.photo.medium.url }}"
-         width="{{ site.profile.photo.medium.width }}"
-         height="{{ site.profile.photo.medium.height }}">
-  </figure>
+  <a href="{{ site.url }}" class="inline-block p-px rounded border border-white/25 hover:border-white/40 bg-black mb-2">
+    <img src="{{ site.profile.photo.medium.url }}" alt="Profile Picture" class="rounded overflow-hidden max-h-24" width="{{ site.profile.photo.medium.width }}" height="{{ site.profile.photo.medium.height }}" >
+  </a>
 {% endif %}

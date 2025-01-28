@@ -19,6 +19,10 @@
   p {
     @apply mb-4 leading-relaxed;
   }
+
+  .hide {
+    @apply hidden;
+  }
 }
 
 /* Article/blog content styles */
@@ -36,25 +40,37 @@
 }
 
 .prose p {
-  @apply text-gray-200; /* Light text for better readability */
+  @apply text-white/90; /* Light text for better readability */
 }
 
-/* Your custom styles here */
 a {
   @apply text-white no-underline;
 }
 
-.posthaven-user-subscribe {
-  a {
-    @apply border-[1.5px] border-[#F0A848] text-[#F0A848] rounded-full px-2.5 py-1.5 font-medium text-sm;
-  }
-}
+
 
 .posthaven-read-more-link { 
   @apply flex justify-center border-t border-white/10 p-4 mt-0 -mb-8;
 
   a {
     @apply text-[#F0A848] hover:text-[#F0A848];
+  }
+}
+
+/* SIDEBAR */
+
+.posthaven-user-subscribe {
+
+  h3 {
+    @apply text-base text-[#F0A848] border-b border-white/20 pb-2 mb-2;
+  }
+
+  p {
+    @apply text-[13px] opacity-75 mb-2;
+  }
+
+  a {
+    @apply border-[1.5px] border-[#F0A848] text-[#F0A848] rounded-full px-2.5 py-1 font-medium text-[13px];
   }
 }
 

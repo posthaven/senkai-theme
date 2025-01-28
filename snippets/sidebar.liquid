@@ -1,8 +1,11 @@
-<aside class="sidebar space-y-8">
-  <section class="search-form">
-    <form action="/archive" class="posthaven-archive-form">
-      <input name="query" placeholder="Search..." type="text">
+<aside class="sidebar space-y-12">
+  <section>
+    <form action="/archive" class="">
+      <input name="query" placeholder="Search..." type="text" class="bg-black/10 text-white/90 text-sm w-full rounded py-1 px-2 border border-white/20 hover:border-white/40">
     </form>
+    <p class="text-right leading-tight">
+    <a class="text-xs opacity-50 hover:opacity-100 hover:text-[#F0A848]" href="{{ site.archive_url }}">Browse archive</a>
+    </p>
   </section>
 
 
@@ -19,9 +22,9 @@
 
     {% if site.tags.size > 0 %}
       <section id="tag_list_menu" class="tags-simple">
-        <h3>Tags</h3>
+        <h3 class="text-base text-[#F0A848] border-b border-white/20 pb-2 mb-2">Tags</h3>
 
-        <ul class="flex flex-wrap gap-1">
+        <ul class="flex flex-wrap gap-x-2.5">
           {% for t in site.tags %}
             {% if forloop.index > 5 %}
               <li class='hide'>
@@ -31,29 +34,22 @@
               {% if tag and tag == t.name %}
                 <strong>{{ t.name }} <span>{{ t.post_count }}</span></strong>
               {% else %}
-                <a href="{{ t.url }}" class="inline-block border-[1.5px] border-white/10 text-white hover:border-[#F0A848] hover:text-[#F0A848] rounded-full px-2.5 py-1 text-sm">{{ t.name }} <span>{{ t.post_count }}</span></a>
+                <a href="{{ t.url }}" class="text-white hover:border-[#F0A848] hover:text-[#F0A848] text-sm">{{ t.name }} <span class="text-xs opacity-50">{{ t.post_count }}</span></a>
               {% endif %}
             </li>
           {% endfor %}
         </ul>
 
         {% if site.tags.size > 5 %}
-          <div class="all-tags">
-            <span class="cta-links show-all-tags">
+          <div class="all-tags pt-3 pb-1">
+            <span class="show-all-tags border-[1.5px] border-[#F0A848] text-[#F0A848] rounded-full px-2.5 py-1 font-medium text-[13px] cursor-pointer">
               See all {{ site.tags.size }} tags
             </span>
           </div>
         {% endif %}
       </section>
     {% endif %}
-
-    <section class="archives">
-      <h3>Archive</h3>
-      <a class="cta-links" href="{{ site.archive_url }}">Browse archive</a>
-    </section>
   {% endif %}
 
-    {% include 'contributors' %}
-    {% include 'bio' %}
-    {% include 'social' %}
+  {% include 'contributors' %}
 </aside>
