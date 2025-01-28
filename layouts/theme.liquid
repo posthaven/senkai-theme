@@ -41,7 +41,7 @@
     <div class="fixed inset-4 rounded-xl bg-gradient-to-tr from-[#000] via-[rgba(0,0,0,0)] to-[#000] opacity-25"></div>
 
     <div class="relative grid grid-cols-12 overflow-auto h-[calc(100vh_-_2rem)]">
-      <div class="col-span-12 md:col-span-3 p-8 sticky top-0 h-fit">
+      <div class="col-span-12 md:col-span-3 p-4 md:p-8 sticky top-0 h-fit">
         <header class="header">
           <h1 class="mb-2 text-3xl">
             <a href="{{ site.url }}">{% if site.name or site.profile.name %}{% if site.name %}{{ site.name | smarty_pants }}{% else %}{{ site.profile.name }}{% endif %}{% else %}Untitled Posthaven{% endif %}</a>
@@ -51,9 +51,6 @@
             <p class="opacity-75 leading-tight">{{ site.description | smarty_pants }}</p>
           {% endif %}
 
-          <section class="menu">
-            <div class="menu-trigger button">☰ <span>Menu</span></div>
-          </section>
           {{ posthaven.user_menu_v2 }}
 
         </header>
@@ -65,14 +62,14 @@
         {% endif %}
       </div>
       <div class="col-span-12 md:col-span-6 border-x border-white/10 ">
-        <nav class="sticky top-0 h-fit p-4 md:p-8 border-y rounded-t-xl md:rounded-t-none md:border-t-0 border-white/10 bg-black/50 backdrop-blur-md overflow-x-auto">
+        <nav class="sticky top-0 h-fit p-4 md:p-8 border-y rounded-t-xl md:rounded-t-none md:border-t-0 border-white/10 bg-black/50 backdrop-blur-md overflow-x-auto z-10">
         {% include "navigation" %}
         </nav>
 
         {{ content_for_layout }}
 
       </div>
-      <div class="col-span-12 md:col-span-3 p-8 sticky top-0 h-fit">
+      <div class="col-span-12 md:col-span-3 p-4 md:p-8 sticky top-0 h-fit">
         {% include "sidebar" %}
       </div>
     </div>

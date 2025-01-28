@@ -1,18 +1,13 @@
 {% if post %}
 
   <header
-    {% if request.template == 'post' %}
-      {% if post.post_image %}
-        class="has-image" 
-        style="background-image: url({{ post.post_image.xlarge.url }})"
-      {% endif %}
+    class="pt-4 md:pt-8 px-4 md:px-8 {% if request.template == 'post' and post.post_image %}has-image{% endif %}"
+    {% if request.template == 'post' and post.post_image %}
+    style="background-image: url({{ post.post_image.xlarge.url }})"
     {% endif %}
   >
     <div class="post-title">
-      <a href="{{ post.url }}">
-        <span class="date">{{ post.published_at | local_date: "%B %e, %Y" }}</span>
-      </a>
-      <h2>
+      <h2 class="mb-1">
         {% if post.private? %}
           <span class="private-indicator" title="This post is private. Only you and people you've sent the link to have access to this post.">
             <svg>
@@ -24,6 +19,9 @@
         <a href="{{ post.url }}">{{ post.title }}</a>
       </h2>
     </div>
+    <a href="{{ post.url }}" class="opacity-60">
+      <span class="date">{{ post.published_at | local_date: "%B %e, %Y" }}</span>
+    </a>
   </header>
 
   {% if post.post_image %}
@@ -31,15 +29,8 @@
       <a href="{{ post.url }}"><figure style="background-image: url({{ post.post_image.medium.url }})"></figure></a>
     {% endif %}
   {% endif %}
-    
-  {% if settings.social-links %}
-    <div class="posthaven-share-buttons">
-      {{ post | twitter_button }}
-      {{ post | facebook_button }}
-    </div>
-  {% endif %}
 
-  <div class="prose prose-invert" id="post_body_{{ post.id }}">
+  <div class="prose prose-invert px-4 md:px-8 pb-4 md:pb-8" id="post_body_{{ post.id }}">
 
     {% if post.url.current_page? %}
       {{ post.body_large_image }}

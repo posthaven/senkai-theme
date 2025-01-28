@@ -2,14 +2,21 @@
 
 <div id="main">
 
-  <div class="post-container">
-  
-    <article class="post">
-      {% include 'post' %}
-    </article>
-  </div>
+  <article class="post">
+    {% include 'post' %}
+      <footer id="post_responses" class="border-t border-white/10">
+      
+      <div class="flex items-center gap-2 p-4 md:p-8">
+        {{ post | comment_button }}
+        {{ post | upvote_button }}
+        {% if settings.social-links %}
+          {{ post | twitter_button }}
+          {{ post | facebook_button }}
+        {% endif %}
+      </div>
 
-  <footer id="post_responses" class="post-responses show-button-on-keyup">
-    {% include 'responses' %}
-  </footer>
+      {% include 'responses' %}
+    </footer>
+  </article>
+
 </div>
