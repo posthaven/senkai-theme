@@ -1,12 +1,14 @@
 <aside class="sidebar space-y-12">
-  <section>
-    <form action="/archive" class="">
-      <input name="query" placeholder="Search..." type="text" class="bg-black/10 text-white/90 text-sm w-full rounded py-1 px-2 border border-white/20 hover:border-white/40">
-    </form>
-    <p class="text-right leading-tight">
-    <a class="text-xs opacity-50 hover:opacity-100 hover:text-[#F0A848]" href="{{ site.archive_url }}">Browse archive</a>
-    </p>
-  </section>
+  {% unless request.template == 'archive' %}
+    <section>
+      <form action="/archive" class="">
+        <input name="query" placeholder="Search..." type="text" class="">
+      </form>
+      <p class="text-right leading-tight">
+      <a class="text-xs opacity-50 hover:opacity-100 hover:text-[#F0A848]" href="{{ site.archive_url }}">Browse archive</a>
+      </p>
+    </section>
+  {% endunless %}
 
 
 
@@ -42,9 +44,9 @@
 
         {% if site.tags.size > 5 %}
           <div class="all-tags pt-3 pb-1">
-            <span class="show-all-tags border-[1.5px] border-[#F0A848] text-[#F0A848] rounded-full px-2.5 py-1 font-medium text-[13px] cursor-pointer">
-              See all {{ site.tags.size }} tags
-            </span>
+            <button class="show-all-tags">
+              Show all {{ site.tags.size }} tags
+            </button>
           </div>
         {% endif %}
       </section>
