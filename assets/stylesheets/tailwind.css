@@ -1722,7 +1722,7 @@ form.posthaven-comment-form {
     border-width: 1px;
   }
   #response_body {
-    border-color: rgb(255 255 255 / 0.1);
+    border-color: rgb(255 255 255 / 0.2);
   }
   #response_body {
     --tw-bg-opacity: 1;
@@ -1732,7 +1732,7 @@ form.posthaven-comment-form {
     padding: 0.5rem;
   }
   #response_body:hover {
-    border-color: rgb(255 255 255 / 0.2);
+    border-color: rgb(255 255 255 / 0.4);
   }
   .posthaven-checkbox-field {
     display: flex;
