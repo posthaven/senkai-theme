@@ -3,7 +3,7 @@
   <div class="archive-all-dates">{{ archive.all_dates_link }}</div>
 {% endcapture %}
 
-<div class="archive-container toggle-tabs">
+<div class="archive-container toggle-tabs p-4 md:p-8">
   <div id="main" class="archive-results">
     <section class="search-archive">
       {% form 'archive' %}
@@ -17,12 +17,10 @@
     <section id="archive-results-all" class="archive-list">
       <ul>
         {% archive_results date_format:'%b %e, %Y' %}
-        <li>
-          <a href="{{ result.url }}">
-            <time>{{ result.date }}</time>
-            <h4><span>{{ result.title }}</span></h4>
-          </a>
-          <div class="search-highlight">
+        <li class="mb-8">
+          <h2 class="post-title text-2xl mb-1"><a href="{{ result.url }}">{{ result.title }}</a></h2>
+          <a href="{{ result.url }}" class="opacity-60 block mb-2"><time>{{ result.date }}</time></a>
+          <div class="search-highlight prose">
             {{ result.snippet }}
           </div>
         </li>
@@ -39,8 +37,8 @@
         {% archive_months %}
           <li>
             <a href="{{ month.url }}">
-              <h4><span>{{ month.date }}</span></h4>
-              <span class="count">{{ month.count }} posts</span>
+              <h2 class="text-xl mb-1"><span>{{ month.date }}</span></h2>
+              <span class="count text-sm opacity-60">{{ month.count }} posts</span>
             </a>
           </li>
         {% endarchive_months %}

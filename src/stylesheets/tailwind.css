@@ -25,6 +25,20 @@
   }
 }
 
+@layer components {
+  .button {
+    @apply flex justify-center w-full border-[1.5px] border-[#F0A848] text-[#F0A848] rounded-full px-2.5 py-1 font-medium text-[13px] cursor-pointer;
+  }
+
+  .button:hover {
+    @apply bg-[#F0A848] text-black;
+  }
+
+  .loading-icon {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid' class='lds-rolling' style='background:none'%3E%3Ccircle cx='50' cy='50' fill='none' stroke='%23fff' stroke-width='6' r='24' stroke-dasharray='113.09733552923255 39.69911184307752' transform='rotate(132 50 50)'%3E%3CanimateTransform attributeName='transform' type='rotate' calcMode='linear' values='0 50 50;360 50 50' keyTimes='0;1' dur='1s' begin='0s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/svg%3E") no-repeat center center;
+  }
+}
+
 /* FORMS */
 
 input[type="text"],
@@ -53,14 +67,14 @@ button,
 a[data-method="post"],
 a[data-method="POST"],
 input[type="submit"] {
-  @apply flex justify-center w-full border-[1.5px] border-[#F0A848] text-[#F0A848] rounded-full px-2.5 py-1 font-medium text-[13px] cursor-pointer;
-
-  &:hover {
-    @apply bg-[#F0A848] text-black;
-  }
+  @apply button;
 }
 
 /* Article/blog content styles */
+
+.post-title a {
+  @apply hover:text-[#F0A848];
+}
 .prose {
   @apply max-w-none; /* Allows content to take full width of container */
 }
@@ -169,8 +183,7 @@ form.posthaven-comment-form {
   }
 
   .posthaven-comment-loading {
-    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid' class='lds-rolling' style='background:none'%3E%3Ccircle cx='50' cy='50' fill='none' stroke='%23fff' stroke-width='6' r='24' stroke-dasharray='113.09733552923255 39.69911184307752' transform='rotate(132 50 50)'%3E%3CanimateTransform attributeName='transform' type='rotate' calcMode='linear' values='0 50 50;360 50 50' keyTimes='0;1' dur='1s' begin='0s' repeatCount='indefinite'/%3E%3C/circle%3E%3C/svg%3E") no-repeat center center;
-    @apply size-12;
+    @apply loading-icon size-12;
 
     .posthaven-loader {
       @apply hidden;
@@ -182,4 +195,34 @@ form.posthaven-comment-form {
 
 .posthaven-form-error {
   @apply text-red-500 text-sm mb-2;
+}
+
+/* ARCHIVE */
+
+.search-archive {
+  @apply mb-4;
+}
+
+.archive-view {
+  @apply flex text-sm mb-4;
+
+  a {
+    @apply flex justify-center border-b px-3 py-2 flex-1;
+
+    &:not(.active) {
+      @apply border-white/20 font-medium text-opacity-75 hover:text-opacity-100 hover:border-white/40;
+    }
+
+    &.active {
+      @apply border-[#F0A848] text-[#F0A848] font-bold;
+    }
+  }
+}
+
+.search-highlight em {
+  @apply bg-[#F0A848] bg-opacity-50;
+}
+
+.posthaven-loader {
+  @apply loading-icon h-12 w-full m-0 animate-none;
 }
