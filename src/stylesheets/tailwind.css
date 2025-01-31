@@ -80,7 +80,7 @@ input[type="submit"] {
 }
 
 .prose a {
-  @apply text-white no-underline; /* Preserves your existing link styles */
+  @apply text-[#F0A848] hover:text-[#F0A848] no-underline hover:underline; /* Preserves your existing link styles */
 }
 
 /* You can customize prose styles further */
@@ -92,6 +92,32 @@ input[type="submit"] {
   @apply text-white/90; /* Light text for better readability */
 }
 
+.pagination {
+  @apply p-4 md:p-8;
+
+  .invisible {
+    @apply hidden;
+  }
+
+  ul {
+    @apply flex flex-wrap justify-center gap-1 md:gap-2;
+  }
+
+  li {
+    &:not(.active) {
+      @apply opacity-50 hover:opacity-100;
+    }
+
+    &.active a {
+      @apply font-bold text-[#F0A848];
+    }
+
+    a {
+      @apply p-1 whitespace-nowrap;
+    }
+  }
+}
+
 a {
   @apply text-white no-underline;
 }
@@ -99,7 +125,7 @@ a {
 
 
 .posthaven-read-more-link { 
-  @apply flex justify-center border-t border-white/10 p-4 mt-0 -mb-8;
+  @apply flex justify-center border-t border-white/10 p-4 m-0;
 
   a {
     @apply text-[#F0A848] hover:text-[#F0A848];

@@ -10,9 +10,6 @@
     </section>
   {% endunless %}
 
-
-
-
   {% include 'blogroll' %}
 
   {% if site.subscription_enabled? %}
@@ -20,15 +17,13 @@
   {% endif %}
 
   {% if request.template != 'post' %}
-
-
     {% if site.tags.size > 0 %}
       <section id="tag_list_menu" class="tags-simple">
-        <h3 class="text-base text-[#F0A848] border-b border-white/20 pb-2 mb-2">Tags</h3>
+        {% include 'heading' title: 'Tags', url: '/tags/all' %}
 
         <ul class="flex flex-wrap gap-x-2.5">
           {% for t in site.tags %}
-            {% if forloop.index > 5 %}
+            {% if forloop.index > 10 %}
               <li class='hide'>
             {% else %}
               <li>
@@ -42,7 +37,7 @@
           {% endfor %}
         </ul>
 
-        {% if site.tags.size > 5 %}
+        {% if site.tags.size > 10 %}
           <div class="all-tags pt-3 pb-1">
             <button class="show-all-tags">
               Show all {{ site.tags.size }} tags

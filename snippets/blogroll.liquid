@@ -3,7 +3,7 @@
     {% unless menu.items == empty %}
       <section class="linklist">
         <nav>
-          <h3 class="text-base text-[#F0A848] border-b border-white/20 pb-2 mb-2">{{ menu.title }}</h3>
+          {% include 'heading' title: menu.title %}
           {% unless menu.items == empty %}
             <ul class="text-[13px]">
               {% for menu_item in menu.items %}

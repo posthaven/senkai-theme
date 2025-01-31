@@ -1,6 +1,7 @@
 <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
 
-	<symbol id="icon-lock" viewBox="0 0 12 14" xmlns="http://www.w3.org/2000/svg"><path d="M6 0C3.79 0 2 1.79 2 4v2H0v8h12V6h-2V4c0-2.21-1.79-4-4-4zm0 2c1.19 0 2 .81 2 2v2H4V4c0-1.19.81-2 2-2z" fill-rule="nonzero"/></symbol>
+	<symbol id="icon-lock" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M16.25 9.75v-2.5a4.25 4.25 0 0 0-8.5 0v2.5M12 14v3m-6.25 4.25h12.5a1 1 0 0 0 1-1v-9.5a1 1 0 0 0-1-1H5.75a1 1 0 0 0-1 1v9.5a1 1 0 0 0 1 1Z"/></symbol>
+
 
 	<symbol id="icon-caret" xmlns="http://www.w3.org/2000/svg"><path d="M8.014.477c-.69-.643-1.746-.643-2.411.045L.483 5.85a1.662 1.662 0 000 2.342l5.096 5.304A1.68 1.68 0 006.82 14c.436 0 .85-.16 1.194-.46.688-.642.688-1.745.045-2.41L4.064 7.02l3.95-4.132c.688-.666.688-1.768 0-2.411z" fill-rule="nonzero"/></symbol>
 

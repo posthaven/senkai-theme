@@ -1,13 +1,13 @@
 {% capture subhead_content %}
-  <h3 class="text-base mb-0 text-[#F0A848]"><strong>All Tags</strong></h3>
+  <h2 class="mb-4"><strong>All tags</strong></h2>
 {% endcapture %}
 
-<div id="main">
+<div id="main" class="px-4 md:px-8">
   <div class="all-tags">
-    <ul>
+    <ul class="flex flex-wrap gap-x-2.5 gap-y-0.5 text-[15px]">
       {% for t in site.tags %}
         <li>
-          <a href="{{ t.url }}">{{ t.name }} <span class="opacity-50">{{ t.post_count }}</span></a>
+          <a href="{{ t.url }}" class="group text-white"><span class="group-hover:text-[#F0A848]">{{ t.name }}</span> <span class="opacity-50 text-sm">{{ t.post_count }}</span></a>
         </li>
       {% endfor %}
     </ul>
