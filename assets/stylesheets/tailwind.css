@@ -1161,6 +1161,10 @@ p {
   margin-bottom: 0.5rem;
 }
 
+.mt-8 {
+  margin-top: 2rem;
+}
+
 .block {
   display: block;
 }
@@ -1443,6 +1447,10 @@ p {
 
 .pt-4 {
   padding-top: 1rem;
+}
+
+.pt-8 {
+  padding-top: 2rem;
 }
 
 .text-right {
@@ -1747,7 +1755,7 @@ form.posthaven-comment-form {
     display: flex;
   }
   .posthaven-checkbox-field {
-    align-items: center;
+    align-items: flex-start;
   }
   .posthaven-checkbox-field {
     gap: 0.5rem;
@@ -1887,12 +1895,20 @@ form.posthaven-comment-form {
 }
 
 @media (min-width: 768px) {
+  .md\:top-0 {
+    top: 0px;
+  }
+
   .md\:col-span-3 {
     grid-column: span 3 / span 3;
   }
 
   .md\:col-span-6 {
     grid-column: span 6 / span 6;
+  }
+
+  .md\:mt-0 {
+    margin-top: 0px;
   }
 
   .md\:rounded-t-none {
