@@ -76,7 +76,7 @@ input[type="submit"] {
   @apply hover:text-[#F0A848];
 }
 .prose {
-  @apply max-w-none; /* Allows content to take full width of container */
+  @apply max-w-none break-words; /* Allows content to take full width of container */
 }
 
 .prose a {

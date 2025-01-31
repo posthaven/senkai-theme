@@ -1,11 +1,21 @@
+<div id="main" class="post-list tag-container divide-y divide-white/10">
+
 {% capture subhead_content %}
-   <section class="tags">
-     Posts tagged with <ul><li><a href="{{ site.url }}" class="tag clear-tag">{{ tag.name }}<span>
-     <svg class="x" width="10" height="10">
-      <use xlink:href="#icon-x"></use>
-     </svg>
-     </span></a></li></ul>
+   <section class="tags flex flex-wrap gap-2 text-sm">
+     <span class="opacity-75 pt-0.5">Posts tagged with</span>
+     <ul>
+      <li>
+        <a href="{{ site.url }}" class="group border border-white/20 hover:border-white/40 rounded-full pl-2 pr-1 py-0.5 inline-flex items-center gap-1 text-sm tag clear-tag">
+          <span class="tag-name">{{ tag.name }}</span>
+          <span class="size-5 text-white/50 group-hover:text-white">
+            {% include 'close-circle' %}
+          </span>
+        </a>
+      </li>
+     </ul>
    </section>
 {% endcapture %}
 
 {% include 'post_list' %}
+
+</div>

@@ -1,0 +1,29 @@
+{% if posts.size == 0 %}
+  <article class="post no-posts p-4 md:p-8">
+    <h2>No posts found :(</h2>
+    <p>This blog would sure look great with some content! Head to the <a href="https://posthaven.com/dashboard">dashboard</a> to create a post.
+  </article>
+{% endif %}
+
+{% for post in posts %}
+  <article class="post">
+    {% include 'post' %}
+
+    {% unless post.has_excerpt? %}
+      <footer class="flex items-center gap-2 pb-4 md:pb-8 px-4 md:px-8">
+        {{ post | comment_button }}
+        {{ post | upvote_button }}
+        {% if settings.social-links %}
+          {{ post | twitter_button }}
+          {{ post | facebook_button }}
+        {% endif %}
+      </footer>
+    {% endunless %}
+  </article>
+{% endfor %}
+
+{% if posts.pagination %}
+<section class="pagination">
+  {% slim_pagination %}
+</section>
+{% endif %}

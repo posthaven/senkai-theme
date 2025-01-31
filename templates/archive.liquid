@@ -1,9 +1,9 @@
 {% capture subhead_content %}
-  <h2 class="archive-title">Archive</h2>
-  <div class="archive-all-dates">{{ archive.all_dates_link }}</div>
+  <h2 class="archive-title mb-4">Archive</h2>
+  <div class="archive-all-dates empty:hidden">{{ archive.all_dates_link }}</div>
 {% endcapture %}
 
-<div class="archive-container toggle-tabs p-4 md:p-8">
+<div class="archive-container toggle-tabs px-4 md:px-8">
   <div id="main" class="archive-results">
     <section class="search-archive">
       {% form 'archive' %}
@@ -18,8 +18,8 @@
       <ul>
         {% archive_results date_format:'%b %e, %Y' %}
         <li class="mb-8">
-          <h2 class="post-title text-2xl mb-1"><a href="{{ result.url }}">{{ result.title }}</a></h2>
-          <a href="{{ result.url }}" class="opacity-60 block mb-2"><time>{{ result.date }}</time></a>
+          <h3 class="post-title text-xl mb-1"><a href="{{ result.url }}">{{ result.title }}</a></h3>
+          <a href="{{ result.url }}" class="opacity-60 block mb-2 text-[15px]"><time>{{ result.date }}</time></a>
           <div class="search-highlight prose">
             {{ result.snippet }}
           </div>
@@ -36,10 +36,8 @@
       <ul>
         {% archive_months %}
           <li>
-            <a href="{{ month.url }}">
-              <h2 class="text-xl mb-1"><span>{{ month.date }}</span></h2>
-              <span class="count text-sm opacity-60">{{ month.count }} posts</span>
-            </a>
+              <h3 class="text-xl mb-1"><a href="{{ month.url }}">{{ month.date }}</a></h3>
+              <span class="count text-sm opacity-60 text-[15px]">{{ month.count }} posts</span>
           </li>
         {% endarchive_months %}
 

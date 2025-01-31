@@ -72,17 +72,17 @@
           {{ posthaven.user_menu_v2 }}
 
         </header>
-
-        {% if subhead_content %}
-          <section class="subhead">
-            {{ subhead_content }}
-          </section>
-        {% endif %}
       </div>
       <div class="col-span-12 md:col-span-6 border-x border-white/10 ">
         <nav class="sticky top-0 h-fit p-4 md:p-8 border-y rounded-t-xl md:rounded-t-none md:border-t-0 border-white/10 bg-black/50 backdrop-blur-md overflow-x-auto z-10">
         {% include "navigation" %}
         </nav>
+
+        {% if subhead_content %}
+          <section class="subhead pt-4 px-4 md:pt-8 md:px-8">
+            {{ subhead_content }}
+          </section>
+        {% endif %}
 
         {{ content_for_layout }}
 
