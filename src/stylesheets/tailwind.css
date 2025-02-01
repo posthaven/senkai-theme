@@ -20,12 +20,34 @@
     @apply mb-4 leading-relaxed;
   }
 
+  /* Theme color definitions */
+  :root {
+    --accent-hue: 34; /* Default yellow theme */
+  }
+  
+  [data-theme="yellow"] {
+    --accent-hue: 34;
+  }
+  
+  [data-theme="pink"] {
+    --accent-hue: 326;
+  }
+  
+  [data-theme="blue"] {
+    --accent-hue: 206;
+  }
+  
+  [data-theme="teal"] {
+    --accent-hue: 160;
+  }
+
+  /* Replace the hard-coded gradient with theme-aware colors */
   .bg-site-gradient {
-    background-color:hsla(27,78%,3%,1);
+    background-color: hsl(var(--accent-hue) 78% 3% / 1);
     background-image:
-    radial-gradient(at 100% 0%, hsla(32,46%,14%,0.4) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, hsla(32,46%,14%,0.4) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsla(34,70%,50%,0.4) 0px, transparent 60%);
+      radial-gradient(at 100% 0%, hsl(var(--accent-hue) 46% 14% / 0.4) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsl(var(--accent-hue) 46% 14% / 0.4) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsl(var(--accent-hue) 85% 61% / 0.4) 0px, transparent 60%);
   }
 
   .hide {
@@ -35,11 +57,11 @@
 
 @layer components {
   .button {
-    @apply flex justify-center w-full border-[1.5px] border-[#F0A848] text-[#F0A848] rounded-full px-2.5 py-1 font-medium text-[13px] cursor-pointer;
+    @apply flex justify-center w-full border-[1.5px] border-accent text-accent rounded-full px-2.5 py-1 font-medium text-[13px] cursor-pointer;
   }
 
   .button:hover {
-    @apply bg-[#F0A848] text-black;
+    @apply bg-accent text-black;
   }
 
   .loading-icon {
@@ -81,14 +103,14 @@ input[type="submit"] {
 /* Article/blog content styles */
 
 .post-title a {
-  @apply hover:text-[#F0A848];
+  @apply hover:text-accent;
 }
 .prose {
   @apply max-w-none break-words; /* Allows content to take full width of container */
 }
 
 .prose a {
-  @apply text-[#F0A848] hover:text-[#F0A848] no-underline hover:underline; /* Preserves your existing link styles */
+  @apply text-accent hover:text-accent no-underline hover:underline; /* Preserves your existing link styles */
 }
 
 /* You can customize prose styles further */
@@ -117,7 +139,7 @@ input[type="submit"] {
     }
 
     &.active a {
-      @apply font-bold text-[#F0A848];
+      @apply font-bold text-accent;
     }
 
     a {
@@ -136,7 +158,7 @@ a {
   @apply flex justify-center border-t border-white/10 p-4 m-0;
 
   a {
-    @apply text-[#F0A848] hover:text-[#F0A848];
+    @apply text-accent hover:text-accent;
   }
 }
 
@@ -145,7 +167,7 @@ a {
 .posthaven-subscribe-form {
 
   h3 {
-    @apply text-base text-[#F0A848] border-b border-white/20 pb-2 mb-2;
+    @apply text-base text-accent border-b border-white/20 pb-2 mb-2;
   }
 
   p {
@@ -177,7 +199,7 @@ form.posthaven-comment-form {
     @apply mt-2 text-sm;
 
     a {
-      @apply text-[#F0A848] hover:text-[#F0A848];
+      @apply text-accent hover:text-accent;
     }
   }
 
@@ -191,7 +213,7 @@ form.posthaven-comment-form {
     input[type="checkbox"] {
       @apply appearance-none size-5 border border-white/20 rounded;
       @apply bg-[#111] cursor-pointer;
-      @apply checked:bg-[#FFA52E] checked:border-[#FFA52E];
+      @apply checked:bg-accent checked:border-accent;
       @apply hover:border-white/30;
       @apply relative;
 
@@ -248,13 +270,13 @@ form.posthaven-comment-form {
     }
 
     &.active {
-      @apply border-[#F0A848] text-[#F0A848] font-bold;
+      @apply border-accent text-accent font-bold;
     }
   }
 }
 
 .search-highlight em {
-  @apply bg-[#F0A848] bg-opacity-50;
+  @apply bg-accent bg-opacity-50;
 }
 
 .posthaven-loader {

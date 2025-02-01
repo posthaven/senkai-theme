@@ -7,7 +7,7 @@
     <ul class="flex flex-wrap gap-x-2.5 gap-y-0.5 text-[15px]">
       {% for t in site.tags %}
         <li>
-          <a href="{{ t.url }}" class="group text-white"><span class="group-hover:text-[#F0A848]">{{ t.name }}</span> <span class="opacity-50 text-sm">{{ t.post_count }}</span></a>
+          <a href="{{ t.url }}" class="group text-white"><span class="group-hover:text-accent">{{ t.name }}</span> <span class="opacity-50 text-sm">{{ t.post_count }}</span></a>
         </li>
       {% endfor %}
     </ul>

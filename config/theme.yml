@@ -25,3 +25,16 @@ settings:
   label: Show social share buttons
   default: true
   type: checkbox
+- id: color-theme
+  label: Color Theme
+  type: select
+  default: yellow
+  options:
+    - value: yellow
+      label: Yellow
+    - value: pink
+      label: Pink
+    - value: blue
+      label: Blue
+    - value: teal
+      label: Teal

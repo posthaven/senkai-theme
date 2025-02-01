@@ -587,12 +587,37 @@ p {
   line-height: 1.625;
 }
 
+/* Theme color definitions */
+
+:root {
+  --accent-hue: 34;
+  /* Default yellow theme */
+}
+
+[data-theme="yellow"] {
+  --accent-hue: 34;
+}
+
+[data-theme="pink"] {
+  --accent-hue: 326;
+}
+
+[data-theme="blue"] {
+  --accent-hue: 206;
+}
+
+[data-theme="teal"] {
+  --accent-hue: 160;
+}
+
+/* Replace the hard-coded gradient with theme-aware colors */
+
 .bg-site-gradient {
-  background-color:hsla(27,78%,3%,1);
+  background-color: hsl(var(--accent-hue) 78% 3% / 1);
   background-image:
-    radial-gradient(at 100% 0%, hsla(32,46%,14%,0.4) 0px, transparent 50%),
-    radial-gradient(at 0% 100%, hsla(32,46%,14%,0.4) 0px, transparent 50%),
-    radial-gradient(at 100% 100%, hsla(34,70%,50%,0.4) 0px, transparent 60%);
+      radial-gradient(at 100% 0%, hsl(var(--accent-hue) 46% 14% / 0.4) 0px, transparent 50%),
+      radial-gradient(at 0% 100%, hsl(var(--accent-hue) 46% 14% / 0.4) 0px, transparent 50%),
+      radial-gradient(at 100% 100%, hsl(var(--accent-hue) 85% 61% / 0.4) 0px, transparent 60%);
 }
 
 .hide {
@@ -1137,7 +1162,7 @@ p {
   border-radius: 9999px;
   border-width: 1.5px;
   --tw-border-opacity: 1;
-  border-color: rgb(240 168 72 / var(--tw-border-opacity, 1));
+  border-color: hsl(var(--accent-hue) 85% 61% / var(--tw-border-opacity, 1));
   padding-left: 0.625rem;
   padding-right: 0.625rem;
   padding-top: 0.25rem;
@@ -1145,12 +1170,12 @@ p {
   font-size: 13px;
   font-weight: 500;
   --tw-text-opacity: 1;
-  color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+  color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
 }
 
 .button:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(240 168 72 / var(--tw-bg-opacity, 1));
+  background-color: hsl(var(--accent-hue) 85% 61% / var(--tw-bg-opacity, 1));
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
@@ -1528,6 +1553,11 @@ p {
   color: rgb(255 255 255 / 0.5);
 }
 
+.text-accent {
+  --tw-text-opacity: 1;
+  color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
+}
+
 .opacity-50 {
   opacity: 0.5;
 }
@@ -1617,7 +1647,7 @@ input[type="submit"] {
   border-radius: 9999px;
   border-width: 1.5px;
   --tw-border-opacity: 1;
-  border-color: rgb(240 168 72 / var(--tw-border-opacity, 1));
+  border-color: hsl(var(--accent-hue) 85% 61% / var(--tw-border-opacity, 1));
   padding-left: 0.625rem;
   padding-right: 0.625rem;
   padding-top: 0.25rem;
@@ -1625,7 +1655,7 @@ input[type="submit"] {
   font-size: 13px;
   font-weight: 500;
   --tw-text-opacity: 1;
-  color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+  color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
 }
 
 button:hover,
@@ -1633,7 +1663,7 @@ a[data-method="post"]:hover,
 a[data-method="POST"]:hover,
 input[type="submit"]:hover {
   --tw-bg-opacity: 1;
-  background-color: rgb(240 168 72 / var(--tw-bg-opacity, 1));
+  background-color: hsl(var(--accent-hue) 85% 61% / var(--tw-bg-opacity, 1));
   --tw-text-opacity: 1;
   color: rgb(0 0 0 / var(--tw-text-opacity, 1));
 }
@@ -1642,7 +1672,7 @@ input[type="submit"]:hover {
 
 .post-title a:hover {
   --tw-text-opacity: 1;
-  color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+  color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
 }
 
 .prose {
@@ -1653,13 +1683,13 @@ input[type="submit"]:hover {
 
 .prose a {
   --tw-text-opacity: 1;
-  color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+  color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
   text-decoration-line: none;
 }
 
 .prose a:hover {
   --tw-text-opacity: 1;
-  color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+  color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
   text-decoration-line: underline;
 }
 
@@ -1723,7 +1753,7 @@ input[type="submit"]:hover {
     }
     &.active a {
       --tw-text-opacity: 1;
-      color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+      color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
     }
     a {
       white-space: nowrap;
@@ -1749,11 +1779,11 @@ a {
   padding: 1rem;
   a {
     --tw-text-opacity: 1;
-    color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+    color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
   }
   a:hover {
     --tw-text-opacity: 1;
-    color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+    color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
   }
 }
 
@@ -1778,7 +1808,7 @@ a {
   }
   h3 {
     --tw-text-opacity: 1;
-    color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+    color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
   }
   p {
     margin-bottom: 0.5rem;
@@ -1823,11 +1853,11 @@ form.posthaven-comment-form {
   .posthaven-comment-add-url {
     a {
       --tw-text-opacity: 1;
-      color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+      color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
     }
     a:hover {
       --tw-text-opacity: 1;
-      color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+      color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
     }
   }
   .posthaven-comment-body-field {
@@ -1873,11 +1903,11 @@ form.posthaven-comment-form {
     }
     input[type="checkbox"]:checked {
       --tw-border-opacity: 1;
-      border-color: rgb(255 165 46 / var(--tw-border-opacity, 1));
+      border-color: hsl(var(--accent-hue) 85% 61% / var(--tw-border-opacity, 1));
     }
     input[type="checkbox"]:checked {
       --tw-bg-opacity: 1;
-      background-color: rgb(255 165 46 / var(--tw-bg-opacity, 1));
+      background-color: hsl(var(--accent-hue) 85% 61% / var(--tw-bg-opacity, 1));
     }
     input[type="checkbox"]:hover {
       border-color: rgb(255 255 255 / 0.3);
@@ -2006,20 +2036,20 @@ form.posthaven-comment-form {
     }
     &.active {
       --tw-border-opacity: 1;
-      border-color: rgb(240 168 72 / var(--tw-border-opacity, 1));
+      border-color: hsl(var(--accent-hue) 85% 61% / var(--tw-border-opacity, 1));
     }
     &.active {
       font-weight: 700;
     }
     &.active {
       --tw-text-opacity: 1;
-      color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+      color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
     }
   }
 }
 
 .search-highlight em {
-  background-color: rgb(240 168 72 / var(--tw-bg-opacity, 1));
+  background-color: hsl(var(--accent-hue) 85% 61% / var(--tw-bg-opacity, 1));
   --tw-bg-opacity: 0.5;
 }
 
@@ -2048,9 +2078,19 @@ form.posthaven-comment-form {
   border-color: rgb(255 255 255 / 0.4);
 }
 
+.hover\:border-accent:hover {
+  --tw-border-opacity: 1;
+  border-color: hsl(var(--accent-hue) 85% 61% / var(--tw-border-opacity, 1));
+}
+
 .hover\:text-\[\#F0A848\]:hover {
   --tw-text-opacity: 1;
   color: rgb(240 168 72 / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-accent:hover {
+  --tw-text-opacity: 1;
+  color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
 }
 
 .hover\:opacity-100:hover {
@@ -2065,6 +2105,11 @@ form.posthaven-comment-form {
 .group:hover .group-hover\:text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity, 1));
+}
+
+.group:hover .group-hover\:text-accent {
+  --tw-text-opacity: 1;
+  color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
 }
 
 @media (min-width: 768px) {

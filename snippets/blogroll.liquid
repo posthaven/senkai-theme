@@ -8,7 +8,7 @@
             <ul class="text-[13px]">
               {% for menu_item in menu.items %}
                 <li class="{{ menu_item.url | text_if_current}}">
-                  <a href="{{ menu_item.url }}" class="block py-0.5 hover:text-[#F0A848]">{{ menu_item.title }}</a>
+                  <a href="{{ menu_item.url }}" class="block py-0.5 hover:text-accent">{{ menu_item.title }}</a>
                 </li>
               {% endfor %}
             </ul>

@@ -32,6 +32,11 @@ module.exports = {
         link: {
           DEFAULT: 'rgb(var(--link) / <alpha-value>)',
         },
+        accent: {
+          DEFAULT: 'hsl(var(--accent-hue) 85% 61% / <alpha-value>)',
+          light: 'hsl(var(--accent-hue) 46% 14% / <alpha-value>)',
+          dark: 'hsl(var(--accent-hue) 78% 3% / <alpha-value>)',
+        },
       },
       typography: {
         DEFAULT: {

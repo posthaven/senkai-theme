@@ -5,7 +5,7 @@
         <input name="query" placeholder="Search..." type="text" class="">
       </form>
       <p class="text-right leading-tight">
-      <a class="text-xs opacity-50 hover:opacity-100 hover:text-[#F0A848]" href="{{ site.archive_url }}">Browse archive</a>
+      <a class="text-xs opacity-50 hover:opacity-100 hover:text-accent" href="{{ site.archive_url }}">Browse archive</a>
       </p>
     </section>
   {% endunless %}
@@ -25,15 +25,21 @@
           {% for t in site.tags %}
             {% if forloop.index > 10 %}
               <li class='hide'>
+                {% if tag and tag == t.name %}
+                  <strong>{{ t.name }} <span>{{ t.post_count }}</span></strong>
+                {% else %}
+                  <a href="{{ t.url }}" class="text-white hover:border-accent hover:text-accent text-sm">{{ t.name }} <span class="text-xs opacity-50">{{ t.post_count }}</span></a>
+                {% endif %}
+              </li>
             {% else %}
               <li>
+                {% if tag and tag == t.name %}
+                  <strong>{{ t.name }} <span>{{ t.post_count }}</span></strong>
+                {% else %}
+                  <a href="{{ t.url }}" class="text-white hover:border-accent hover:text-accent text-sm">{{ t.name }} <span class="text-xs opacity-50">{{ t.post_count }}</span></a>
+                {% endif %}
+              </li>
             {% endif %}
-              {% if tag and tag == t.name %}
-                <strong>{{ t.name }} <span>{{ t.post_count }}</span></strong>
-              {% else %}
-                <a href="{{ t.url }}" class="text-white hover:border-[#F0A848] hover:text-[#F0A848] text-sm">{{ t.name }} <span class="text-xs opacity-50">{{ t.post_count }}</span></a>
-              {% endif %}
-            </li>
           {% endfor %}
         </ul>
 

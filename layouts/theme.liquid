@@ -34,7 +34,7 @@
 
   </head>
 
-  <body id="site_{{ site.id }}" class="{{ request.template }}-template{% if settings.color-scheme %} color-scheme-{{ settings.color-scheme }}{% endif %} bg-canvas font-theme text-white p-4">
+  <body data-theme="{{ settings.color-theme | default: 'yellow' }}" id="site_{{ site.id }}" class="{{ request.template }}-template{% if settings.color-scheme %} color-scheme-{{ settings.color-scheme }}{% endif %} bg-canvas font-theme text-white p-4">
     <div class="bg-site-gradient fixed inset-4 rounded-xl"></div>
 
     <div class="relative grid grid-cols-12 overflow-auto h-[calc(100vh_-_2rem)]">
@@ -44,7 +44,7 @@
           {% include "profile_pic" %}
 
           <h1 class="mb-2 text-3xl">
-            <a href="{{ site.url }}" class="hover:text-[#F0A848]">
+            <a href="{{ site.url }}" class="hover:text-accent">
               {% if site.name or site.profile.name %}
                 {% if site.profile.name %}
                   {{ site.profile.name }}
