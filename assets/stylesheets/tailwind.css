@@ -1531,6 +1531,11 @@ p {
   line-height: 1rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .font-medium {
   font-weight: 500;
 }
@@ -1839,6 +1844,28 @@ a {
 }
 
 /* COMMENTS */
+
+a.posthaven-comment-count {
+  .posthaven-comment-label {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .posthaven-comment-number {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+  .posthaven-comment-number {
+    opacity: 0.5;
+  }
+  &:hover {
+    .posthaven-comment-label {
+      --tw-text-opacity: 1;
+      color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
+    }
+    .posthaven-comment-number {
+    }
+  }
+}
 
 .comments {
   .response {

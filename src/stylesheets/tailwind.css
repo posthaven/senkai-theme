@@ -198,8 +198,24 @@ a {
 
 /* COMMENTS */
 
-.comments {
+a.posthaven-comment-count {
+  .posthaven-comment-label {
+    @apply text-sm;
+  }
+  .posthaven-comment-number {
+    @apply opacity-50 text-sm;
+  }
 
+  &:hover {
+    .posthaven-comment-label {
+      @apply text-accent;
+    }
+    .posthaven-comment-number {
+    }
+  }
+}
+
+.comments {
   .response {
     @apply mb-8;
 
