@@ -1184,6 +1184,10 @@ p {
   position: fixed;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .relative {
   position: relative;
 }
@@ -1196,6 +1200,14 @@ p {
   inset: 1rem;
 }
 
+.bottom-0 {
+  bottom: 0px;
+}
+
+.right-0 {
+  right: 0px;
+}
+
 .top-0 {
   top: 0px;
 }
@@ -1206,6 +1218,10 @@ p {
 
 .col-span-12 {
   grid-column: span 12 / span 12;
+}
+
+.m-0 {
+  margin: 0px;
 }
 
 .-mt-1 {
@@ -1261,13 +1277,21 @@ p {
   height: calc(100vh - 2rem);
 }
 
+.h-auto {
+  height: auto;
+}
+
 .h-fit {
   height: -moz-fit-content;
   height: fit-content;
 }
 
-.h-auto {
-  height: auto;
+.h-4 {
+  height: 1rem;
+}
+
+.h-12 {
+  height: 3rem;
 }
 
 .max-h-24 {
@@ -1286,8 +1310,16 @@ p {
   flex-wrap: wrap;
 }
 
+.items-end {
+  align-items: flex-end;
+}
+
 .items-center {
   align-items: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
 }
 
 .justify-between {
@@ -1308,6 +1340,10 @@ p {
 
 .gap-4 {
   gap: 1rem;
+}
+
+.gap-0\.5 {
+  gap: 0.125rem;
 }
 
 .gap-x-2\.5 {
@@ -1430,6 +1466,24 @@ p {
   background-color: rgb(255 255 255 / 0.1);
 }
 
+.bg-gradient-to-b {
+  background-image: linear-gradient(to bottom, var(--tw-gradient-stops));
+}
+
+.from-transparent {
+  --tw-gradient-from: transparent var(--tw-gradient-from-position);
+  --tw-gradient-to: rgb(0 0 0 / 0) var(--tw-gradient-to-position);
+  --tw-gradient-stops: var(--tw-gradient-from), var(--tw-gradient-to);
+}
+
+.to-black\/25 {
+  --tw-gradient-to: rgb(0 0 0 / 0.25) var(--tw-gradient-to-position);
+}
+
+.to-black\/50 {
+  --tw-gradient-to: rgb(0 0 0 / 0.5) var(--tw-gradient-to-position);
+}
+
 .fill-white {
   fill: #fff;
 }
@@ -1440,6 +1494,10 @@ p {
 
 .p-px {
   padding: 1px;
+}
+
+.p-1 {
+  padding: 0.25rem;
 }
 
 .px-3 {
@@ -1524,6 +1582,11 @@ p {
   line-height: 1.5rem;
 }
 
+.text-lg {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+}
+
 .text-sm {
   font-size: 0.875rem;
   line-height: 1.25rem;
@@ -1537,11 +1600,6 @@ p {
 .text-xs {
   font-size: 0.75rem;
   line-height: 1rem;
-}
-
-.text-lg {
-  font-size: 1.125rem;
-  line-height: 1.75rem;
 }
 
 .font-medium {
@@ -1564,6 +1622,10 @@ p {
 
 .text-white\/50 {
   color: rgb(255 255 255 / 0.5);
+}
+
+.text-white\/75 {
+  color: rgb(255 255 255 / 0.75);
 }
 
 .opacity-50 {
@@ -1716,6 +1778,15 @@ input[type="submit"]:hover {
 .prose p {
   color: rgb(255 255 255 / 0.9);
   /* Light text for better readability */
+}
+
+.image-attribution a {
+  color: rgb(255 255 255 / 0.75);
+}
+
+.image-attribution a:hover {
+  --tw-text-opacity: 1;
+  color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
 }
 
 .pagination {

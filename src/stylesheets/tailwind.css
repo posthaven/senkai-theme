@@ -122,6 +122,10 @@ input[type="submit"] {
   @apply text-white/90; /* Light text for better readability */
 }
 
+.image-attribution a {
+  @apply text-white/75 hover:text-accent;
+}
+
 .pagination {
   @apply p-4 md:p-8;
 

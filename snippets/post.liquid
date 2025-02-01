@@ -3,7 +3,12 @@
   <header class="pt-4 md:pt-8 px-4 md:px-8">
 
     {% if request.template == 'post' and post.post_image %}
-      <img src="{{ post.post_image.xlarge.url }}" alt="{{ post.title }}" class="w-full h-auto mb-4">
+      <div class="relative mb-4">
+        <img src="{{ post.post_image.xlarge.url }}" alt="{{ post.title }}" class="w-full h-auto">
+        {% if post.post_image_attribution %}
+          <p class="image-attribution absolute bottom-0 right-0 h-12 w-full flex gap-0.5 justify-end items-end m-0 p-1 text-xs text-white/75 text-right bg-gradient-to-b from-transparent to-black/50">{{ post.post_image_attribution }}</p>
+        {% endif %}
+      </div>
     {% endif %}
 
     <div class="post-title">
