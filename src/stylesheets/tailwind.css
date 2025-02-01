@@ -177,7 +177,24 @@ a {
   input[type="submit"] {
     @apply mt-2;
   }
+
+  &.posthaven-control {
+    @apply text-sm;
+  }
+
+  .posthaven-user-unsubscribe {
+
+    a[data-method="DELETE"] {
+      @apply text-accent hover:text-accent;
+
+      &:hover {
+        @apply underline;
+      }
+    }
+  }
 }
+
+
 
 /* COMMENTS */
 
@@ -273,7 +290,32 @@ form.posthaven-comment-form {
       @apply border-accent text-accent font-bold;
     }
   }
+
+  &[style="display: block;"] {
+    @apply !flex;
+  }
 }
+
+a.posthaven-archive-all-dates {
+  @apply border border-white/20 hover:border-white/40 rounded-full pl-2 pr-1 py-0.5 inline-flex items-center gap-1 text-sm;
+
+  &:hover {
+    .clear-tag {
+      @apply opacity-100;
+    }
+  }
+
+  .clear-tag {
+    @apply size-5 opacity-50;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24'%3E%3Cpath stroke='%23fff' stroke-linecap='round' stroke-width='1.5' d='m15 9-6 6m6 0L9 9m12.25 3a9.25 9.25 0 1 1-18.5 0 9.25 9.25 0 0 1 18.5 0Z'/%3E%3C/svg%3E");
+
+    span {
+      @apply hidden;
+    }
+  }
+}
+
+
 
 .search-highlight em {
   @apply bg-accent bg-opacity-50;
