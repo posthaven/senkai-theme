@@ -12,7 +12,6 @@ module.exports = {
     extend: {
       fontFamily: {
         theme: ['Funnel Sans', 'serif'],
-        accent: ['Rubik', '-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Helvetica', 'Arial', 'sans-serif', 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'],
         post: ['Funnel Sans', 'serif'],
       },
       maxWidth: {
@@ -37,6 +36,9 @@ module.exports = {
           light: 'hsl(var(--accent-hue) 46% 14% / <alpha-value>)',
           dark: 'hsl(var(--accent-hue) 78% 3% / <alpha-value>)',
         },
+      },
+      screens: {
+        'mdlg': '900px',
       },
       typography: {
         DEFAULT: {

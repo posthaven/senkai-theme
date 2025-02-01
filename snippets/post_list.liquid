@@ -10,7 +10,7 @@
     {% include 'post' %}
 
     {% unless post.has_excerpt? %}
-      <footer class="flex items-center gap-2 pb-4 md:pb-8 px-4 md:px-8">
+      <footer class="flex flex-wrap items-center gap-2 pb-4 md:pb-8 px-4 md:px-8">
         {{ post | comment_button }}
         {{ post | upvote_button }}
         {% if settings.social-links %}
