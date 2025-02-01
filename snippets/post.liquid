@@ -1,11 +1,11 @@
 {% if post %}
 
-  <header
-    class="pt-4 md:pt-8 px-4 md:px-8 {% if request.template == 'post' and post.post_image %}has-image{% endif %}"
+  <header class="pt-4 md:pt-8 px-4 md:px-8">
+
     {% if request.template == 'post' and post.post_image %}
-    style="background-image: url({{ post.post_image.xlarge.url }})"
+      <img src="{{ post.post_image.xlarge.url }}" alt="{{ post.title }}" class="w-full h-auto mb-4">
     {% endif %}
-  >
+
     <div class="post-title">
       <h2 class="mb-1">
         <a href="{{ post.url }}">{{ post.title }}</a>

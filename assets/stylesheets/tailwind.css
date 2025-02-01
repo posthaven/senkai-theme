@@ -1266,8 +1266,16 @@ p {
   height: fit-content;
 }
 
+.h-auto {
+  height: auto;
+}
+
 .max-h-24 {
   max-height: 6rem;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .grid-cols-12 {
