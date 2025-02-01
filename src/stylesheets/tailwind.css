@@ -344,3 +344,10 @@ a.posthaven-archive-all-dates {
 .posthaven-loader {
   @apply loading-icon h-12 w-full m-0 animate-none;
 }
+
+.posthaven-button {
+  background-color:hsla(11,44%,15%,1);
+  background-image:
+  radial-gradient(at 99% 99%, hsla(17,24%,24%,0.4) 0px, transparent 50%),
+  radial-gradient(at 0% 0%, hsla(33,50%,49%,0.69) 0px, transparent 50%);
+}

@@ -38,7 +38,7 @@
     <div class="bg-site-gradient fixed inset-4 rounded-xl"></div>
 
     <div class="relative grid grid-cols-12 overflow-auto h-[calc(100vh_-_2rem)]">
-      <div class="col-span-12 mdlg:col-span-3 p-4 md:p-8 sticky top-0 h-fit">
+      <div class="col-span-12 mdlg:col-span-3 p-4 md:p-8 sticky top-0 max-h-[calc(100vh_-_2rem)] flex flex-col gap-4 justify-between">
         <header class="header">
           
           {% include "profile_pic" %}
@@ -66,9 +66,11 @@
 
           {% include 'social' %}
 
-          {{ posthaven.user_menu_v2 }}
-
         </header>
+
+        <div class="hidden mdlg:fixed mdlg:flex bottom-12 left-12">
+          {% include "posthaven-button" %}
+        </div>
       </div>
       <div class="col-span-12 mdlg:col-span-6 border-x border-white/10 ">
         <nav class="sticky top-0 h-fit p-4 md:p-8 border-y rounded-t-xl md:rounded-t-none md:border-t-0 border-white/10 bg-[hsla(27,78%,3%,.5)] backdrop-blur-md overflow-x-auto z-10">
@@ -89,15 +91,13 @@
       </div>
     </div>
 
-      {% include "footer" %}
-
-      <div id="flash">
-        {% for alert in posthaven.alerts %}
-          <div class="alert alert-{{ alert.type }}">
-            {{ alert.message }}
-          </div>
-        {% endfor %}
-      </div>
+    <div id="flash">
+      {% for alert in posthaven.alerts %}
+        <div class="alert alert-{{ alert.type }}">
+          {{ alert.message }}
+        </div>
+      {% endfor %}
+    </div>
 
     {{ posthaven.includes_for_body }}
     
@@ -106,36 +106,10 @@
     <script type="text/javascript">
 
       Posthaven.$(document).ready(function () {
-        // when clicking nav menu (to open)
-        Posthaven.$(".menu-trigger").click(function(){
-          Posthaven.$("body").toggleClass("menu-active");
-          Posthaven.$(".ph-canvas").toggleClass("active");
-          Posthaven.$(".ph-menu").addClass("open");
-        });
-
-        // when clicking posthaven icon
-        Posthaven.$(".ph-trigger").click(function(){
-          Posthaven.$(".ph-menu").toggle(500,"easeOutQuint");
-          Posthaven.$(".ph-trigger").toggleClass("active");
-          Posthaven.$(".ph-canvas").toggleClass("active");
-        });
-
-        // when clicking the background canvas, which should close both
-        // menu and ph button
-        Posthaven.$(".ph-canvas").click(function(){
-          if(Posthaven.$(".ph-trigger").hasClass('active')) {
-            Posthaven.$(".ph-trigger").removeClass("active");
-            Posthaven.$(".ph-menu").toggle(500,"easeOutQuint");
-            Posthaven.$(".ph-menu").removeClass("open");
-          }
-          Posthaven.$(".ph-canvas").removeClass("active");
-          Posthaven.$("body").removeClass("menu-active");
-        });
         Posthaven.$.get( "{{ 'images/icons.svg' | asset_url }}", function( icons ) {
           Posthaven.$( "#svg-icons" ).html( icons.getElementsByTagName("svg")[0] );
         });
       });
     </script>
-    <div class="ph-canvas"></div>
   </body>
 </html>
