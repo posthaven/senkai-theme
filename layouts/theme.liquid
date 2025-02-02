@@ -39,7 +39,7 @@
     <div class="bg-site-gradient fixed inset-4 rounded-xl"></div>
     {% endif %}
 
-    <div class="relative grid grid-cols-12{% if settings.border %} overflow-auto h-[calc(100vh_-_2rem)]{% endif %}">
+    <div class="{% if settings.border %}site-frame overflow-auto h-[calc(100vh_-_2rem)] {% endif %}rounded-xl relative grid grid-cols-12">
       <div class="col-span-12 mdlg:col-span-3 p-4 md:p-8 md:sticky md:top-0{% if settings.border %} max-h-[calc(100vh_-_2rem)]{% endif %} flex flex-col gap-4 justify-between">
         <header class="header">
           

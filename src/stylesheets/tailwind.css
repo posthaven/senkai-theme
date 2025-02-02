@@ -39,41 +39,6 @@
   [data-theme="teal"] {
     --accent-hue: 160;
   }
-
-  /* FORMS */
-
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  input[type="search"],
-  input[type="tel"],
-  input[type="url"] {
-    @apply bg-black/10 text-white/90 text-sm w-full rounded border border-white/20 hover:border-white/40 py-1 px-2;
-  }
-
-  textarea {
-    @apply bg-black/10 text-white/90 rounded border border-white/20 hover:border-white/40 text-sm p-2;
-  }
-
-  label {
-    @apply text-white block mb-1 text-sm;
-  }
-
-  .posthaven-anon + .posthaven-field,
-  .posthaven-field + .posthaven-field {
-    @apply mt-3;
-  }
-
-  button,
-  a[data-method="post"],
-  a[data-method="POST"],
-  input[type="submit"] {
-    @apply button;
-  }
-
-  a {
-    @apply text-white no-underline;
-  }
 }
 
 @layer components {
@@ -98,10 +63,24 @@
   }
 }
 
+/* THEMING */
+
+/* the border-style background (if enabled) */
+.bg-canvas {
+  background-color: hsl(var(--accent-hue) 50% 80% / .35);
+}
+
+/* site's container */
+.site-frame {
+  @apply shadow-[0px_4px_4px_rgba(0,0,0,0.25),0px_100px_80px_rgba(0,0,0,0.07),0px_41.7776px_33.4221px_rgba(0,0,0,0.0503198),0px_22.3363px_17.869px_rgba(0,0,0,0.0417275),0px_12.5216px_10.0172px_rgba(0,0,0,0.035),0px_6.6501px_5.32008px_rgba(0,0,0,0.0282725),inset_0px_1px_0px_2px_rgba(255,255,255,0.25)];
+}
+
+/* the site's background */
 .bg-site-gradient {
   @apply background-gradient;
 }
 
+/* nav's partially transparent background */
 .bg-nav {
   background-color: hsl(var(--accent-hue) 78% 3% / 0.5);
 }
@@ -217,6 +196,41 @@
       }
     }
   }
+}
+
+/* FORMS */
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+input[type="tel"],
+input[type="url"] {
+  @apply bg-black/10 text-white/90 text-sm w-full rounded border border-white/20 hover:border-white/40 py-1 px-2;
+}
+
+textarea {
+  @apply bg-black/10 text-white/90 rounded border border-white/20 hover:border-white/40 text-sm p-2;
+}
+
+label {
+  @apply text-white block mb-1 text-sm;
+}
+
+.posthaven-anon + .posthaven-field,
+.posthaven-field + .posthaven-field {
+  @apply mt-3;
+}
+
+button,
+a[data-method="post"],
+a[data-method="POST"],
+input[type="submit"] {
+  @apply button;
+}
+
+a {
+  @apply text-white no-underline;
 }
 
 /* COMMENTS */

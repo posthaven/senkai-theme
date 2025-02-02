@@ -21,7 +21,6 @@ module.exports = {
         'body': '22px',
       },
       colors: {
-        canvas: '#EDEAE6',
         primary: {
           DEFAULT: 'rgb(var(--primary) / <alpha-value>)',
         },
