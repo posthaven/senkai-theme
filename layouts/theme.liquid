@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html class="no-js">
   <head>
-      <script>
-        // Load LiveReload immediately
-        var script = document.createElement('script');
-        script.src = 'http://' + location.hostname + ':35729/livereload.js?snipver=1&force=true&host=' + location.hostname;
-        document.write(script.outerHTML);
-      </script>
+    <script>
+      // Load LiveReload immediately
+      var script = document.createElement('script');
+      script.src = 'http://' + location.hostname + ':35729/livereload.js?snipver=1&force=true&host=' + location.hostname;
+      document.write(script.outerHTML);
+    </script>
     
     <title>{{ request.page_title }}</title>
 
@@ -34,11 +34,13 @@
 
   </head>
 
-  <body data-theme="{{ settings.color-theme | default: 'yellow' }}" id="site_{{ site.id }}" class="{{ request.template }}-template{% if settings.color-scheme %} color-scheme-{{ settings.color-scheme }}{% endif %} bg-canvas font-theme text-white p-4">
+  <body data-theme="{{ settings.theme | default: 'yellow' }}" id="site_{{ site.id }}" class="{{ request.template }}-template {% if settings.border %}bg-canvas p-4{% else %}bg-site-gradient bg-fixed{% endif %} font-theme text-white">
+    {% if settings.border %}
     <div class="bg-site-gradient fixed inset-4 rounded-xl"></div>
+    {% endif %}
 
-    <div class="relative grid grid-cols-12 overflow-auto h-[calc(100vh_-_2rem)]">
-      <div class="col-span-12 mdlg:col-span-3 p-4 md:p-8 sticky top-0 max-h-[calc(100vh_-_2rem)] flex flex-col gap-4 justify-between">
+    <div class="relative grid grid-cols-12{% if settings.border %} overflow-auto h-[calc(100vh_-_2rem)]{% endif %}">
+      <div class="col-span-12 mdlg:col-span-3 p-4 md:p-8 md:sticky md:top-0{% if settings.border %} max-h-[calc(100vh_-_2rem)]{% endif %} flex flex-col gap-4 justify-between">
         <header class="header">
           
           {% include "profile_pic" %}
@@ -58,22 +60,27 @@
           </h1>
 
           {% if site.profile.bio %}
-            <p class="opacity-75 leading-tight">{{ site.profile.bio }}</p>
+            <p class="opacity-75 leading-tight mb-1">{{ site.profile.bio }}</p>
           {% else %}
-            <p class="opacity-75 leading-tight">{{ site.description | smarty_pants }}</p>
+            <p class="opacity-75 leading-tight mb-1">{{ site.description | smarty_pants }}</p>
             
           {% endif %}
 
-          {% include 'social' %}
+          {% if settings.social-links == "header" %}
+            <div class="mt-4 mb-2">
+            {% include 'social' %}
+            </div>
+          {% endif %}
 
         </header>
+
 
         <div class="hidden mdlg:fixed mdlg:flex bottom-12 left-12">
           {% include "posthaven-button" %}
         </div>
       </div>
       <div class="col-span-12 mdlg:col-span-6 border-x border-white/10 ">
-        <nav class="sticky top-0 h-fit p-4 md:p-8 border-y rounded-t-xl md:rounded-t-none md:border-t-0 border-white/10 bg-[hsla(27,78%,3%,.5)] backdrop-blur-md overflow-x-auto z-10">
+        <nav class="sticky top-0 h-fit border-y rounded-t-xl md:rounded-t-none md:border-t-0 border-white/10 bg-nav backdrop-blur-md px-4  z-10">
         {% include "navigation" %}
         </nav>
 

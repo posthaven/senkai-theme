@@ -4,30 +4,15 @@ author: Posthaven
 url: https//posthaven.com/
 posts_per_page:
   include_in_settings: true
-  default: 5
+  default: 10
 settings:
-- id: link-color
-  label: Link color
-  type: color
-  default: "#D88D14"
-- id: color-scheme
-  label: Color scheme
-  type: radio
-  default: light
-  options:
-  - value: auto
-    label: Auto (matches browser preference)
-  - value: light
-    label: Light background
-  - value: dark
-    label: Dark background
-- id: social-links
-  label: Show social share buttons
+- id: border
+  label: Show border
   default: true
   type: checkbox
-- id: color-theme
-  label: Color Theme
-  type: select
+- id: theme
+  label: Theme
+  type: radio
   default: yellow
   options:
     - value: yellow
@@ -38,3 +23,12 @@ settings:
       label: Blue
     - value: teal
       label: Teal
+- id: social-links
+  label: Show social links in...
+  type: radio
+  default: navigation
+  options:
+    - value: navigation
+      label: Navigation
+    - value: header
+      label: Site header

@@ -1,10 +1,9 @@
-    <nav class="menu flex justify-between gap-4">
+    <nav class="menu flex justify-between gap-4 -mx-4 p-4 md:p-8 overflow-x-auto">
       <ul class="flex gap-1 items-center text-sm">
         <li>
           <a href="{{ site.url }}" class="border {% if request.template == 'homepage' %} border-white/20 bg-white/10 {% else %}border-transparent hover:border-white/30{% endif %} rounded-full px-3 py-1 font-medium">Home</a>
         </li>
         {% if site.navigation_menu and site.navigation_menu.items != empty %}
-
           {% for menu_item in site.navigation_menu.items %}
             <li id="menu_item_{{ menu_item.id }}">
               <a href="{{ menu_item.url }}" class="whitespace-nowrap border {% if menu_item.url != blank and request.url contains menu_item.url %} border-white/20 bg-white/10 {% else %}border-transparent hover:border-white/30{% endif %} rounded-full px-3 py-1 font-medium">{{ menu_item.title }}</a>
@@ -12,6 +11,7 @@
           {% endfor %}
         {% endif %}
       </ul>
+      {% if settings.social-links == "navigation" %}
       <ul class="flex gap-3 items-center">
         {% for social in site.profile.social %}
           <li class="{{ social.name }}">
@@ -24,5 +24,6 @@
           </li>
         {% endfor %}
       </ul>
+      {% endif %}
     </nav>
 
