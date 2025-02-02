@@ -1,24 +1,21 @@
-<section class="social">
-  <ul class="flex gap-3 items-center">
+<ul class="flex gap-3 items-center">
+{% for social in site.profile.social %}
+  <li class="{{ social.name }}">
+    <a href="{{ social.url }}" target="_blank" class="opacity-60 hover:opacity-100">
+      <svg class="text-white fill-white size-5">
+        {% comment %}<use xlink:href="#social-{{ social.name }}"></use>{% endcomment %}
+        <use xlink:href="#social-{{ social.name }}"></use>
+      </svg>
+    </a>
+  </li>
+{% endfor %}
 
-    {% for social in site.profile.social %}
-      <li class="{{ social.name }}">
-        <a href="{{ social.url }}" target="_blank" class="opacity-75 hover:opacity-100">
-          <svg class="text-white fill-white size-5">
-            {% comment %}<use xlink:href="#social-{{ social.name }}"></use>{% endcomment %}
-            <use xlink:href="#social-{{ social.name }}"></use>
-          </svg>
-        </a>
-      </li>
-    {% endfor %}
-
-    <li class="rss">
-      <a href="{{ site.feed_url }}" target="_blank" class="opacity-75 hover:opacity-100">
-        <svg class="text-white fill-white size-5">
-          <use xlink:href="#social-rss"></use>
-        </svg>
-      </a>
-    </li>
-  </ul>
-
-</section>
+{% if settings.social-links == "header" %}
+<li class="rss">
+  <a href="{{ site.feed_url }}" target="_blank" class="opacity-75 hover:opacity-100">
+    <svg class="text-white fill-white size-5">
+      <use xlink:href="#social-rss"></use>
+    </svg>
+  </a>
+</li>
+{% endif %}

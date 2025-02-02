@@ -113,7 +113,7 @@
   @apply hover:text-accent;
 }
 .prose {
-  @apply max-w-none break-words;
+  @apply max-w-none break-words text-white/90;
 }
 
 .prose a {

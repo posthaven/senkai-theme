@@ -1633,6 +1633,14 @@ p {
   color: rgb(255 255 255 / 0.75);
 }
 
+.text-white\/95 {
+  color: rgb(255 255 255 / 0.95);
+}
+
+.text-white\/90 {
+  color: rgb(255 255 255 / 0.9);
+}
+
 .opacity-50 {
   opacity: 0.5;
 }
@@ -1753,6 +1761,7 @@ p {
 .prose {
   max-width: none;
   overflow-wrap: break-word;
+  color: rgb(255 255 255 / 0.9);
 }
 
 .prose a {
@@ -2324,6 +2333,11 @@ a.posthaven-archive-all-dates {
 .hover\:text-accent:hover {
   --tw-text-opacity: 1;
   color: hsl(var(--accent-hue) 85% 61% / var(--tw-text-opacity, 1));
+}
+
+.hover\:text-white:hover {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
 }
 
 .hover\:opacity-100:hover {

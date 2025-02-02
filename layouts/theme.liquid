@@ -63,13 +63,12 @@
             <p class="opacity-75 leading-tight mb-1">{{ site.profile.bio }}</p>
           {% else %}
             <p class="opacity-75 leading-tight mb-1">{{ site.description | smarty_pants }}</p>
-            
           {% endif %}
 
           {% if settings.social-links == "header" %}
-            <div class="mt-4 mb-2">
-            {% include 'social' %}
-            </div>
+            <section class="social mt-4 mb-2">
+              {% include 'social' %}
+            </section>
           {% endif %}
 
         </header>
