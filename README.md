@@ -42,8 +42,6 @@ The compiled CSS will be in `assets/tailwind.css`.
 
 ## Sceenshot
 
-tbd
-
 ![Screenshot](/assets/screenshot.png?raw=true)
 
 ## Theme Building Resources
@@ -51,6 +49,9 @@ tbd
 * [Posthaven theme documentation](http://theme-docs.posthaven.com/)
 * See the [posthaven_theme](https://github.com/posthaven/posthaven_theme) gem for theme file upload via the API.
 
+---
+
+> Old instructions below
 
 ## Building Stylesheets
 
