@@ -40,7 +40,7 @@ npm run build
 The compiled CSS will be in `assets/tailwind.css`.
 
 
-## Sceenshot
+## Screenshot
 
 ![Screenshot](/assets/screenshot.png?raw=true)
 
